@@ -1,0 +1,50 @@
+{
+  "name": "goudster",
+  "version": "1.0.0",
+  "description": "Commercial website for the beer brand Goudster from Halen, BE.",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "npx gulp watch",
+    "build": "npx gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorishr/goudster.git"
+  },
+  "author": "Joris Raymaekers <joris@jorisr.com> (jorisr.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jorishr/goudster/issues"
+  },
+  "homepage": "https://github.com/jorishr/goudster#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.5",
+    "autoprefixer": "^9.7.3",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rev": "^9.0.0",
+    "gulp-rev-replace": "^0.4.4",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "nodemon": "^2.0.1",
+    "nodesass": "0.0.2-security",
+    "normalize.scss": "^0.1.0",
+    "replace-in-file": "^4.2.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}

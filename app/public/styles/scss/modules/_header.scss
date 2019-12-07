@@ -1,0 +1,132 @@
+header {
+    background: linear-gradient($mainBlack, $darkOrange);
+    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 20vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.navbar ul.menu {
+    display: flex;
+    }
+    
+.navbar li {
+    display: inline-block;
+    transition: transform .2s ease-in-out;
+    font-size: .8rem;
+}
+
+li + li {
+    margin-left: 1em;
+}
+
+//toggle
+.navbar ul.menu li:last-child {
+    padding: .5em 1em 0 1em;
+} 
+
+.navbar ul.menu li:last-child i{
+    padding: 0;
+} 
+
+
+//link styles
+.navbar ul a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.navbar ul a i {
+    padding-bottom: 1em;
+}
+
+.navbar li:hover,
+.navbar li:active {
+    transform: scale(1.05);
+}
+
+//menu-collapse
+.navbar ul.menu__collapse {
+    position: absolute;
+    top: -180px;
+    right: 0;
+    z-index: 10;
+    
+    background: linear-gradient($darkOrange, $mainBlack);
+    padding: 2em;
+    opacity: 0;
+    transform: scale(1, 0);
+    transition: all ease-in .3s;
+    transform-origin: bottom;
+}
+
+.navbar ul.menu__collapse.visible {
+    opacity: .95;
+    transform: scale(1, 1);
+}
+
+ul.menu__collapse li {
+    display: block;
+    padding-bottom: 1em;
+}
+
+//online shop link disabled for now
+ul.menu__collapse li:first-child {
+    opacity: .25;
+}
+
+ul.menu__collapse a {
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+ul.menu__collapse a i {
+    padding-left: 1em;
+    order: 1;
+}
+
+//media-query
+
+@media screen and (min-width: 576px){
+    header {
+        position: inherit;
+        background: inherit;
+        flex-direction: row;
+        min-height: 50px;
+    }
+
+    .wrapper {
+        margin-right: 0;
+    }
+
+    .navbar ul li {
+        font-size: 1rem;
+        padding: 1em 0;
+    }
+
+    li + li {
+        margin-left: 2em;
+    }
+
+    .navbar ul.menu__collapse {
+        top: 70px;
+        right: 0;
+        transform-origin: top;
+        background: linear-gradient($darkOrange, $mainBlack);
+    }
+
+    .navbar ul a {
+        flex-direction: row;
+    }
+
+    .navbar ul a i {
+        padding-right: 1em;
+    }
+    
+}
