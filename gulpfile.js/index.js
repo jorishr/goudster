@@ -48,7 +48,7 @@ function watchFiles(){
         open: "local",			
         proxy: "http://localhost:3000",	
         port: 4000,
-        tunnel: 'goudster',
+        tunnel: 'goudster'
     });
     watch(styleFiles, series(styles, browserSyncReload));
     watch(jsFiles, jsCompile);

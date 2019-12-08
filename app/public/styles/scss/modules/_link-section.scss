@@ -1,0 +1,49 @@
+.link-section{
+    background-color: $backgroundWhite;
+    padding: 4em 2em;
+}
+
+.link-section__heading:first-of-type {
+    margin-bottom: 4em;
+}
+
+.link {
+    transition: transform .3s ease-in;
+}
+
+.link:hover {
+    transform: scale(1.025);
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .links {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .link-section__heading {
+        flex:1;
+        max-width: 400px;
+    }
+
+    .link + .link {
+        margin-left: 2em;
+    }
+
+    .link-section__heading:first-of-type {
+        margin-bottom: 2em;
+    }
+
+    .link:hover {
+        border: 1px solid $mainOrange;
+        border-radius: .25em;
+    }
+
+    .link:active,
+    .link:focus {
+        transform: scale(1);
+        border: 1px solid $mainOrange;
+        border-radius: .25em;
+}
+}

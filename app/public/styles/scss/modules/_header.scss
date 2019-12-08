@@ -4,16 +4,24 @@ header {
     position: absolute;
     bottom: 0;
     width: 100%;
-    min-height: 20vh;
+    height: 20vh;
+
+    z-index: 10;
 
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .navbar ul.menu {
     display: flex;
-    }
+}
     
 .navbar li {
     display: inline-block;
@@ -21,8 +29,8 @@ header {
     font-size: .8rem;
 }
 
-li + li {
-    margin-left: 1em;
+.navbar li + .navbar li {
+    margin-left: 1.5em;
 }
 
 //toggle
@@ -59,6 +67,8 @@ li + li {
     z-index: 10;
     
     background: linear-gradient($darkOrange, $mainBlack);
+    border-radius: .25em;
+
     padding: 2em;
     opacity: 0;
     transform: scale(1, 0);
@@ -78,7 +88,13 @@ ul.menu__collapse li {
 
 //online shop link disabled for now
 ul.menu__collapse li:first-child {
-    opacity: .25;
+    opacity: .45;
+}
+
+ul.menu__collapse li:first-child:hover,
+ul.menu__collapse li:first-child a:hover {
+    transform: scale(1);
+    cursor: not-allowed;
 }
 
 ul.menu__collapse a {
@@ -97,12 +113,17 @@ ul.menu__collapse a i {
     header {
         position: inherit;
         background: inherit;
-        flex-direction: row;
-        min-height: 50px;
+        align-items: flex-start;
+        min-height: 25px;
     }
 
-    .wrapper {
-        margin-right: 0;
+    .navbar {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
     }
 
     .navbar ul li {
@@ -115,8 +136,8 @@ ul.menu__collapse a i {
     }
 
     .navbar ul.menu__collapse {
-        top: 70px;
-        right: 0;
+        position: absolute;
+        top: 55px;
         transform-origin: top;
         background: linear-gradient($darkOrange, $mainBlack);
     }

@@ -1,6 +1,6 @@
 //general styles
 .btn {
-    padding: 1em 2em;
+    padding: 1em 1.75em;
     background-color: $mainOrange;
     font-size: .75rem;
     border-radius: .25em;
@@ -12,11 +12,4 @@
     background-color: $darkOrange;
     transform: scale(1.05);
     outline: none;
-}
-
-//specific btn styles
-.hero__cta .btn {
-    width: calc(80% - 7em);
-    margin: 0 auto;
-    margin-top: 3em;
 }
