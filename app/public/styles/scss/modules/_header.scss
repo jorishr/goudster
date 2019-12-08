@@ -29,7 +29,7 @@ header {
     font-size: .8rem;
 }
 
-.navbar li + .navbar li {
+li.menu__link + li.menu__link {
     margin-left: 1.5em;
 }
 

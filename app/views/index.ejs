@@ -1,4 +1,34 @@
 <%- include('modules/_header'); %>
+<!--    cookie consent pop-up   -->
+<div class="privacy-bar in-view">
+    <i class="fas fa-times"></i>
+    <p>Deze website maakt gebruik van cookies om je een zo goed mogelijke ervaring te bieden. Meer informatie vind je terug in ons cookiebeleid.</p>
+    <a class="btn">COOKIES AANVAARDEN</a>
+    <a class="btn" href="/beleid">PRIVACY-BELEID</a>
+</div>
+<!--    modal section   -->
+<div class="modal in-view">
+    <div class="modal__img">
+        <img src="/images/logo_goudster.gif" alt="Goudster Logo">
+    </div>
+    <div class="modal__text">
+        <p>Bier met liefde gebrouwen, drink je met verstand</p>
+        <p>Deel geen content van deze site met personen jonger dan 18 jaar</p>
+    </div>
+    <div class='form-row'>
+        <label for='consent' class='checkbox-label' >
+            <span>Bent u meerderjarig?</span>
+            <div class="form__btns">
+                <button type="submit" class="btn">Ja</button>
+                <a class="btn" href="http://google.com">Nee</a>
+                <span class="store">Onthou mijn keuze</span>
+            </div>
+            <input type="checkbox" id="consent" name="consent"/>
+            <span class="checkbox-custom"></span>
+        </label>
+    </div>
+
+</div>
 <!--    hero section   -->
 <div class="hero-section">
     <div class="wrapper">
