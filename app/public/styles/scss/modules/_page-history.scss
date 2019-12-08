@@ -1,0 +1,120 @@
+.intro, .credits {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    padding: 2em;
+    margin-top: 4em;
+    line-height: 1.75;
+    text-align: center;
+
+    h1, h3 {
+        text-align: center;
+    }
+}
+
+blockquote {
+    line-height: 1.5;
+    font-size: .95rem;
+}
+
+.credits {
+    margin-bottom: 4em;
+}
+
+.timeline {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1em;
+    margin: 0 auto;
+
+    //vertical line
+    &::before {
+        content: '';
+        width: 5px;
+        height: 99.6%;
+        background-color: $mainOrange;
+        border-radius: 1em;
+        position: absolute;
+        left: 10px;
+        top: 0;            
+    }
+}
+
+.container {
+    padding: 1em;
+    position: relative;
+    margin: 0 auto 4em auto;
+
+    &::before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        
+        background-color: $mainYellow;
+        position: absolute;
+        left: -14px;
+        top: 1em;
+    }
+
+    .content {
+        background-color: $backgroundOtherWhite;
+        color: $textColor-dark;
+        padding: 1em 2em;       
+        border-radius: .5em;   
+
+        h2 {
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            color: $mainOrange;
+        }
+
+        p {
+            line-height: 1.75;
+            text-align: justify;
+        }
+
+        img {
+            display: block;
+            margin: 2em auto;
+            width: 80%;
+            height: auto;
+        }
+    }
+}
+
+@media screen and (min-width: 768px){
+
+    .intro,
+    .credits {
+        text-align: justify;
+    }
+
+    .timeline {
+
+        &::before {
+            left: 50%;
+            margin-left: 7px;
+        }
+    }
+
+    .container {
+        width: 50%;
+        position: relative;
+    }
+
+    .container.left {
+        left: 0;
+        margin: 0 1em 0 0;
+
+        &::before {
+            left: 100%;
+        }
+    }
+
+    .container.right {
+        left: 50%;
+        margin: 0 0 0 14px;
+    }
+}

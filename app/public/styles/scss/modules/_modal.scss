@@ -41,7 +41,7 @@
             font-size: 1.25rem;
             font-weight: 700;
             width: 100%;
-            margin-bottom: 2em;
+            margin-bottom: 1em;
         }
 
         label span.store {
@@ -76,6 +76,7 @@
             font-weight: 700;
             padding: 1em 1.25em;
             text-transform: uppercase;
+            color: $backgroundWhite;
         }
 
         a:hover {
@@ -102,7 +103,7 @@
         }
 
         .checkbox-custom:hover {
-            background-color: $backgroundOtherWhite;
+            background-color: $mainGrey;
             cursor: pointer;
         }
 
@@ -152,17 +153,17 @@
 
         .modal__img,
         .modal__text {
-            max-width: 600px;
+            max-width: 500px;
         }
 
         .modal__text {
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
 
         .form-row {
     
             label span {
-                font-size: 1.75rem;
+                font-size: 1.25rem;
                 margin-bottom: 1em;
             }
     
