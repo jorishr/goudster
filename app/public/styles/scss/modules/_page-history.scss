@@ -1,7 +1,7 @@
 .intro, .credits {
     margin: 0 auto;
     width: 100%;
-    max-width: 500px;
+    max-width: 650px;
     padding: 2em;
     margin-top: 4em;
     line-height: 1.75;
@@ -9,6 +9,10 @@
 
     h1, h3 {
         text-align: center;
+    }
+
+    h1 {
+        color: $mainOrange;
     }
 }
 
@@ -88,7 +92,7 @@ blockquote {
 
     .intro,
     .credits {
-        text-align: justify;
+        text-align: center;
     }
 
     .timeline {

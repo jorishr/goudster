@@ -9,6 +9,9 @@ const   toggle        = document.querySelector('#toggle'),
         pageBody      = document.querySelector('body'),
         header        = document.querySelector('header');
 
+//todo: modal code only on main page
+//privacy-bar: only main page?
+
 let closeBtns = Array.from(cookieClosers);
 closeBtns.forEach(btn => {
     btn.addEventListener('click', function(e){

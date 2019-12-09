@@ -10,4 +10,8 @@ router.get('/ons-verhaal', function(req, res, next) {
   res.render('history', { title: 'Express' });
 });
 
+router.get('/info', function(req, res, next) {
+  res.render('info', { title: 'Express' });
+});
+
 module.exports = router;
