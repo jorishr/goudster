@@ -1,131 +1,134 @@
 <%- include('modules/_header'); %>
-<!--    cookie consent pop-up   -->
-<div class="privacy-bar in-view">
-    <i class="fas fa-times"></i>
-    <p>Deze website maakt gebruik van cookies om je een zo goed mogelijke ervaring te bieden. Meer informatie vind je terug in ons cookiebeleid.</p>
-    <a class="btn" href="#">COOKIES AANVAARDEN</a>
-    <a class="btn" href="/beleid">PRIVACY-BELEID</a>
-</div>
-<!--    modal section   -->
-<div class="modal in-view">
-    <div class="modal__img">
-        <img src="/images/logo_goudster.gif" alt="Goudster Logo">
+<div class="page-content">
+    <!--    cookie consent pop-up   -->
+    <div class="privacy-bar in-view">
+        <i class="fas fa-times"></i>
+        <p>Deze website maakt gebruik van cookies om je een zo goed mogelijke ervaring te bieden. Meer informatie vind je terug in ons cookiebeleid.</p>
+        <a class="btn" href="#">COOKIES AANVAARDEN</a>
+        <a class="btn" href="/beleid">PRIVACY-BELEID</a>
     </div>
-    <div class="modal__text">
-        <p>Bier met liefde gebrouwen, drink je met verstand</p>
-        <p>Deel geen content van deze site met personen jonger dan 18 jaar</p>
-    </div>
-    <div class='form-row'>
-        <label for='consent' class='checkbox-label' >
-            <span>Bent u meerderjarig?</span>
-            <div class="form__btns">
-                <button type="submit" class="btn">Ja</button>
-                <a class="btn" href="http://google.com">Nee</a>
-                <span class="store">Onthou mijn keuze</span>
-            </div>
-            <input type="checkbox" id="consent" name="consent"/>
-            <span class="checkbox-custom"></span>
-        </label>
-    </div>
-
-</div>
-<!--    hero section   -->
-<div class="hero-section">
-    <div class="wrapper">
-        <div class="hero__content">
-            <div class="hero__cta">
-                <div class="hero__logo-container">
-                        <img src="/images/logo_goudster.gif" alt="Goudster Logo">
+    <!--    modal section   -->
+    <div class="modal in-view">
+        <div class="modal__img">
+            <img src="/images/logo_goudster.gif" alt="Goudster Logo">
+        </div>
+        <div class="modal__text">
+            <p>Bier met liefde gebrouwen, drink je met verstand</p>
+            <p>Deel geen content van deze site met personen jonger dan 18 jaar</p>
+        </div>
+        <div class='form-row'>
+            <label for='consent' class='checkbox-label' >
+                <span>Bent u meerderjarig?</span>
+                <div class="form__btns">
+                    <button type="submit" class="btn">Ja</button>
+                    <a class="btn" href="http://google.com">Nee</a>
+                    <span class="store">Onthou mijn keuze</span>
                 </div>
-                <h1>&ldquo;STÈR&rdquo; uit Halen</h1>
-                <h2>Echt Oud Belgisch Bier!</h2>
-                <a class="btn" href="#">Ontdek 'm hier!</a>
-            </div>   
-            <div class="hero__image-container">
-                <img src="/images/flesje_2_achtergrond-zwart.jpg" alt="Flesje Goudster Bier">
-            </div>      
+                <input type="checkbox" id="consent" name="consent"/>
+                <span class="checkbox-custom"></span>
+            </label>
+        </div>
+    
+    </div>
+    <!--    hero section   -->
+    <div class="hero-section">
+        <div class="wrapper">
+            <div class="hero__content">
+                <div class="hero__cta">
+                    <div class="hero__logo-container">
+                            <img src="/images/logo_goudster.gif" alt="Goudster Logo">
+                    </div>
+                    <h1>&ldquo;STÈR&rdquo; uit Halen</h1>
+                    <h2>Echt Oud Belgisch Bier!</h2>
+                    <a class="btn" href="/waar-proeven">Ontdek 'm hier!</a>
+                </div>   
+                <div class="hero__image-container">
+                    <img src="/images/flesje_2_achtergrond-zwart.jpg" alt="Flesje Goudster Bier">
+                </div>      
+            </div>
         </div>
     </div>
-</div>
-<!--    testimonial section   -->
-<section class="testimonial">
-    <div class="wrapper">
-        <div class="testimonial__heading heading">
-            <i class="far fa-comments fa-4x"></i>
-            <h2>Over Goudster Bier</h2>
-            <h3>De mening van enkele fijnproevers</h3>
+    <!--    testimonial section   -->
+    <section class="testimonial">
+        <div class="wrapper">
+            <div class="testimonial__heading heading">
+                <i class="far fa-comments fa-4x"></i>
+                <h2>Over Goudster Bier</h2>
+                <h3>De mening van enkele fijnproevers</h3>
+                <hr>
+            </div>
+            <div class="testimonial__content">
+                <div class="testimonial__container">
+                    <i class="fas fa-user-circle fa-3x"></i>          
+                    <p class="quote">Goudster is een amberkleurig bier van hoge gisting met een alcoholgehalte van zes procent en een zekere fruitigheid vanuit de gist. Het is een volmondig bier met een zoete toets. Het is geen doordrinkbier, maar wel een om van te genieten.</p>
+                    <p class="author"><i class="fas fa-angle-right fa-2x"></i>Bart Durlet,<br>brouwmeester</p>
+                </div>
+                <div class="testimonial__container">
+                    <i class="fas fa-user-circle fa-3x"></i>          
+                    <p class="quote">Met de herlancering van de legendarische Goudster pikken we een gewaardeerde Halens traditie weer op. De oude mouterijtoren is een bekend referentiepunt in de stad en dankzij de samenwerking met brouwerij Anders heeft Halen opnieuw wat het verdient: z'n eigen authentiek biermerk.</p>
+                    <p class="author"><i class="fas fa-angle-right fa-2x"></i>Marc Raymaekers,<br>Vereningde Brouwers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--    link section   -->
+    <section class="link-section">
+        <div class="links wrapper">
+            <a class="link link__map" href="/waar-proeven">
+                <div class="link-section__heading heading">
+                    <i class="fas fa-map-marked-alt fa-4x"></i>
+                    <h2>Waar proeven</h2>
+                    <h3>Ontdek de zaken waar de echte "stèr" wordt geschonken of zoek een drinkcenter in uw buurt.</h3>
+                    <hr>
+                </div>
+            </a>
+            <a class="link link__partners" href="/info">    
+                <div class="link-section__heading heading">
+                    <i class="far fa-handshake fa-4x"></i>
+                    <h2>Info voor Café's en Verdelers</h2>
+                    <h3>Goudster van 't vat in uw zaak? Contacteer ons nu!</h3>
+                    <hr>
+                </div>
+            </a>
+        </div>
+    </section>
+    <!--    history section   -->
+    <section class="history">
+        <div class="history__container wrapper">
+            <a class="link link__history" href="/ons-verhaal">    
+                <div class="history-section__heading heading">
+                    <i class="fas fa-history fa-4x"></i>
+                    <h2>Ons Verhaal</h2>
+                    <h3>Grasduin in het rijke en bewogen verleden van Goudster in Halen. Van het prille begin bij de start van de 20ste eeuw tot de herlancering in 2013.</h3>
+                    <hr>
+                </div>
+            </a>
+            <div class="image-link-container">
+                <a href="/ons-verhaal">
+                    <img src="/images/collectie_historiek_1.jpg" alt="Collage Klassiek Goudster Foto's">
+                </a>
+                <a href="/ons-verhaal">
+                    <img src="/images/brouwerij_band_2.jpg" alt="Nieuwe Goudster rolt van de band">
+                </a>
+            </div>       
+        </div>
+    </section>
+    <!--    newsletter section   -->
+    <section class="newsletter-section">
+        <div class="newsletter-section__heading heading">
+            <i class="fas fa-newspaper fa-4x"></i>
+            <h2>Goudster Nieuws</h2>
+            <h3>Blijf op de hoogte van het laatste nieuws over Goudster en ontvang als eerste speciale kortingen!</h3>
             <hr>
         </div>
-        <div class="testimonial__content">
-            <div class="testimonial__container">
-                <i class="fas fa-user-circle fa-3x"></i>          
-                <p class="quote">Goudster is een amberkleurig bier van hoge gisting met een alcoholgehalte van zes procent en een zekere fruitigheid vanuit de gist. Het is een volmondig bier met een zoete toets. Het is geen doordrinkbier, maar wel een om van te genieten.</p>
-                <p class="author"><i class="fas fa-angle-right fa-2x"></i>Bart Durlet,<br>brouwmeester</p>
-            </div>
-            <div class="testimonial__container">
-                <i class="fas fa-user-circle fa-3x"></i>          
-                <p class="quote">Met de herlancering van de legendarische Goudster pikken we een gewaardeerde Halens traditie weer op. De oude mouterijtoren is een bekend referentiepunt in de stad en dankzij de samenwerking met brouwerij Anders heeft Halen opnieuw wat het verdient: z'n eigen authentiek biermerk.</p>
-                <p class="author"><i class="fas fa-angle-right fa-2x"></i>Marc Raymaekers,<br>Vereningde Brouwers</p>
-            </div>
+        <div class="newsletter__input">
+            <form action="" method="post">
+                <input type="email" placeholder="jouw@e-mail.adres...">
+                <button class="btn">Aanmelden</button>
+            </form>
         </div>
-    </div>
-</section>
-<!--    link section   -->
-<section class="link-section">
-    <div class="links wrapper">
-        <a class="link link__map">
-            <div class="link-section__heading heading">
-                <i class="fas fa-map-marked-alt fa-4x"></i>
-                <h2>Waar proeven</h2>
-                <h3>Ontdek de zaken waar de echte "stèr" wordt geschonken of zoek een drinkcenter in uw buurt.</h3>
-                <hr>
-            </div>
-        </a>
-        <a class="link link__partners" href="/info">    
-            <div class="link-section__heading heading">
-                <i class="far fa-handshake fa-4x"></i>
-                <h2>Info voor Café's en Verdelers</h2>
-                <h3>Goudster van 't vat in uw zaak? Contacteer ons nu!</h3>
-                <hr>
-            </div>
-        </a>
-    </div>
-</section>
-<!--    history section   -->
-<section class="history">
-    <div class="history__container wrapper">
-        <a class="link link__history" href="/ons-verhaal">    
-            <div class="history-section__heading heading">
-                <i class="fas fa-history fa-4x"></i>
-                <h2>Ons Verhaal</h2>
-                <h3>Grasduin in het rijke en bewogen verleden van Goudster in Halen. Van het prille begin bij de start van de 20ste eeuw tot de herlancering in 2013.</h3>
-                <hr>
-            </div>
-        </a>
-        <div class="image-link-container">
-            <a href="/ons-verhaal">
-                <img src="/images/collectie_historiek_1.jpg" alt="Collage Klassiek Goudster Foto's">
-            </a>
-            <a href="/ons-verhaal">
-                <img src="/images/brouwerij_band_2.jpg" alt="Nieuwe Goudster rolt van de band">
-            </a>
-        </div>       
-    </div>
-</section>
-<!--    newsletter section   -->
-<section class="newsletter-section">
-    <div class="newsletter-section__heading heading">
-        <i class="fas fa-newspaper fa-4x"></i>
-        <h2>Goudster Nieuws</h2>
-        <h3>Blijf op de hoogte van het laatste nieuws over Goudster en ontvang als eerste speciale kortingen!</h3>
-        <hr>
-    </div>
-    <div class="newsletter__input">
-        <form action="" method="post">
-            <input type="email" placeholder="jouw@e-mail.adres...">
-            <button class="btn">Aanmelden</button>
-        </form>
-    </div>
-</section>
+    </section>
+</div>
+    
 <%- include('modules/_footer'); %>
 <script>document.body.classList.add('landing')</script>

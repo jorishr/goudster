@@ -4,12 +4,23 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
 body {
     font-family: 'Montserrat', sans-serif;
+    min-height: 100%;
     width: 100%;
     height: 100%;
     background-color: $mainBlack;
     color: $lightYellow;
+    display: flex;
+    flex-direction: column;
+
+    //all page-content is wrapped in this wrapper to get sticky footer
+    .page-content {
+        flex-grow: 1;
+    }
 }
 
 a {

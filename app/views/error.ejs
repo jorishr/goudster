@@ -1,5 +1,7 @@
 <%- include('modules/_header'); %>
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<div class="page-content">
+    <h1><%= message %></h1>
+    <h2><%= error.status %></h2>
+    <pre><%= error.stack %></pre>
+</div>
 <%- include('modules/_footer'); %>

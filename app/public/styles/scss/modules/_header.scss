@@ -20,13 +20,23 @@ header {
         margin: 0 auto;
         position: relative;
 
-        img {
-            width: 125px;
-            height: 50px;
-            margin-top: 1em;
-            margin-left: 2em;
-            justify-self: flex-start;
-        }
+        a.logo {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+            i {
+                margin: 2em 0 0 1em;
+            }
+
+            img {
+                width: 125px;
+                height: 50px;
+                margin-top: 1em;
+                margin-left: 2em;
+                justify-self: flex-start;
+            }
+        } 
 
         ul.menu {
             display: flex;
@@ -163,7 +173,7 @@ header.landing {
        justify-content: center;
        align-items: flex-end;
 
-        img {
+        a.logo {
             display: none;
         }
 

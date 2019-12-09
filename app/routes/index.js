@@ -14,4 +14,8 @@ router.get('/info', function(req, res, next) {
   res.render('info', { title: 'Express' });
 });
 
+router.get('/waar-proeven', function(req, res, next) {
+  res.render('location', { title: 'Express' });
+});
+
 module.exports = router;

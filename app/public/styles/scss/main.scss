@@ -1,7 +1,6 @@
 @import '../../../../node_modules/normalize.scss/normalize.scss';
 @import 'modules/variables';
 @import 'modules/global';
-@import 'modules/wrapper';
 @import 'modules/modal';
 @import 'modules/privacy-bar';
 @import 'modules/header';
@@ -14,4 +13,6 @@
 @import 'modules/newsletter';
 @import 'modules/page-history';
 @import 'modules/page-info';
+@import 'modules/page-location';
+@import 'modules/wrapper';
 @import 'modules/footer';
