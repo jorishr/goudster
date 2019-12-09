@@ -18,4 +18,8 @@ router.get('/waar-proeven', function(req, res, next) {
   res.render('location', { title: 'Express' });
 });
 
+router.get('/contact', function(req, res, next) {
+  res.render('contact', { title: 'Express' });
+});
+
 module.exports = router;
