@@ -24,8 +24,10 @@ app.use(bodyParser.json());
 //statics
 app.use(express.static(path.join(__dirname, 'public')));
 
-//routes
+//security
 app.use(helmet());
+
+//routes
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

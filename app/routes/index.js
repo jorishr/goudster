@@ -1,9 +1,8 @@
 require('dotenv').config();
 
-const express     = require('express'),
-      router      = express.Router(),
-      nodemailer  = require('nodemailer');
-
+const express      = require('express'),
+      router       = express.Router(),
+      nodemailer   = require('nodemailer');
 
 const { check, sanitizeBody, validationResult } = require('express-validator');
 
@@ -34,7 +33,7 @@ router.get('/voorwaarden', function(req, res, next) {
 
 //contact form
 router.get('/contact', function(req, res, next) {
-  res.render('contact', { title: 'Contact'});
+  res.render('contact', { title: 'Contact' });
 });
 
 router.post('/send', [
@@ -117,9 +116,6 @@ router.post('/subscribe', [
     console.log(data);
     res.render('index', {msg: 'Je bent nu geabonneerd op de Goudster nieuwsbrief!'});
   });
-  
-
-
 });
 
 module.exports = router;

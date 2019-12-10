@@ -56,6 +56,5 @@ function watchFiles(){
 }
 
 //  public gulp tasks, npx gulp <task>
-
+exports.build = buildTask.buildTask;
 exports.watch = series(startNodemon, watchFiles);
-exports.build = buildTask;
