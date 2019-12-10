@@ -20,6 +20,14 @@ router.get('/waar-proeven', function(req, res, next) {
   res.render('location', { title: 'Locations' });
 });
 
+router.get('/beleid', function(req, res, next) {
+  res.render('policy', { title: 'Policy' });
+});
+
+router.get('/voorwaarden', function(req, res, next) {
+  res.render('conditions', { title: 'Terms and conditions' });
+});
+
 router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Contact' });
 });
