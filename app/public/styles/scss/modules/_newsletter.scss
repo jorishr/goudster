@@ -5,13 +5,14 @@
 
 .newsletter__input {
 
-    form {
+    form.newsletter {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    input {
-        margin-bottom: 2em;
+
+    input[name="email"] {
+        margin-bottom: .5em;
         width: 80%;
         border: $mainOrange 1px solid;
         
@@ -22,12 +23,101 @@
         background-color: $backgroundOtherWhite;
     }
 
-    input::placeholder {
+    input[name="email"]::placeholder {
         color: $textColor-dark;
     }
 
-    button {
+    input[name="email"]:focus-within {
+        outline: $mainOrange 1px solid;
+    }
+
+    .form__consent {
+        width: 80%;
+        color: $textColor-dark;
         text-transform: uppercase;
+        font-size: .75rem;
+        line-height: 1.75;
+        text-align: right;
+
+        button {
+            text-transform: uppercase;
+            color: $backgroundOtherWhite;
+        }
+
+        button[disabled] {
+            opacity: .5;
+        }
+
+        p {
+            text-align: left;
+
+            a {
+                color: $mainOrange;
+            }
+        }
+
+        .form__consent-container {
+            margin-bottom: 2em;
+
+            //custom checkbox 
+            .checkbox-container {
+                position: relative;
+
+                input {
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    opacity: 0;
+                    
+                    cursor: pointer;
+                }
+
+                .checkbox-custom {
+                    display: block;
+                    position: absolute;
+                    left: -175px;
+                    top: -37px;
+                    height: 30px;
+                    width: 30px;
+                    background-color: $backgroundWhite;
+                    border: 3px solid $mainYellow;
+                    margin: 0 auto;
+                }
+
+                .checkbox-custom:hover {
+                    background-color: $mainGrey;
+                    cursor: pointer;
+                }
+
+                input:checked ~ .checkbox-custom {
+                    background-color: $mainGrey;
+                }
+
+                //checkmark
+                .checkbox-custom::after {
+                    display: none;
+                    content: '';
+                    position: absolute;
+                    left: 7px;
+                    top: 4px;
+                    
+                    width: 5px;
+                    height: 10px;
+                    border: solid $backgroundWhite;
+                    border-width: 0 4px 4px 0;
+                    /* border-radius: 8px; */
+                    transform: rotate(45deg);
+                }
+                
+                input:checked ~ .checkbox-custom::after {
+                    display: block;
+                }     
+            } 
+        }
+
+
+        //custom checkbox
+
     }
 }
 
@@ -39,19 +129,29 @@
     } 
 
     .newsletter__input {
-        form {
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
     
-        input {
+        input[name="email"] {
             width: 40%;
-            margin: .25em 2em 0 0;
+            margin: .25em auto 0 auto;
         }
 
-        button {
-            font-size: 1rem;
+        .form__consent {
+            width: 40%;
+            button {
+                font-size: 1rem;
+            }
+
+            .form__consent-container {
+                .checkbox-container {
+                   
+                    .checkbox-custom {
+                        left: -225px;
+                        top: -45px;
+                    }
+                }
+            }
+    
         }
+
     }
 }

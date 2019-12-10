@@ -53,7 +53,7 @@
                 <p>Ik accepteer dat mijn gegevens kunnen worden opgeslagen en gebruikt voor het afhandelen van mijn verzoek.</p>
                 <div class="form__consent-container">
                     <label for="consent" class="checkbox-container">
-                        <input type="checkbox" id="consent" name="consent">
+                        <input type="checkbox" id="consent" name="consent" required>
                         <span class="checkbox-custom"></span>
                     </label>
                     <button class="btn" type="submit">Versturen</button>
@@ -63,4 +63,5 @@
         </form>   
     </div>
 </div>
+<script>document.body.classList.add('contact')</script>
 <%- include('modules/_footer'); %>

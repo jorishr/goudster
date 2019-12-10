@@ -127,9 +127,18 @@
             <hr>
         </div>
         <div class="newsletter__input">
-            <form action="" method="post">
-                <input type="email" placeholder="jouw@e-mail.adres...">
-                <button class="btn">Aanmelden</button>
+            <form class="newsletter" action="subscribe" method="POST">
+                <input name="email" type="email" placeholder="Jouw e-mail adres..." required>
+                <div class="form__consent">
+                    <p>Ik wens sporadisch e-mails te ontvangen van de Verenigde Brouwers. <a href="/beleid" target="_blank">Lees meer over ons privacy-beleid.</a></p>
+                    <button class="btn" type="submit">Aanmelden</button>
+                    <div class="form__consent-container">
+                        <label for="checkbox" class="checkbox-container">
+                            <input class="subscribe" type="checkbox" id="checkbox" name="consent" required>
+                            <span class="checkbox-custom"></span>
+                        </label>
+                    </div>
+                </div>
             </form>
         </div>
     </section>

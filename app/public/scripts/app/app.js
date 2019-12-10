@@ -11,7 +11,8 @@ const   toggle        = document.querySelector('#toggle'),
         acceptBtn     = document.querySelector('#cookie-consent'),
         checkbox      = document.querySelector('input[type="checkbox"]'),
         inputFields   = document.querySelectorAll('input[required], textarea'),
-        contactSubmit = document.querySelector('form.contact button');
+        contactSubmit = document.querySelector('form.contact button'),
+        subscribeBtn  = document.querySelector('.form__consent button');
 
 //header navbar functionality        
 toggle.addEventListener('click', function(e){   
@@ -54,15 +55,27 @@ if(pageBody.classList.contains('landing')){
 }
 
 //form functionality
-
 if(inputFields.length !== 0){
-    contactSubmit.disabled = true;
+    if(pageBody.classList.contains('landing')){
+        subscribeBtn.disabled = true;
+    }
+    if(pageBody.classList.contains('contact')){
+        contactSubmit.disabled = true;
+    }
     for(let i = 0; i < inputFields.length; i++){
         inputFields[i].addEventListener('input', function(){
             let values = [];
             let checked = checkbox.checked;
             inputFields.forEach(field => values.push(field.value));
-            contactSubmit.disabled = values.includes('') || !checked;
+            if(pageBody.classList.contains('landing')){
+                //there is more than one checkbox on this page
+                checked = document.querySelector('input[type="checkbox"].subscribe').checked
+                subscribeBtn.disabled = values.includes('') || !checked;
+            }       
+            if(pageBody.classList.contains('contact')){
+
+                contactSubmit.disabled = values.includes('') || !checked;
+            }     
         })
     };        
 };

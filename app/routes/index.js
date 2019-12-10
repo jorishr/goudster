@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 var express = require('express');
 var router  = express.Router(),
 nodemailer  = require('nodemailer');
@@ -75,5 +76,26 @@ router.post('/send', function(req, res, next) {
   });
 });
 
+//mailing list 
+const mgDomain  = process.env.MAILGUN_DOMAIN;
+const mgHost    = process.env.MAILGUN_HOST;
+const mailgun   = require('mailgun-js')({ apiKey: process.env.MAILGUN_APIKEY, domain: mgDomain, host: mgHost });
+const list      = mailgun.lists(`email-lijst@${mgDomain}`);
+
+router.post('/subscribe', (req, res, next) =>{
+  var user = {
+    subscribed: true,
+    address: `${req.body.email}`    
+  }
+
+  list.members().create(user, function (err, data) {
+    if(err){res.render('error', {error: err})};
+    console.log(data);
+    res.render('index', {msg: 'Je bent nu geabonneerd op de Goudster nieuwsbrief!'});
+  });
+  
+
+
+});
 
 module.exports = router;
