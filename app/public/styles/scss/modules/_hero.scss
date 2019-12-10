@@ -4,6 +4,27 @@
     height: calc(var(--vh, 1vh) * 100);
 }
 
+//flash message after succesful contact form request
+.flash-msg-container {
+    width: 350px;
+    position: absolute;
+    top: 2em;
+    left: 50%;
+    z-index: 50;
+    transform: translateX(-50%);
+    text-align: center;
+    color: $textColor-dark;
+    font-weight: 700;
+    background-color: $backgroundWhite;
+    animation: fadeOut 5s 2s forwards;
+}
+
+@keyframes fadeOut {
+    from {opacity:1}
+    to {opacity: 0}
+}
+
+//HERO SECTION CONTENT
 .hero__cta {
     width: 100%;
     text-align: center;

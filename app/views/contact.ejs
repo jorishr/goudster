@@ -5,7 +5,7 @@
             <h1>CONTACTEER DE VERENIGDE BROUWERS</h1>
             <p>Contacteer ons via het contactformulier of e-mail naar info@goudster.be</p>
         </div>
-        <form class="contact" action="" method="post">
+        <form class="contact" action="send" method="POST">
             <div class="form__inputs">
                 <div class="input-container">
                     <label  for="name">Naam</label>
@@ -38,7 +38,7 @@
                 <p>Ik accepteer dat mijn gegevens kunnen worden opgeslagen en gebruikt voor het afhandelen van mijn verzoek.</p>
                 <div class="form__consent-container">
                     <label for="consent" class="checkbox-container">
-                        <input type="checkbox" id="consent" name="consent">
+                        <input type="checkbox" id="consent" name="consent" required>
                         <span class="checkbox-custom"></span>
                     </label>
                     <button class="btn" type="submit">Versturen</button>

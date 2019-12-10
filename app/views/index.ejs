@@ -4,7 +4,7 @@
     <div class="privacy-bar in-view">
         <i class="fas fa-times"></i>
         <p>Deze website maakt gebruik van cookies om je een zo goed mogelijke ervaring te bieden. Meer informatie vind je terug in ons cookiebeleid.</p>
-        <a class="btn" href="#">COOKIES AANVAARDEN</a>
+        <a class="btn" id="cookie-consent" href="#">COOKIES AANVAARDEN</a>
         <a class="btn" href="/beleid">PRIVACY-BELEID</a>
     </div>
     <!--    modal section   -->
@@ -31,6 +31,11 @@
     
     </div>
     <!--    hero section   -->
+    <% if(msg !== '') { %>
+    <div class="flash-msg-container">
+        <p class="flash"><%- msg %></p>
+    </div>
+    <% } %>    
     <div class="hero-section">
         <div class="wrapper">
             <div class="hero__content">
@@ -129,6 +134,5 @@
         </div>
     </section>
 </div>
-    
-<%- include('modules/_footer'); %>
 <script>document.body.classList.add('landing')</script>
+<%- include('modules/_footer'); %>

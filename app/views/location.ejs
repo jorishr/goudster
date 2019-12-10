@@ -1,6 +1,5 @@
 <%- include('modules/_header'); %>
 <div class="page-content">
-
     <div class="wrapper">
         <div class="location">
             <div class="location__title">
@@ -16,12 +15,66 @@
                 <a class="btn" href="/contact">online bestellen</a>
                 <h2>II. Horeca en drinkcentra</h2>
                 <p>Goudster is ook verkrijgbaar bij verschillende drinkcentra en horecazaken in de regio.</p>
+                <p>Klik op logo's op de kaart of zoom in voor meer details.</p>
         
             </div>
-            <div class="location__map">
-        
+            <div class="location__map-container">
+                <div id="map">
+
+                </div>                
             </div>
         </div>
     </div>
 </div>
+<!-- Google Maps Code -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRHk2FKTvY7GWFoSJyLusxvfnJZAcTteo&language=nl&region=BE&callback=initMap"
+async defer>
+</script>
+<script>
+    let map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 50.948139, lng: 5.114570},
+        zoom: 10
+        });
+
+        function addMarker(props){
+           let marker = new google.maps.Marker({
+                position: props.coords,
+                map: map,
+                icon: props.icon
+            });
+            console.log(props.icon)
+            console.log(marker)
+            if(props.icon){marker.setIcon(props.icon)}
+            if(props.name){
+                var infoWindow = new google.maps.InfoWindow({content: `<h1>${props.name}</h1`});
+            };
+            marker.addListener('click', function(){
+                infoWindow.open(map, marker);
+            });
+        };
+
+        const places = [
+            {name: 'Golf, Lummen', coords: new google.maps.LatLng(50.993705, 5.226711), icon: '/images/favicon.ico'},
+            {name: '\'t Vloot, Linkhout', coords: new google.maps.LatLng(50.963271, 5.146496), icon: '/images/favicon.ico'},
+            {name: 'Café De Markt, Halen', coords: new google.maps.LatLng(50.948305, 5.113703), icon: '/images/favicon.ico'},
+            {name: 'Vandepoel Drinkcenter, Halen', coords: new google.maps.LatLng(50.948095, 5.108037), icon: '/images/favicon.ico'},
+            {name: 'Thomas Drink, Zoutleeuw', coords: new google.maps.LatLng(50.830499, 5.113714), icon: '/images/favicon.ico'},
+            {name: 'Sportcafé De Koekoek, Halen', coords: new google.maps.LatLng(50.946865, 5.115890), icon: '/images/favicon.ico'},
+            {name: 'Buurthuis-De Toekomst, Zellik', coords: new google.maps.LatLng(50.953000, 5.084273), icon: '/images/favicon.ico'},
+            {name: 'Brasserie 3punt, Halen', coords: new google.maps.LatLng(50.949410, 5.114359), icon: '/images/favicon.ico'}
+        ]
+        
+
+        places.forEach(place => {
+            addMarker(place);
+        })
+    };
+</script>
+<script>
+
+
+</script>
+
 <%- include('modules/_footer'); %>

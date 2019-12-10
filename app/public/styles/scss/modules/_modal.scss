@@ -173,3 +173,8 @@
         }
     }
 }
+
+//if age consent is set in localStorage, modal is hidden
+.modal.hide {
+    display: none;
+}

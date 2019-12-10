@@ -39,3 +39,8 @@
 .privacy-bar.in-view {
     display: flex;
 }
+
+//if consent is set in local-storage hide
+.privacy-bar.hide {
+    display: none;
+}

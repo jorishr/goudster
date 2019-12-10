@@ -7,31 +7,62 @@ const   toggle        = document.querySelector('#toggle'),
         cookieBar     = document.querySelector('.privacy-bar'),
         cookieClosers = document.querySelectorAll('.privacy-bar a, .privacy-bar i'),
         pageBody      = document.querySelector('body'),
-        header        = document.querySelector('header');
+        header        = document.querySelector('header'),
+        acceptBtn     = document.querySelector('#cookie-consent'),
+        checkbox      = document.querySelector('input[type="checkbox"]'),
+        inputFields   = document.querySelectorAll('input[required], textarea'),
+        contactSubmit = document.querySelector('form.contact button');
 
-//todo: modal code only on main page
-//privacy-bar: only main page?
-
-let closeBtns = Array.from(cookieClosers);
-closeBtns.forEach(btn => {
-    btn.addEventListener('click', function(e){
-        cookieBar.classList.remove('in-view');
-    });
-});
-
+//header navbar functionality        
 toggle.addEventListener('click', function(e){   
     extendMenu.classList.toggle('visible');
 });
 
-modalClose.addEventListener('click', function(e){   
-    modal.classList.remove('in-view');
-});
-
+//adapt vh variable for mobile screen
 //get the viewport height and multiply by 1% to get a value for a vh unit
 let vh = window.innerHeight * 0.01;
 //set the value in the --vh custom property to the root of the document
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
+//landing page functionality
 if(pageBody.classList.contains('landing')){
     header.classList.add('landing');
+    
+    let cookieStorage = localStorage.getItem('cookieConsent');
+    if(cookieStorage){cookieBar.classList.add('hide')};
+
+    let ageStorage = localStorage.getItem('ageConsent');
+    if(ageStorage){modal.classList.add('hide')};
+
+    //close cookiebar functionality
+    let closeBtns = Array.from(cookieClosers);
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', function(e){
+            cookieBar.classList.remove('in-view');
+        });
+    });
+
+    acceptBtn.addEventListener('click', function(){
+        localStorage.setItem('cookieConsent', true)
+    })
+
+    //modal functionality
+    modalClose.addEventListener('click', function(e){   
+        modal.classList.remove('in-view');
+        if(checkbox.checked){localStorage.setItem('ageConsent', true);}       
+    });
 }
+
+//form functionality
+
+if(inputFields.length !== 0){
+    contactSubmit.disabled = true;
+    for(let i = 0; i < inputFields.length; i++){
+        inputFields[i].addEventListener('input', function(){
+            let values = [];
+            let checked = checkbox.checked;
+            inputFields.forEach(field => values.push(field.value));
+            contactSubmit.disabled = values.includes('') || !checked;
+        })
+    };        
+};

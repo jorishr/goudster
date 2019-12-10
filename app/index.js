@@ -2,7 +2,8 @@ require('dotenv').config();
 
 const createError   = require('http-errors'),
       express       = require('express'),
-      app           = express();
+      app           = express(),
+      bodyParser    = require('body-parser'),
       path          = require('path'),
       logger        = require('morgan'),
       indexRouter   = require('./routes/index'),
@@ -15,9 +16,9 @@ app.set('view engine', 'ejs');
 //logs
 app.use(logger('dev'));
 
-//json
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+//body-parser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //statics
 app.use(express.static(path.join(__dirname, 'public')));

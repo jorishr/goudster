@@ -73,6 +73,10 @@ form.contact {
             font-size: 1rem;
         }
 
+        button[disabled] {
+            opacity: .5;
+        }
+
         button:focus {
             outline: $mainOrange 1px solid;            
         }
