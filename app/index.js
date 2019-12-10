@@ -7,7 +7,8 @@ const createError   = require('http-errors'),
       path          = require('path'),
       logger        = require('morgan'),
       indexRouter   = require('./routes/index'),
-      port          = process.env.SERVER_PORT;
+      port          = process.env.SERVER_PORT,
+      helmet        = require('helmet');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //routes
+app.use(helmet());
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

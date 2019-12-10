@@ -1,8 +1,11 @@
 require('dotenv').config();
 
-var express = require('express');
-var router  = express.Router(),
-nodemailer  = require('nodemailer');
+const express     = require('express'),
+      router      = express.Router(),
+      nodemailer  = require('nodemailer');
+
+
+const { check, sanitizeBody, validationResult } = require('express-validator');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -29,11 +32,25 @@ router.get('/voorwaarden', function(req, res, next) {
   res.render('conditions', { title: 'Terms and conditions' });
 });
 
+//contact form
 router.get('/contact', function(req, res, next) {
-  res.render('contact', { title: 'Contact' });
+  res.render('contact', { title: 'Contact'});
 });
 
-router.post('/send', function(req, res, next) {
+router.post('/send', [
+    check('name').not().isEmpty().trim().escape(),
+    check('email').isEmail().normalizeEmail(),
+    check('message').not().isEmpty().trim().escape(),
+    sanitizeBody('notifyOnReply').toBoolean()
+],
+function(req, res) {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    return res.render('contact', {
+      data: req.body,
+      errors: errors.mapped(),
+    })
+  }
   let transporter = nodemailer.createTransport({
     host: 'smtp.eu.mailgun.org',
     port: 587,
@@ -82,7 +99,14 @@ const mgHost    = process.env.MAILGUN_HOST;
 const mailgun   = require('mailgun-js')({ apiKey: process.env.MAILGUN_APIKEY, domain: mgDomain, host: mgHost });
 const list      = mailgun.lists(`email-lijst@${mgDomain}`);
 
-router.post('/subscribe', (req, res, next) =>{
+router.post('/subscribe', [
+  check('email').isEmail().normalizeEmail()
+], (req, res, next) =>{
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+
   var user = {
     subscribed: true,
     address: `${req.body.email}`    
