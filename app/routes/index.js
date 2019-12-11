@@ -118,4 +118,8 @@ router.post('/subscribe', [
   });
 });
 
+router.get('/webmail', (req, res) => {
+  res.redirect('http://vserver114.axc.nl/roundcube')
+});
+
 module.exports = router;
