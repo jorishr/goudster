@@ -1,6 +1,9 @@
 {
   "name": "goudster",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.16.0"
+  },
   "description": "Commercial website for the beer brand Goudster from Halen, BE.",
   "main": "index.js",
   "scripts": {
