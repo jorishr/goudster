@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://goudster.be/</loc>
+        <lastmod>2019-12-15T17:15:55+00:00</lastmod>
+        <priority>1.00</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://goudster.be/ons-verhaal</loc>
+        <lastmod>2019-12-15T17:15:55+00:00</lastmod>
+        <priority>0.80</priority>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
+        <loc>https://goudster.be/waar-proeven</loc>
+        <lastmod>2019-12-15T17:15:55+00:00</lastmod>
+        <priority>0.80</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://goudster.be/info</loc>
+        <lastmod>2019-12-15T17:15:55+00:00</lastmod>
+        <priority>0.80</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://goudster.be/contact</loc>
+        <lastmod>2019-12-15T17:15:55+00:00</lastmod>
+        <priority>0.50</priority>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
+        <loc>https://goudster.be/beleid</loc>
+        <lastmod>2019-12-15T17:15:55+00:00</lastmod>
+        <priority>0.10</priority>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
+        <loc>https://goudster.be/voorwaarden</loc>
+        <lastmod>2019-12-15T17:15:55+00:00</lastmod>
+        <priority>0.10</priority>
+        <changefreq>yearly</changefreq>
+    </url>
+</urlset>
