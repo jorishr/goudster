@@ -1,1 +1,1 @@
-Sitemap: https://goudster.com/sitemap.xml
+Sitemap: https://goudster.be/sitemap.xml
