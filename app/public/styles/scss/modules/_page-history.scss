@@ -50,6 +50,13 @@ blockquote {
     padding: 1em;
     position: relative;
     margin: 0 auto 4em auto;
+    //intersection observer api fade-in
+    opacity: 0;
+    transition: opacity .35s ease-in;
+
+    &.reveal {
+        opacity: 1;     //intersection observer api fade-in
+    }
 
     &::before {
         content: '';

@@ -1,4 +1,4 @@
-import { brotliDecompressSync } from "zlib";
+import appearOnScroll from 'modules/intersectionObserver'
 
 const   toggle        = document.querySelector('#toggle'),
         extendMenu    = document.querySelector('.menu__collapse'),
@@ -12,7 +12,14 @@ const   toggle        = document.querySelector('#toggle'),
         checkbox      = document.querySelector('input[type="checkbox"]'),
         inputFields   = document.querySelectorAll('input[required], textarea'),
         contactSubmit = document.querySelector('form.contact button'),
-        subscribeBtn  = document.querySelector('.form__consent button');
+        subscribeBtn  = document.querySelector('.form__consent button'),
+        faders        = document.querySelectorAll('.fade-in');
+
+//intersection observer api fade-in
+faders.forEach(fader => {
+    console.log(fader)
+    appearOnScroll.observe(fader);
+})
 
 //header navbar functionality        
 toggle.addEventListener('click', function(e){   
