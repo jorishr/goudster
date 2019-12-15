@@ -9,6 +9,12 @@
 
 .link {
     transition: transform .3s ease-in;
+    opacity: 0;
+    transition: opacity ease-in-out .3s;
+
+    &.reveal {
+        opacity: 1; //intersectional observer api
+    }
 }
 
 .link:hover {
