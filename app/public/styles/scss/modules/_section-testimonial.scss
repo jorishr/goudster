@@ -8,13 +8,11 @@
     text-align: center;
     padding: 0 2em;
 
-    .testimonial__container {
-        opacity: 0;
-        transition: opacity ease-in-out .3s;
-    
-        &.reveal {
-            opacity: 1; //intersectional observer api
-        }
+    opacity: 0;
+    transition: opacity ease-in-out .3s;
+
+    &.reveal {
+        opacity: 1; //intersectional observer api
     }
 
     .testimonial__container:first-of-type {

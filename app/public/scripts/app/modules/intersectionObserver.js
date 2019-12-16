@@ -1,7 +1,7 @@
 //fade-in with intersection observer API
 const appearOptions = {
     threshold: 0,
-    rootMargin: '0px 0px -150px 0px'
+    rootMargin: '0px 0px -300px 0px'
 };
 
 //the appearOnScroll function 
@@ -19,4 +19,4 @@ const appearOnScroll = new IntersectionObserver(function(
         },	
     appearOptions);
 
-export default appearOnScroll;
+module.exports = appearOnScroll;

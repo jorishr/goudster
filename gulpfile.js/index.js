@@ -5,6 +5,7 @@ const   {series, watch, parallel} = require('gulp'),
         styles      = require('./styleTasks'),    // import style tasks
         jsCompile   = require('./jsTasks'),       // import js tasks
         buildTask   = require('./buildTasks');    // import build tasks
+        prodServer  = require('./prod');
 
 // project filePaths
 
@@ -58,3 +59,4 @@ function watchFiles(){
 //  public gulp tasks, npx gulp <task>
 exports.build = buildTask.buildTask;
 exports.watch = series(startNodemon, watchFiles);
+exports.prod  = series(prodServer);

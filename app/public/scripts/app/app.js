@@ -1,5 +1,3 @@
-import appearOnScroll from 'modules/intersectionObserver'
-
 const   toggle        = document.querySelector('#toggle'),
         extendMenu    = document.querySelector('.menu__collapse'),
         modalClose    = document.querySelector('.modal button[type="submit"]'),
@@ -13,7 +11,8 @@ const   toggle        = document.querySelector('#toggle'),
         inputFields   = document.querySelectorAll('input[required], textarea'),
         contactSubmit = document.querySelector('form.contact button'),
         subscribeBtn  = document.querySelector('.form__consent button'),
-        faders        = document.querySelectorAll('.fade-in');
+        faders        = document.querySelectorAll('.fade-in'),
+        appearOnScroll= require('./modules/intersectionObserver')
 
 //intersection observer api fade-in
 faders.forEach(fader => {

@@ -4,12 +4,6 @@
 
 .history__container {
     padding: 4em 2em;
-    opacity: 0;
-    transition: opacity ease-in-out .3s;
-
-    &.reveal {
-        opacity: 1; //intersectional observer api
-    }
 }
 
 .history-section__heading {

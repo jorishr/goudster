@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx gulp watch",
-    "build": "npx gulp build"
+    "build": "npx gulp build",
+    "prod": "npx gulp prod"
   },
   "repository": {
     "type": "git",

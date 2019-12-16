@@ -1,3 +1,14 @@
+#company-history, 
+#first,
+#second,
+#third,
+#fourth, 
+#fifth,
+#sixt,
+#seventh {
+    scroll-behavior: smooth;
+}
+
 .intro, .credits {
     margin: 0 auto;
     width: 100%;
@@ -15,6 +26,28 @@
         color: $mainOrange;
         text-transform: uppercase;
     }
+}
+
+.timeline-links {
+    padding: 0 2em;
+    max-width: 650px;
+    margin: 0 auto 2em auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    a {
+        color: $mainOrange;
+        font-size: .8rem;
+        margin-top: 1em;
+    
+        &::after {
+            content:'|';
+            margin: 0 1em;
+        }
+    }
+
+
 }
 
 blockquote {
@@ -50,6 +83,7 @@ blockquote {
     padding: 1em;
     position: relative;
     margin: 0 auto 4em auto;
+    scroll-behavior: smooth;
     //intersection observer api fade-in
     opacity: 0;
     transition: opacity .35s ease-in;
