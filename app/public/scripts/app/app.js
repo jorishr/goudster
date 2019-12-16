@@ -16,7 +16,6 @@ const   toggle        = document.querySelector('#toggle'),
 
 //intersection observer api fade-in
 faders.forEach(fader => {
-    console.log(fader)
     appearOnScroll.observe(fader);
 })
 

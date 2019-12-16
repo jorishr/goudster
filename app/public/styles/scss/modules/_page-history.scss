@@ -1,11 +1,10 @@
-#company-history, 
-#first,
-#second,
-#third,
-#fourth, 
-#fifth,
-#sixt,
-#seventh {
+#history-first,
+#history-second,
+#history-third,
+#history-fourth, 
+#history-fifth,
+#history-sixt,
+#history-seventh {
     scroll-behavior: smooth;
 }
 
@@ -45,6 +44,10 @@
             content:'|';
             margin: 0 1em;
         }
+
+        &:last-child::after{
+            display: none;
+        }
     }
 
 
@@ -83,7 +86,6 @@ blockquote {
     padding: 1em;
     position: relative;
     margin: 0 auto 4em auto;
-    scroll-behavior: smooth;
     //intersection observer api fade-in
     opacity: 0;
     transition: opacity .35s ease-in;
