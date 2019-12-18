@@ -2,6 +2,7 @@
     height: 100vh;
     //see app.js: calc based on the actual size of the screen, without browsernav
     height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
 }
 
 //flash message after succesful contact form request
@@ -61,6 +62,9 @@
 */
 
 @media screen and (min-height: 650px){
+    .hero__content {
+        margin-top: 15%;
+    }
 
     .hero__cta {
         
