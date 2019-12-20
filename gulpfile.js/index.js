@@ -11,7 +11,7 @@ const   {series, watch, parallel} = require('gulp'),
 
 const   baseDir    = './app',
         styleFiles = baseDir + '/public/styles/**/*.scss',
-        jsFiles    = [baseDir + '/public/scripts/app/*.js', baseDir + '/public/scripts/vendor/*.js'],
+        jsFiles    = [baseDir + '/public/scripts/app/**/*.js', baseDir + '/public/scripts/vendor/*.js'],
         viewFiles  = baseDir + '/views';
 
 //  watch tasks

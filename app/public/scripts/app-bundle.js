@@ -104,7 +104,7 @@ eval("var toggle = document.querySelector('#toggle'),\n    extendMenu = document
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("//fade-in with intersection observer API\nvar appearOptions = {\n  threshold: 0,\n  rootMargin: '0px 0px -300px 0px'\n}; //the appearOnScroll function \n\nvar appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {\n  entries.forEach(function (entry) {\n    if (!entry.isIntersecting) {\n      return;\n    } else {\n      entry.target.classList.add('reveal');\n      appearOnScroll.unobserve(entry.target);\n    }\n  });\n}, appearOptions);\nmodule.exports = appearOnScroll;\n\n//# sourceURL=webpack:///./app/public/scripts/app/modules/intersectionObserver.js?");
+eval("//fade-in with intersection observer API\nvar appearOptions = {\n  threshold: 0,\n  rootMargin: '0px 0px -50px 0px'\n}; //the appearOnScroll function \n\nvar appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {\n  entries.forEach(function (entry) {\n    if (!entry.isIntersecting) {\n      return;\n    } else {\n      entry.target.classList.add('reveal');\n      appearOnScroll.unobserve(entry.target);\n    }\n  });\n}, appearOptions);\nmodule.exports = appearOnScroll;\n\n//# sourceURL=webpack:///./app/public/scripts/app/modules/intersectionObserver.js?");
 
 /***/ })
 
