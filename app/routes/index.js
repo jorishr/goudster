@@ -43,6 +43,10 @@ router.post('/send', [
     sanitizeBody('notifyOnReply').toBoolean()
 ],
 function(req, res) {
+  //spam protection
+  if(req.body.url !== ''){
+     return res.render('index', { msg: 'Hello Spambot!' });
+  }
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
     return res.render('contact', {
@@ -66,17 +70,20 @@ function(req, res) {
   <h3>Van:</h3>
   <ul>  
     <li>Naam: ${req.body.name}</li>
-    <li>Naam: ${req.body.subject}</li>
+    <li>Onderwerp: ${req.body.subject}</li>
     <li>Email: ${req.body.email}</li>
   </ul>
   <h3>Bericht</h3>
   <p>${req.body.message}</p>
+  <br>
+  <hr>
+  <p><em>Deze e-mail is automatisch gegenereerd door de Goudster website. Om de afzender te antwoorden: schrijf een nieuwe e-mail en gebruik het opgegeven e-mailadres.</em></p>
   `;
   
   let mailOptions = {
     from: '"Goudster Website" <mg@jorisraymaekers.com>', // sender address
     to: 'info@goudster.be', // list of receivers
-    subject: 'Vraag via de website', // Subject line
+    subject: `Vraag via de website: ${req.body.subject}`, // Subject line
     text: `${req.body.message}`, // plain text body
     html: output // html body
   };

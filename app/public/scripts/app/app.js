@@ -87,6 +87,8 @@ if(inputFields.length !== 0){
 };
 
 //scroll arrow: hide on scroll
-window.addEventListener('scroll', () => {
-    scrollArrow.style.display = 'none';
-})
+if(pageBody.classList.contains('landing')){
+    window.addEventListener('scroll', () => {
+        scrollArrow.style.display = 'none';
+    })
+};
