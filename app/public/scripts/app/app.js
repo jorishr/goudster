@@ -12,7 +12,8 @@ const   toggle        = document.querySelector('#toggle'),
         contactSubmit = document.querySelector('form.contact button'),
         subscribeBtn  = document.querySelector('.form__consent button'),
         faders        = document.querySelectorAll('.fade-in'),
-        appearOnScroll= require('./modules/intersectionObserver')
+        appearOnScroll= require('./modules/intersectionObserver'),
+        scrollArrow   = document.querySelector('.scroll-icon');
 
 //intersection observer api fade-in
 faders.forEach(fader => {
@@ -84,3 +85,8 @@ if(inputFields.length !== 0){
         })
     };        
 };
+
+//scroll arrow: hide on scroll
+window.addEventListener('scroll', () => {
+    scrollArrow.style.display = 'none';
+})

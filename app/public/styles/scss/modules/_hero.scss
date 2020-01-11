@@ -32,6 +32,11 @@
     to {opacity: 0}
 }
 
+//scroll arrow
+.scroll-icon {
+    display: none;
+}
+
 //HERO SECTION CONTENT
 .hero__cta {
     width: 100%;
@@ -223,7 +228,21 @@
         }
     }
 }
-
+@media screen and (min-width: 768px){
+    .scroll-icon {
+        display: block;
+        position: absolute;
+ 
+        left: 50%;
+        transform: translateX(-50%);
+        animation: moveArrow 1s infinite;
+    }
+    @keyframes moveArrow {
+        0% {bottom: 1em}
+        50% {bottom:1.35em}
+        100% {bottom:1em}
+    }
+}
 @media screen and (min-width: 1024px) {
     .hero__content {
         .hero__cta {
