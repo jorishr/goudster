@@ -52,3 +52,9 @@ h3 {
 .antispm {
     display: none;
 }
+
+noscript {
+    color: $mainOrange;
+    font-style: italic;
+    font-weight: bolder;
+}

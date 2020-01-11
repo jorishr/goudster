@@ -9,7 +9,7 @@
                 <p>Goudster wordt slechts enkele malen per jaar gebrouwen in beperkte hoeveelheden.</p>
                 <p>Wil je als eerste weten wanneer een nieuwe lading wordt geleverd, hou dan onze <a href="http://www.facebook.com/dehalensegoudster" target="_blank" rel="noopener noreferrer" title="Ga naar onze facebook pagina">FACEBOOK</a> in de gaten en ABONNEER JE op onze NIEUWSBRIEF.</p>
                 <h2>I. Online bestellen en zelf afhalen</h2>
-                <p>Gebruik ons contactformulier of stuur een mailtje naar <a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers">info@goudster.be</a></p>
+                <p>Gebruik ons contactformulier of stuur een mailtje naar <span class="span-email"></span><noscript>"Enable Javascript to see this content."</noscript></p>
                 <p>Geef aan hoeveel bakken je wil aankopen en vervolgens kan je op het afgesproken uur je bestelling komen ophalen in HALEN centrum.</p>
                 <p>De richtprijs voor een bak (24 flesjes van 33cl) is 43,5 EUR inclusief btw en leeggoed (8,5 EUR).</p>
                 <a class="btn" href="/contact" title="Contacteer de Verenigde Brouwers">online bestellen</a>
@@ -44,8 +44,8 @@ async defer>
                 map: map,
                 icon: props.icon
             });
-            console.log(props.icon)
-            console.log(marker)
+            //console.log(props.icon)
+            //console.log(marker)
             if(props.icon){marker.setIcon(props.icon)}
             if(props.name){
                 var infoWindow = new google.maps.InfoWindow({content: `<h1>${props.name}</h1`});
