@@ -1,4 +1,3 @@
-
 const   {series, watch, parallel} = require('gulp'),
         browserSync = require('browser-sync').create(),
         nodemon     = require('nodemon'),
@@ -49,7 +48,6 @@ function watchFiles(){
         open: "local",			
         proxy: "http://localhost:3000",	
         port: 4000,
-        //tunnel: 'goudster'
     });
     watch(styleFiles, series(styles, browserSyncReload));
     watch(jsFiles, jsCompile);
