@@ -3,9 +3,10 @@
     <div class="wrapper">
         <div class="label-text">
             <h1>CONTACTEER DE VERENIGDE BROUWERS</h1>
-            <p>Contacteer ons via het contactformulier of e-mail naar <a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers"> info@goudster.be</a></p>
+            <p>Contacteer ons via het contactformulier of e-mail naar <span class="span-email"></span><noscript>"Enable Javascript to see this content."</noscript></p>
         </div>
         <form class="contact" action="send" method="POST">
+            <p class="antispm"><input type="text" name="url">This field should be empty</p>
             <div class="form__inputs">
                 <div class="input-container">
                     <label  for="name">Naam</label>
@@ -20,9 +21,9 @@
                 <div class="input-container">
                     <label for="subject">Onderwerp</label>
                     <select name="subject" id="subject" title="Selecteer een onderwerp">
-                        <option value="order">bestelling</option>
-                        <option value="question">vraag</option>
-                        <option value="other">varia</option>
+                        <option value="bestelling">bestelling</option>
+                        <option value="vraag">vraag</option>
+                        <option value="varia">varia</option>
                     </select>
                 </div>
                 <div class="input-container">

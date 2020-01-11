@@ -13,7 +13,8 @@ const   toggle        = document.querySelector('#toggle'),
         subscribeBtn  = document.querySelector('.form__consent button'),
         faders        = document.querySelectorAll('.fade-in'),
         appearOnScroll= require('./modules/intersectionObserver'),
-        scrollArrow   = document.querySelector('.scroll-icon');
+        scrollArrow   = document.querySelector('.scroll-icon'),
+        spanEmails    = document.querySelectorAll('.span-email');
 
 //intersection observer api fade-in
 faders.forEach(fader => {
@@ -87,6 +88,13 @@ if(inputFields.length !== 0){
 };
 
 //scroll arrow: hide on scroll
-window.addEventListener('scroll', () => {
-    scrollArrow.style.display = 'none';
-})
+if(pageBody.classList.contains('landing')){
+    window.addEventListener('scroll', () => {
+        scrollArrow.style.display = 'none';
+    })
+};
+
+//email-address
+spanEmails.forEach(span => {
+    span.innerHTML = '<a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers">info@goudster.be</a>'
+});
