@@ -53,8 +53,19 @@ h3 {
     display: none;
 }
 
-noscript {
+noscript::before {
+    content: 'Om deze website te bezoeken moet je webbrowser Javascript ondersteunen en toestaan.';
     color: $mainOrange;
     font-style: italic;
     font-weight: bolder;
+    font-size: 1.25rem;
+    background-color: $mainBlack;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1em 0;
+    text-align: center;
 }
+
