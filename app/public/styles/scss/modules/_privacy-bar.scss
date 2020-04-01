@@ -1,19 +1,22 @@
 .privacy-bar {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
     width: 75%;
-    max-width: 350px;
-    height: 60%;
-    max-height: 300px;
+    max-width: 400px;
+    height: 70%;
 
     position: fixed;
-    bottom: 15%;
-    left: 5%;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 20;
 
     padding: 1em;
-    background-image: linear-gradient($mainOrange, $mainBlack);
+    background-image: linear-gradient($mainBlack, $mainOrange, $mainBlack);
     opacity: .95;
     border-radius: .25em;
 
@@ -24,15 +27,22 @@
     }
 
     p {
-        font-size: .75rem;
+        font-size: .9rem;
         line-height: 1.75;
     }
 
     .btn {
-        font-size: .75rem;
+        font-size: .9rem;
         margin-bottom: 1em;
-        padding: 1em;
+        padding: 1.5em 1em;
         width: unset;
+        max-width: 75%;
+        background-color: $darkOrange;
+
+        &--link {
+            border: 1px solid $lightYellow;
+            background-color: transparent;
+        }
     }
 }
 
