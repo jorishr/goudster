@@ -40,7 +40,8 @@ if(pageBody.classList.contains('landing')){
     if(cookieStorage){cookieBar.classList.add('hide')};
 
     let ageStorage = localStorage.getItem('ageConsent');
-    if(ageStorage){modal.classList.add('hide')};
+    let tmpAgeConsent = sessionStorage.getItem('tmpAgeConsent');
+    if(ageStorage || tmpAgeConsent){modal.classList.add('hide')};
 
     //close cookiebar functionality
     let closeBtns = Array.from(cookieClosers);
@@ -57,13 +58,19 @@ if(pageBody.classList.contains('landing')){
     //modal functionality
     modalClose.addEventListener('click', function(e){   
         modal.classList.remove('in-view');
-        if(checkbox.checked){localStorage.setItem('ageConsent', true);}       
+        sessionStorage.setItem('tmpAgeConsent', true);
+        if(checkbox.checked){
+            localStorage.setItem('ageConsent', true);
+        }       
     });
 }
 
 //form functionality
 if(inputFields.length !== 0){
-    if(pageBody.classList.contains('landing')){
+    if(
+        pageBody.classList.contains('landing') ||
+        pageBody.classList.contains('hasCaptureEmail')
+    ){
         subscribeBtn.disabled = true;
     }
     if(pageBody.classList.contains('contact')){
@@ -74,7 +81,11 @@ if(inputFields.length !== 0){
             let values = [];
             let checked = checkbox.checked;
             inputFields.forEach(field => values.push(field.value));
-            if(pageBody.classList.contains('landing')){
+            if(
+                pageBody.classList.contains('landing') ||
+                pageBody.classList.contains('hasCaptureEmail')
+            
+            ){
                 //there is more than one checkbox on this page
                 checked = document.querySelector('input[type="checkbox"].subscribe').checked
                 subscribeBtn.disabled = values.includes('') || !checked;

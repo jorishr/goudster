@@ -19,6 +19,7 @@
 
 .link:hover {
     transform: scale(1.025);
+    transition: transform .3s ease-in;
     cursor: pointer;
 }
 

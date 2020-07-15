@@ -103,7 +103,7 @@ function(req, res) {
 const mgDomain  = process.env.MAILGUN_DOMAIN;
 const mgHost    = process.env.MAILGUN_HOST;
 const mailgun   = require('mailgun-js')({ apiKey: process.env.MAILGUN_APIKEY, domain: mgDomain, host: mgHost });
-const list      = mailgun.lists(`email-lijst@${mgDomain}`);
+const list      = mailgun.lists(`mailing@${mgDomain}`);
 
 router.post('/subscribe', [
   check('email').isEmail().normalizeEmail()

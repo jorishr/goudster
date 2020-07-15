@@ -7,25 +7,51 @@
             </div>
             <div class="location__text">
                 <p>Goudster wordt slechts enkele malen per jaar gebrouwen in beperkte hoeveelheden.</p>
-                <p>Wil je als eerste weten wanneer een nieuwe lading wordt geleverd, hou dan onze <a href="http://www.facebook.com/dehalensegoudster" target="_blank" rel="noopener noreferrer" title="Ga naar onze facebook pagina">FACEBOOK</a> in de gaten en ABONNEER JE op onze NIEUWSBRIEF.</p>
-                <h2>I. Online bestellen en zelf afhalen</h2>
+                <p>Wil je als eerste weten wanneer een nieuwe lading wordt geleverd, hou dan onze <a href="http://www.facebook.com/dehalensegoudster" target="_blank" rel="noopener noreferrer" title="Ga naar onze facebook pagina">FACEBOOK <i class="fas fa-external-link-alt"></i></a> in de gaten en abonneer je op onze <a href="#abonneer" title="Abonneer op onze nieuwsbrief">NIEUWSBRIEF <i class="fas fa-user-plus"></i></a>.</p>
+                <h2>Horeca en drinkcentra</h2>
+                <p>Goudster is verkrijgbaar bij verschillende drinkcentra en horecazaken in de regio.</p>
+                <p>Klik op logo's op de kaart of zoom in voor meer details.</p>      
+            </div>
+            <div class="location__map-container">
+                <div id="map">
+                </div>                
+            </div>
+            <div class="location__text">
+                <h2>Online bestellen en zelf afhalen</h2>
                 <p>Gebruik ons contactformulier of stuur een mailtje naar <span class="span-email"></span><noscript>"Enable Javascript to see this content."</noscript></p>
                 <p>Geef aan hoeveel bakken je wil aankopen en vervolgens kan je op het afgesproken uur je bestelling komen ophalen in HALEN centrum.</p>
                 <p>De richtprijs voor een bak (24 flesjes van 33cl) is 43,5 EUR inclusief btw en leeggoed (8,5 EUR).</p>
                 <a class="btn" href="/contact" title="Contacteer de Verenigde Brouwers">online bestellen</a>
-                <h2>II. Horeca en drinkcentra</h2>
-                <p>Goudster is ook verkrijgbaar bij verschillende drinkcentra en horecazaken in de regio.</p>
-                <p>Klik op logo's op de kaart of zoom in voor meer details.</p>
-        
-            </div>
-            <div class="location__map-container">
-                <div id="map">
-
-                </div>                
             </div>
         </div>
     </div>
+    <!--    newsletter section   -->
+    <section class="newsletter-section">
+        <div class="newsletter-section__heading heading" id="abonneer">
+            <i class="fas fa-newspaper fa-4x"></i>
+            <h2>Goudster Nieuws</h2>
+            <h3>Blijf op de hoogte van het laatste nieuws over Goudster en ontvang als eerste speciale kortingen!</h3>
+            <hr>
+        </div>
+        <div class="newsletter__input wrapper">
+            <form class="newsletter" action="subscribe" method="POST">
+                <input name="email" type="email" placeholder="Jouw e-mail adres..." 
+                    title="Gebruik een geldig e-mailadres" required>
+                <div class="form__consent">
+                    <p>Ik wens sporadisch e-mails te ontvangen van de Verenigde Brouwers. <a href="/beleid" target="_blank" title="Goudster privacy-beleid">Lees meer over ons privacy-beleid.</a></p>
+                    <button class="btn" type="submit">Aanmelden</button>
+                    <div class="form__consent-container">
+                        <label for="checkbox" class="checkbox-container">
+                            <input class="subscribe" type="checkbox" id="checkbox" name="consent" required>
+                            <span class="checkbox-custom"></span>
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
 </div>
+<script>document.body.classList.add('hasCaptureEmail')</script>
 <!-- Google Maps Code -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRHk2FKTvY7GWFoSJyLusxvfnJZAcTteo&language=nl&region=BE&callback=initMap"
 async defer>
