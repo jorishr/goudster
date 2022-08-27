@@ -37,6 +37,8 @@ NOTE: both dev and production version require access to correct .env variables
 - Bottom menu on mobile
 - Company history timeline
 
+# deployment to VPS via bash script
+
 # credits
 
 Designed in AdobeXD and build with VS Code by Joris Raymaekers 
