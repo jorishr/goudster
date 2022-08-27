@@ -1,6 +1,7 @@
 #
 dist
 *.crt
+.vscode
 # Logs
 logs
 *.log
