@@ -9,9 +9,7 @@ pwd
 npm install --omit=dev
 npm run build
 echo "NPM install and build completed"
-echo "Copying new files..."
-pwd
-ls -al
+echo "Copying build files to correct location..."
 cp -r node_modules /var/www/goudster.be/
 cp -r dist /var/www/goudster.be/
 echo "Files copied"
