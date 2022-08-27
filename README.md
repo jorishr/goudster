@@ -38,6 +38,7 @@ NOTE: both dev and production version require access to correct .env variables
 - Company history timeline
 
 # deployment to VPS via bash script
+`ssh $USERNAME@$HOST 'bash -s' < deploy.sh`
 
 # credits
 
