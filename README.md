@@ -1,48 +1,48 @@
-# goudster
+## Goudster
 
-Commercial website for the beer Goudster from Halen, Belgium.
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fgoudster.be)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/jorishr/goudster)
+![node-current](https://img.shields.io/node/v/node-sass)
 
-Website was fully hand-coded.
+Commercial website for the beer brand Goudster from Halen, Belgium.
 
-# stack
+[Designed in AdobeXD](https://xd.adobe.com/view/db65a1aa-f720-458b-4fc2-a8a8282d2ee3-ad54/) and built with care in NodeJs by Joris Raymaekers.
 
-HTML(ejs), CSS(sass), NodeJs (ExpressJs).
+See more @ [liondigits.com](https://www.liondigits.com)
 
-# taskrunner build tool
+- [Goudster](#goudster)
+- [Tech stack](#tech-stack)
+  - [Front end features](#front-end-features)
+  - [Backend features](#backend-features)
+  - [Task runner and build tools](#task-runner-and-build-tools)
 
-Gulp with browser-sync and nodemon. See package.json for list of all dev dependencies.
-- `npm run dev`
-- `npm run build`
+## Tech stack
 
-Production version can be run using `npx nodemon` in dist folder.
-
-NOTE: both dev and production version require access to correct .env variables
-
-# website functionality
-
-- Newsletter signup via Mailgun API.
-- Contactform via Nodemailer and Mailgun.
-- Custom Map via Google Maps API
-
-# compliance
-
-- GDPR compliant forms (active consent before button can be clicked)
-- Modal pop-up on page load for active age consent (alcoholic beverage)
-- Cookie-bar pop-up with link to privacy-policy
-- User settings are stored in browser localStorage
-
-# notable css features
+### Front end features
 
 - Responsive design with mobile first approach
 - Bottom menu on mobile
-- Company history timeline
+- Custom built company history timeline
+- GDPR compliant forms with active consent before button can be clicked
+- Modal pop-up on page load for active age consent
+- Cookie-bar pop-up with link to privacy-policy
+- User settings are stored in browser localStorage
+- Custom Map via Google Maps API
 
-# deployment to VPS via bash script
-`ssh $USERNAME@$HOST 'bash -s' < deploy.sh`
+### Backend features
 
-# credits
+- ExpressJS webserver
+- Server side HTML rendering with EJS
+- Newsletter sign up handling via Mailgun API.
+- Contact form handling via Nodemailer and Mailgun API.
 
-Designed in AdobeXD and build with VS Code by Joris Raymaekers 
-See more @ liondigits.com
+### Task runner and build tools
 
-https://xd.adobe.com/view/db65a1aa-f720-458b-4fc2-a8a8282d2ee3-ad54/
+Gulp task runner with browser-sync and nodemon. CSS written in SASS. JavaScript compilation with Webpack.
+
+_Dev notes_:
+
+- both development and production versions require access to the correct environment variables.
+- the bash deploy script is meant to be run on a VPS or dedicated build server
+- As of december 2023 dev dependencies are updated to work with with Node v20.
+- see [changelog](CHANGELOG.md) for version history
