@@ -1,0 +1,1 @@
+{"version":3,"file":"vendor-bundle.js","mappings":";;;;;AAAA","sources":["webpack://goudster/./app/public/scripts/vendor/vendor.js"],"sourcesContent":["console.log('hello from vendor.js');"],"names":[],"sourceRoot":""}

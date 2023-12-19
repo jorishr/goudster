@@ -1,14 +1,14 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   entry: {
-    app: './app/public/scripts/app/app.js',
-    vendor: './app/public/scripts/vendor/vendor.js'
+    app: "./app/public/scripts/app/app.js",
+    vendor: "./app/public/scripts/vendor/vendor.js",
   },
   output: {
-    path: path.resolve(__dirname, './app/public/scripts'),
-    filename: '[name]-bundle.js'
+    path: path.resolve(__dirname, "./app/public/scripts"),
+    filename: "[name]-bundle.js",
   },
   module: {
     rules: [
@@ -16,12 +16,14 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      }
-    ]
-  }
+            presets: ["@babel/preset-env"],
+            plugins: ["@babel/plugin-syntax-dynamic-import"],
+          },
+        },
+      },
+    ],
+  },
+  devtool: "cheap-module-source-map",
 };

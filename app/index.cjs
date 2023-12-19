@@ -6,7 +6,7 @@ const createError = require("http-errors"),
   bodyParser = require("body-parser"),
   path = require("path"),
   logger = require("morgan"),
-  indexRouter = require("./routes/index"),
+  indexRouter = require("./routes/index.cjs"),
   port = process.env.SERVER_PORT,
   helmet = require("helmet");
 
@@ -26,6 +26,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //security
 app.use(helmet());
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "script-src 'self' 'unsafe-inline'");
+  next();
+});
 
 //routes
 app.use("/", indexRouter);
