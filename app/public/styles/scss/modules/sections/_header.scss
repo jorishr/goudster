@@ -1,0 +1,273 @@
+/*
+    ##########
+    BASE STYLE
+    ##########
+
+- mobile first approach: base style + media query
+- base style gets for all pages
+- landing class gets added through js on homepage only
+*/
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    position: relative;
+
+    a.logo {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      i {
+        margin: 2em 0 0 1em;
+      }
+
+      img {
+        width: 125px;
+        height: 50px;
+        margin-top: 1em;
+        margin-left: 2em;
+        justify-self: flex-start;
+      }
+    }
+
+    ul.menu {
+      display: flex;
+      margin-right: 2em;
+    }
+
+    li {
+      display: inline-block;
+      padding: 1em 0;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    li.menu__link + li.menu__link {
+      margin-left: 1.5em;
+    }
+
+    //hide link elems on mobile/lg
+    .hide-mobile {
+      display: none;
+    }
+
+    //toggle
+    ul.menu li:last-child {
+      padding: 0.5em 0 0 1em;
+    }
+
+    //link styles
+    ul a {
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+    }
+
+    ul a i {
+      padding-right: 1em;
+    }
+
+    ul li#toggle a i {
+      padding-right: 0;
+    }
+
+    li:hover,
+    li:active {
+      transform: scale(1.05);
+    }
+
+    //menu-collapse
+    ul.menu__collapse {
+      position: absolute;
+      top: 50px;
+      right: 2em;
+      z-index: 10;
+
+      background: linear-gradient($darkOrange, $mainBlack);
+      border-radius: 0.25em;
+
+      padding: 2em;
+      opacity: 0;
+      transform: scale(1, 0);
+      transition: all ease-in 0.3s;
+      transform-origin: top;
+    }
+
+    ul.menu__collapse.visible {
+      opacity: 0.95;
+      transform: scale(1, 1);
+    }
+
+    ul.menu__collapse li {
+      display: block;
+      padding-bottom: 1em;
+    }
+
+    ul.menu__collapse.visible {
+      opacity: 0.95;
+      transform: scale(1, 1);
+    }
+
+    ul.menu__collapse li {
+      display: block;
+      padding-bottom: 1em;
+    }
+
+    //online shop link disabled for now
+    ul.menu__collapse li#shop {
+      opacity: 0.45;
+    }
+
+    ul.menu__collapse li#shop:hover,
+    ul.menu__collapse li#shop a:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .navbar {
+      ul.menu li.hide-mobile {
+        display: block;
+      }
+
+      ul.menu__collapse li.hide-lg {
+        display: none;
+      }
+    }
+  }
+}
+
+/*
+    ##############
+    HOMEPAGE STYLE
+    ##############
+    
+- menu at the bottom on mobile, top on lg screens
+- 'landing' class gets added through js on the homepage
+*/
+
+header.landing {
+  background: linear-gradient($mainBlack, $darkOrange);
+
+  position: absolute;
+  bottom: 0;
+  height: 20vh;
+
+  z-index: 5;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  .navbar {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    a.logo {
+      display: none;
+    }
+
+    //link styles
+    ul a {
+      flex-direction: column;
+    }
+
+    ul a i {
+      padding-right: 0;
+      padding-bottom: 1em;
+    }
+
+    ul li:last-of-type a i {
+      padding-bottom: 0;
+    }
+
+    li {
+      display: block;
+      transition: transform 0.2s ease-in-out;
+      font-size: 0.8rem;
+    }
+
+    //correct margin inherited from base style
+    ul.menu {
+      margin-right: 0;
+      margin-bottom: 0.5em;
+    }
+
+    //menu-collapse
+    ul.menu__collapse {
+      top: -180px;
+      right: 2em;
+      transform-origin: bottom;
+      padding: 1em;
+    }
+
+    ul.menu__collapse a {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    ul.menu__collapse a i {
+      padding-left: 1em;
+      order: 1;
+    }
+
+    ul.menu__collapse li.hide-lg {
+      display: none;
+    }
+  }
+
+  //media-query
+
+  @media screen and (min-width: 576px) {
+    position: inherit;
+    background: inherit;
+    align-items: flex-start;
+    min-height: 25px;
+
+    .navbar {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+
+      ul li {
+        font-size: 1rem;
+        padding: 1em 0;
+      }
+
+      li + li {
+        margin-left: 2em;
+      }
+
+      ul.menu {
+        margin-right: 2em;
+      }
+
+      ul.menu__collapse {
+        position: absolute;
+        top: 55px;
+        transform-origin: top;
+        background: linear-gradient($darkOrange, $mainBlack);
+      }
+
+      ul a {
+        flex-direction: row;
+      }
+
+      ul a i {
+        padding-right: 1em;
+      }
+    }
+  }
+}

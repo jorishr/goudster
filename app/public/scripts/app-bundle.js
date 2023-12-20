@@ -15,11 +15,10 @@ __webpack_require__.r(__webpack_exports__);
 function setupConsent() {
   var modalClose = document.querySelector('.modal button[type="submit"]'),
     modal = document.querySelector(".modal"),
-    cookieBar = document.querySelector(".privacy-bar"),
-    cookieClosers = document.querySelectorAll(".privacy-bar a, .privacy-bar i"),
+    cookieConsentBar = document.querySelector(".cookie-consent"),
+    cookieConsentBtn = document.querySelector("#cookie-consent"),
     pageBody = document.querySelector("body"),
     header = document.querySelector("header"),
-    acceptBtn = document.querySelector("#cookie-consent"),
     checkbox = document.querySelector('input[type="checkbox"]');
 
   //landing page functionality
@@ -27,24 +26,19 @@ function setupConsent() {
     header.classList.add("landing");
     var cookieStorage = localStorage.getItem("cookieConsent");
     if (cookieStorage) {
-      cookieBar.classList.add("hide");
+      cookieConsentBar.classList.add("cookie-consent--hide");
+      cookieConsentBar.classList.remove("cookie-consent--show");
     }
+    cookieConsentBtn.addEventListener("click", function (e) {
+      cookieConsentBar.classList.remove("cookie-consent--show");
+      cookieConsentBar.classList.add("cookie-consent--hide");
+      localStorage.setItem("cookieConsent", true);
+    });
     var ageStorage = localStorage.getItem("ageConsent");
     var tmpAgeConsent = sessionStorage.getItem("tmpAgeConsent");
     if (ageStorage || tmpAgeConsent) {
       modal.classList.add("hide");
     }
-
-    //close cookie consent bar functionality
-    var closeBtns = Array.from(cookieClosers);
-    closeBtns.forEach(function (btn) {
-      btn.addEventListener("click", function (e) {
-        cookieBar.classList.remove("in-view");
-      });
-    });
-    acceptBtn.addEventListener("click", function () {
-      localStorage.setItem("cookieConsent", true);
-    });
 
     //modal functionality
     modalClose.addEventListener("click", function (e) {

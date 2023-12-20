@@ -1,11 +1,10 @@
 export default function setupConsent() {
   const modalClose = document.querySelector('.modal button[type="submit"]'),
     modal = document.querySelector(".modal"),
-    cookieBar = document.querySelector(".privacy-bar"),
-    cookieClosers = document.querySelectorAll(".privacy-bar a, .privacy-bar i"),
+    cookieConsentBar = document.querySelector(".cookie-consent"),
+    cookieConsentBtn = document.querySelector("#cookie-consent"),
     pageBody = document.querySelector("body"),
     header = document.querySelector("header"),
-    acceptBtn = document.querySelector("#cookie-consent"),
     checkbox = document.querySelector('input[type="checkbox"]');
 
   //landing page functionality
@@ -14,26 +13,21 @@ export default function setupConsent() {
 
     let cookieStorage = localStorage.getItem("cookieConsent");
     if (cookieStorage) {
-      cookieBar.classList.add("hide");
+      cookieConsentBar.classList.add("cookie-consent--hide");
+      cookieConsentBar.classList.remove("cookie-consent--show");
     }
+
+    cookieConsentBtn.addEventListener("click", function (e) {
+      cookieConsentBar.classList.remove("cookie-consent--show");
+      cookieConsentBar.classList.add("cookie-consent--hide");
+      localStorage.setItem("cookieConsent", true);
+    });
 
     let ageStorage = localStorage.getItem("ageConsent");
     let tmpAgeConsent = sessionStorage.getItem("tmpAgeConsent");
     if (ageStorage || tmpAgeConsent) {
       modal.classList.add("hide");
     }
-
-    //close cookie consent bar functionality
-    let closeBtns = Array.from(cookieClosers);
-    closeBtns.forEach((btn) => {
-      btn.addEventListener("click", function (e) {
-        cookieBar.classList.remove("in-view");
-      });
-    });
-
-    acceptBtn.addEventListener("click", function () {
-      localStorage.setItem("cookieConsent", true);
-    });
 
     //modal functionality
     modalClose.addEventListener("click", function (e) {

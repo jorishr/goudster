@@ -1,0 +1,176 @@
+.modal {
+  display: none;
+
+  background-color: $darkOrange;
+  opacity: 0.95;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index: 50;
+
+  .modal__img,
+  .modal__text {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .modal__img {
+    padding: 2em 2em 0 2em;
+  }
+
+  .modal__img img {
+    width: 100%;
+  }
+
+  .modal__text {
+    margin-bottom: 2em;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+
+    label span {
+      display: block;
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+
+    label span.store {
+      width: 100%;
+      font-size: 1rem;
+      margin-top: 1em;
+      margin-bottom: 0.75em;
+    }
+
+    label .form__btns {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    button.btn {
+      background-color: #2a8c00;
+      color: $backgroundWhite;
+      text-transform: uppercase;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-right: 1em;
+    }
+
+    button:hover {
+      background-color: #2a8c00;
+    }
+
+    a {
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 1em 1.25em;
+      text-transform: uppercase;
+      color: $backgroundWhite;
+    }
+
+    a:hover {
+      background-color: $mainOrange;
+    }
+
+    //custom checkbox
+    input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+
+      cursor: pointer;
+    }
+
+    .checkbox-custom {
+      display: block;
+      position: relative;
+      height: 25px;
+      width: 25px;
+      background-color: $backgroundWhite;
+      margin: 0 auto;
+    }
+
+    .checkbox-custom:hover {
+      background-color: $mainGrey;
+      cursor: pointer;
+    }
+
+    input:checked ~ .checkbox-custom {
+      background-color: $mainGrey;
+    }
+
+    .checkbox-custom::after {
+      display: none;
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 4px;
+
+      width: 5px;
+      height: 10px;
+      border: solid $backgroundWhite;
+      border-width: 0 4px 4px 0;
+      /* border-radius: 8px; */
+      transform: rotate(45deg);
+    }
+
+    input:checked ~ .checkbox-custom::after {
+      display: block;
+    }
+  }
+}
+
+.modal.in-view {
+  display: block;
+}
+
+//media query
+
+@media screen and (min-width: 425px) {
+  .modal {
+    .modal__img img {
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (min-width: 786px) {
+  .modal {
+    .modal__img,
+    .modal__text {
+      max-width: 500px;
+    }
+
+    .modal__text {
+      font-size: 1rem;
+    }
+
+    .form-row {
+      label span {
+        font-size: 1.25rem;
+        margin-bottom: 1em;
+      }
+
+      label span.store {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+//if age consent is set in localStorage, modal is hidden
+.modal.hide {
+  display: none;
+}
