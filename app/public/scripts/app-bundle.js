@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ setupConsent)
 /* harmony export */ });
 function setupConsent() {
-  var modalClose = document.querySelector('.modal button[type="submit"]'),
+  var modalClose = document.querySelector('.modal__form button[type="submit"]'),
     modal = document.querySelector(".modal"),
     cookieConsentBar = document.querySelector(".cookie-consent"),
     cookieConsentBtn = document.querySelector("#cookie-consent"),
@@ -37,12 +37,12 @@ function setupConsent() {
     var ageStorage = localStorage.getItem("ageConsent");
     var tmpAgeConsent = sessionStorage.getItem("tmpAgeConsent");
     if (ageStorage || tmpAgeConsent) {
-      modal.classList.add("hide");
+      modal.classList.remove("modal--show");
     }
 
     //modal functionality
     modalClose.addEventListener("click", function (e) {
-      modal.classList.remove("in-view");
+      modal.classList.remove("modal--show");
       sessionStorage.setItem("tmpAgeConsent", true);
       if (checkbox.checked) {
         localStorage.setItem("ageConsent", true);

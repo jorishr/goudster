@@ -15,6 +15,11 @@
     border: 1px $lightYellow solid;
   }
 
+  &--light {
+    background-color: $lightYellow;
+    color: $darkOrange;
+  }
+
   &:hover {
     transform: scale(1.0125);
     cursor: pointer;

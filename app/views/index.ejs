@@ -1,29 +1,8 @@
 <%- include('modules/_header'); %>
+<!-- import consent components -->
+<%- include('modules/_cookie-consent'); %> <%- include('modules/_age-consent');
+%>
 <div class="page-content">
-  <%- include('modules/_cookie-consent'); %>
-  <!--    modal section   -->
-  <div class="modal in-view">
-    <noscript class="noscript"></noscript>
-    <div class="modal__img">
-      <img src="/images/logo_goudster.gif" alt="Goudster Logo" />
-    </div>
-    <div class="modal__text">
-      <p>Bier met liefde gebrouwen, drink je met verstand</p>
-      <p>Deel geen content van deze site met personen jonger dan 18 jaar</p>
-    </div>
-    <div class="form-row">
-      <label for="consent" class="checkbox-label">
-        <span>Bent u meerderjarig?</span>
-        <div class="form__btns">
-          <button type="submit" class="btn">Ja</button>
-          <a class="btn" href="http://google.com">Nee</a>
-          <span class="store">Onthou mijn keuze</span>
-        </div>
-        <input type="checkbox" id="consent" name="consent" />
-        <span class="checkbox-custom"></span>
-      </label>
-    </div>
-  </div>
   <!--    hero section   -->
   <% if(msg !== '') { %>
   <div class="flash-msg-container">
