@@ -1,18 +1,11 @@
+import appearOnScroll from "./modules/intersectionObserver.js";
+import setupForms from "./modules/form.js";
+import setupConsent from "./modules/consent.js";
+
 const toggle = document.querySelector("#toggle"),
   extendMenu = document.querySelector(".menu__collapse"),
-  modalClose = document.querySelector('.modal button[type="submit"]'),
-  modal = document.querySelector(".modal"),
-  cookieBar = document.querySelector(".privacy-bar"),
-  cookieClosers = document.querySelectorAll(".privacy-bar a, .privacy-bar i"),
   pageBody = document.querySelector("body"),
-  header = document.querySelector("header"),
-  acceptBtn = document.querySelector("#cookie-consent"),
-  checkbox = document.querySelector('input[type="checkbox"]'),
-  inputFields = document.querySelectorAll("input[required], textarea"),
-  contactSubmit = document.querySelector("form.contact button"),
-  subscribeBtn = document.querySelector(".form__consent button"),
   faders = document.querySelectorAll(".fade-in"),
-  appearOnScroll = require("./modules/intersectionObserver"),
   scrollArrow = document.querySelector(".scroll-icon"),
   spanEmails = document.querySelectorAll(".span-email");
 
@@ -32,76 +25,6 @@ let vh = window.innerHeight * 0.01;
 //set the value in the --vh custom property to the root of the document
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 
-//landing page functionality
-if (pageBody.classList.contains("landing")) {
-  header.classList.add("landing");
-
-  let cookieStorage = localStorage.getItem("cookieConsent");
-  if (cookieStorage) {
-    cookieBar.classList.add("hide");
-  }
-
-  let ageStorage = localStorage.getItem("ageConsent");
-  let tmpAgeConsent = sessionStorage.getItem("tmpAgeConsent");
-  if (ageStorage || tmpAgeConsent) {
-    modal.classList.add("hide");
-  }
-
-  //close cookiebar functionality
-  let closeBtns = Array.from(cookieClosers);
-  closeBtns.forEach((btn) => {
-    btn.addEventListener("click", function (e) {
-      cookieBar.classList.remove("in-view");
-    });
-  });
-
-  acceptBtn.addEventListener("click", function () {
-    localStorage.setItem("cookieConsent", true);
-  });
-
-  //modal functionality
-  modalClose.addEventListener("click", function (e) {
-    modal.classList.remove("in-view");
-    sessionStorage.setItem("tmpAgeConsent", true);
-    if (checkbox.checked) {
-      localStorage.setItem("ageConsent", true);
-    }
-  });
-}
-
-//form functionality
-if (inputFields.length !== 0) {
-  if (
-    pageBody.classList.contains("landing") ||
-    pageBody.classList.contains("hasCaptureEmail")
-  ) {
-    subscribeBtn.disabled = true;
-  }
-  if (pageBody.classList.contains("contact")) {
-    contactSubmit.disabled = true;
-  }
-  for (let i = 0; i < inputFields.length; i++) {
-    inputFields[i].addEventListener("input", function () {
-      let values = [];
-      let checked = checkbox.checked;
-      inputFields.forEach((field) => values.push(field.value));
-      if (
-        pageBody.classList.contains("landing") ||
-        pageBody.classList.contains("hasCaptureEmail")
-      ) {
-        //there is more than one checkbox on this page
-        checked = document.querySelector(
-          'input[type="checkbox"].subscribe'
-        ).checked;
-        subscribeBtn.disabled = values.includes("") || !checked;
-      }
-      if (pageBody.classList.contains("contact")) {
-        contactSubmit.disabled = values.includes("") || !checked;
-      }
-    });
-  }
-}
-
 //scroll arrow: hide on scroll
 if (pageBody.classList.contains("landing")) {
   window.addEventListener("scroll", () => {
@@ -109,8 +32,11 @@ if (pageBody.classList.contains("landing")) {
   });
 }
 
-//email-address
+//set email-address
 spanEmails.forEach((span) => {
   span.innerHTML =
     '<a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers">info@goudster.be</a>';
 });
+
+setupForms();
+setupConsent();

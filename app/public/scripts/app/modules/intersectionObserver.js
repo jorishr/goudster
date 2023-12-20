@@ -20,4 +20,4 @@ const appearOnScroll = new IntersectionObserver(function (
 },
 appearOptions);
 
-module.exports = appearOnScroll;
+export default appearOnScroll;

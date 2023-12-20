@@ -13,6 +13,7 @@ import uglify from "gulp-uglify";
 import terser from "gulp-terser";
 import { deleteAsync } from "del";
 import imageMin from "gulp-imagemin";
+import webpackConfig from "./webpack.config.js";
 
 const sass = gulpSass(dartSass);
 
@@ -102,7 +103,7 @@ function compileStyles() {
 ######################
 */
 function compileJs(cb) {
-  webpack(require("../webpack.config"), function (err, stats) {
+  webpack(webpackConfig, function (err, stats) {
     if (err) {
       console.log(err.toString());
     }
