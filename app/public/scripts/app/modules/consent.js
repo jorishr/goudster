@@ -32,12 +32,12 @@ export default function setupConsent() {
     }
 
     //modal functionality
-    modalClose.addEventListener("click", function (e) {
+    /*     modalClose.addEventListener("click", function (e) {
       modal.classList.remove("modal--show");
       sessionStorage.setItem("tmpAgeConsent", true);
       if (checkbox.checked) {
         localStorage.setItem("ageConsent", true);
       }
-    });
+    }); */
   }
 }

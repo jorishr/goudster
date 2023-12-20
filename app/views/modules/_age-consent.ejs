@@ -1,4 +1,4 @@
-<div class="modal modal--show">
+<div class="modal <%= removeModal ? '' : 'modal--show' %>">
   <div class="modal__content-container">
     <noscript class="noscript"></noscript>
     <div class="modal__heading">
@@ -21,7 +21,7 @@
         </p>
       </div>
     </div>
-    <form action="/" method="post" class="modal__form">
+    <form action="/consent" method="POST" class="modal__form">
       <p class="modal__form__instruction">Wanneer ben jij geboren?</p>
       <div class="modal__form__input-group">
         <div class="modal__form__input-container">
