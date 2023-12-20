@@ -142,11 +142,13 @@ router.post(
 
     list.members().create(user, function (err, data) {
       if (err) {
-        res.render("error", { error: err });
+        res.render("error", { message: err, error: err });
       }
       console.log(data);
       res.render("index", {
+        title: "Homepage",
         msg: "Je bent nu geabonneerd op de Goudster nieuwsbrief!",
+        removeModal: true,
       });
     });
   }

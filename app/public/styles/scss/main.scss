@@ -2,7 +2,7 @@
 @import "modules/variables";
 @import "modules/mixins";
 @import "modules/global";
-@import "modules/link-section";
+@import "modules/section-testimonial";
 @import "modules/page-history";
 @import "modules/page-info";
 @import "modules/page-location";
@@ -13,10 +13,10 @@
 @import "modules/components/modal";
 @import "modules/components/cookie-consent";
 @import "modules/components/btns";
+@import "modules/components/heading";
 @import "modules/sections/header";
 @import "modules/sections/hero";
-@import "modules/section-testimonial";
-@import "modules/section-heading";
+@import "modules/sections/link-section";
 @import "modules/sections/history";
 @import "modules/sections/newsletter";
 @import "modules/sections/footer";

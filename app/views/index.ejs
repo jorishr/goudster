@@ -58,7 +58,7 @@
           <i class="fas fa-user-circle fa-3x"></i>
           <p class="quote">
             Met de herlancering van de legendarische Goudster pikken we een
-            gewaardeerde Halens traditie weer op. De oude mouterijtoren is een
+            gewaardeerde Halense traditie weer op. De oude mouterijtoren is een
             bekend referentiepunt in de stad en dankzij de samenwerking met
             brouwerij Anders heeft Halen opnieuw wat het verdient: z'n eigen
             authentiek biermerk.
@@ -73,15 +73,15 @@
   </section>
   <!--    link section   -->
   <section class="link-section">
-    <div class="links wrapper">
+    <div class="link-section__content-container wrapper">
       <a
-        class="link link__map fade-in"
+        class="link-section__link link__map"
         title="Waar Goudster proeven"
         href="/waar-proeven"
       >
-        <div class="link-section__heading heading">
+        <div class="link-section__link__content heading">
           <i class="fas fa-map-marked-alt fa-4x"></i>
-          <h2>Waar proeven</h2>
+          <h2>Proeven</h2>
           <h3>
             Ontdek de zaken waar de echte "stèr" wordt geschonken of zoek een
             drinkcenter in uw buurt.
@@ -90,14 +90,17 @@
         </div>
       </a>
       <a
-        class="link link__partners fade-in"
+        class="link-section__link link__partners fade-in"
         title="Info voor horeca"
         href="/info"
       >
-        <div class="link-section__heading heading">
+        <div class="link-section__link__content heading">
           <i class="far fa-handshake fa-4x"></i>
           <h2>Info voor Café's en Verdelers</h2>
-          <h3>Goudster van 't vat in uw zaak? Contacteer ons nu!</h3>
+          <h3>
+            Goudster van 't vat in uw zaak? Dat kan! Klik hier en lees meer over
+            ons aanbod en neem dan snel contact op.
+          </h3>
           <hr />
         </div>
       </a>
@@ -105,13 +108,13 @@
   </section>
   <!--    history section   -->
   <section class="history">
-    <div class="history__container wrapper">
+    <div class="history__content-container wrapper">
       <a
-        class="link link__history fade-in"
+        class="history__link"
         title="Goudster heden en verleden"
         href="/ons-verhaal"
       >
-        <div class="history-section__heading heading">
+        <div class="history__heading heading">
           <i class="fas fa-history fa-4x"></i>
           <h2>Ons Verhaal</h2>
           <h3>
@@ -122,25 +125,25 @@
           <hr />
         </div>
       </a>
-      <div class="image-link-container">
-        <a href="/ons-verhaal" title="Goudster heden en verleden">
+      <div class="history__image-container">
+        <figure>
           <img
             src="/images/collectie_historiek_1.jpg"
             alt="Collage Klassiek Goudster Foto's"
           />
-        </a>
-        <a href="/ons-verhaal" title="Goudster heden en verleden">
+        </figure>
+        <figure>
           <img
             src="/images/brouwerij_band_2.jpg"
             alt="Nieuwe Goudster rolt van de band"
           />
-        </a>
+        </figure>
       </div>
     </div>
   </section>
   <!--    newsletter section   -->
-  <section class="newsletter-section">
-    <div class="newsletter-section__heading heading">
+  <section class="newsletter">
+    <div class="newsletter__heading heading">
       <i class="fas fa-newspaper fa-4x"></i>
       <h2>Goudster Nieuws</h2>
       <h3>
@@ -149,35 +152,26 @@
       </h3>
       <hr />
     </div>
-    <div class="newsletter__input wrapper">
-      <form class="newsletter" action="subscribe" method="POST">
+    <div class="newsletter__input-container wrapper">
+      <form action="subscribe" method="post" class="newsletter__form">
         <input
+          class="newsletter__form__input-email"
           name="email"
           type="email"
           placeholder="Jouw e-mail adres..."
           title="Gebruik een geldig e-mailadres"
           required
         />
-        <div class="form__consent">
-          <p>
+        <div class="newsletter__form__consent-container">
+          <p class="newsletter__form__consent-text">
             Ik wens sporadisch e-mails te ontvangen van de Verenigde Brouwers.
             <a href="/beleid" target="_blank" title="Goudster privacy-beleid"
               >Lees meer over ons privacy-beleid.</a
             >
           </p>
-          <button class="btn" type="submit">Aanmelden</button>
-          <div class="form__consent-container">
-            <label for="checkbox" class="checkbox-container">
-              <input
-                class="subscribe"
-                type="checkbox"
-                id="checkbox"
-                name="consent"
-                required
-              />
-              <span class="checkbox-custom"></span>
-            </label>
-          </div>
+          <button class="btn newsletter__form__btn" type="submit">
+            Aanmelden
+          </button>
         </div>
       </form>
     </div>

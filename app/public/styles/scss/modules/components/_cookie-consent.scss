@@ -13,14 +13,8 @@
   width: 100%;
 
   padding: 2em 1em;
-  background-image: linear-gradient($mainBlack, $mainOrange, $mainBlack);
-  opacity: 0.95;
+  background-color: $mainBlack;
   border-radius: 5px 5px 0 0;
-
-  @include tablet_md {
-    bottom: unset;
-    top: 0;
-  }
 
   &--show {
     display: flex;

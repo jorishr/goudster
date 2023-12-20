@@ -120,7 +120,7 @@ var appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll)
     if (!entry.isIntersecting) {
       return;
     } else {
-      entry.target.classList.add("reveal");
+      entry.target.classList.add("link-section__link--reveal");
       appearOnScroll.unobserve(entry.target);
     }
   });

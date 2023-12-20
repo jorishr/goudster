@@ -1,157 +1,71 @@
-.newsletter-section {
-    background-color: $backgroundWhite;
+.newsletter {
+  background-color: $backgroundWhite;
+  padding: 4em 1em;
+
+  @include mobile_lg {
     padding: 4em 2em;
-}
+  }
 
-.newsletter__input {
+  &__heading {
+  }
 
-    form.newsletter {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  &__input-container {
+    width: 100%;
+  }
 
-    input[name="email"] {
-        margin-bottom: .5em;
-        width: 80%;
-        border: $mainOrange 1px solid;
-        
-        font-size: 1rem;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__input-email {
+      width: 80%;
+
+      font-size: 1rem;
+
+      color: $textColor-dark;
+      background-color: $backgroundOtherWhite;
+      border: $mainOrange 1px solid;
+
+      padding: 1em;
+      margin-bottom: 0.5em;
+
+      &::placeholder {
         color: $textColor-dark;
-
-        padding: 1em;
-        background-color: $backgroundOtherWhite;
-    }
-
-    input[name="email"]::placeholder {
-        color: $textColor-dark;
-    }
-
-    input[name="email"]:focus-within {
+      }
+      &:focus-within {
         outline: $mainOrange 1px solid;
+      }
     }
 
-    .form__consent {
-        width: 80%;
-        color: $textColor-dark;
-        text-transform: uppercase;
-        font-size: .75rem;
-        line-height: 1.75;
-        text-align: right;
+    &__consent-container {
+      width: 80%;
 
-        button {
-            text-transform: uppercase;
-            color: $backgroundOtherWhite;
-        }
+      color: $textColor-dark;
 
-        button[disabled] {
-            opacity: .5;
-        }
-
-        p {
-            text-align: left;
-
-            a {
-                color: $mainOrange;
-            }
-        }
-
-        .form__consent-container {
-            margin-bottom: 2em;
-
-            //custom checkbox 
-            .checkbox-container {
-                position: relative;
-
-                input {
-                    position: absolute;
-                    width: 0;
-                    height: 0;
-                    opacity: 0;
-                    
-                    cursor: pointer;
-                }
-
-                .checkbox-custom {
-                    display: block;
-                    position: absolute;
-                    left: -175px;
-                    top: -37px;
-                    height: 30px;
-                    width: 30px;
-                    background-color: $backgroundWhite;
-                    border: 3px solid $mainYellow;
-                    margin: 0 auto;
-                }
-
-                .checkbox-custom:hover {
-                    background-color: $mainGrey;
-                    cursor: pointer;
-                }
-
-                input:checked ~ .checkbox-custom {
-                    background-color: $mainGrey;
-                }
-
-                //checkmark
-                .checkbox-custom::after {
-                    display: none;
-                    content: '';
-                    position: absolute;
-                    left: 7px;
-                    top: 4px;
-                    
-                    width: 5px;
-                    height: 10px;
-                    border: solid $backgroundWhite;
-                    border-width: 0 4px 4px 0;
-                    /* border-radius: 8px; */
-                    transform: rotate(45deg);
-                }
-                
-                input:checked ~ .checkbox-custom::after {
-                    display: block;
-                }     
-            } 
-        }
-
-
-        //custom checkbox
-
+      font-size: 1rem;
+      line-height: 1.75;
+      text-align: center;
     }
-}
 
-@media screen and (min-width: 768px){
+    &__consent-text {
+      text-align: center;
+      margin-bottom: 2em;
 
-    .newsletter-section__heading {
-        max-width: 400px;
-        margin: 0 auto 4em auto;
-    } 
-
-    .newsletter__input {
-    
-        input[name="email"] {
-            width: 40%;
-            margin: .25em auto 0 auto;
-        }
-
-        .form__consent {
-            width: 40%;
-            button {
-                font-size: 1rem;
-            }
-
-            .form__consent-container {
-                .checkbox-container {
-                   
-                    .checkbox-custom {
-                        left: -225px;
-                        top: -45px;
-                    }
-                }
-            }
-    
-        }
-
+      a {
+        color: $mainOrange;
+        text-decoration: underline;
+      }
     }
+
+    &__btn {
+      text-transform: uppercase;
+      color: $backgroundOtherWhite;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+  }
 }

@@ -25,8 +25,8 @@ See more @ [liondigits.com](https://www.liondigits.com)
 - Custom built company history timeline
 - GDPR compliant forms with active consent before button can be clicked
 - Modal pop-up on page load for active age consent
-- Cookie-bar pop-up with link to privacy-policy
-- User settings are stored in browser localStorage
+- Cookie bar pop-up with link to privacy-policy
+- User consent settings are stored in browser localStorage
 - Custom Map via Google Maps API
 
 ### Backend features
@@ -35,6 +35,7 @@ See more @ [liondigits.com](https://www.liondigits.com)
 - Server side HTML rendering with EJS
 - Newsletter sign up handling via Mailgun API.
 - Contact form handling via Nodemailer and Mailgun API.
+- Age verification: input birthday validation check
 
 ### Task runner and build tools
 
