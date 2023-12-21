@@ -1,6 +1,7 @@
 import appearOnScroll from "./modules/intersectionObserver.js";
 import setupForms from "./modules/form.js";
 import setupConsent from "./modules/consent.js";
+import formSubmitHandlers from "./modules/formSubmit.js";
 
 const toggle = document.querySelector("#toggle"),
   extendMenu = document.querySelector(".menu__collapse"),
@@ -38,5 +39,6 @@ spanEmails.forEach((span) => {
     '<a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers">info@goudster.be</a>';
 });
 
-setupForms();
+//setupForms();
 setupConsent();
+formSubmitHandlers();

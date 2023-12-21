@@ -98,6 +98,65 @@ function setupForms() {
 
 /***/ }),
 
+/***/ "./app/public/scripts/app/modules/formSubmit.js":
+/*!******************************************************!*\
+  !*** ./app/public/scripts/app/modules/formSubmit.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ formSubmitHandlers)
+/* harmony export */ });
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function formSubmitHandlers() {
+  var btns = _toConsumableArray(document.querySelectorAll('button[type="submit"]'));
+  if (btns.length > 0) {
+    btns.forEach(function (btn) {
+      btn.addEventListener("click", function (event) {
+        var form = event.target.closest("form");
+        event.preventDefault(); //this also disables form attribute checks
+        if (form.checkValidity()) {
+          submitFormWithDebounce(form);
+        } else {
+          //alert the user with flash card
+          var alert = document.querySelector(".flash--alert");
+          var alertMsg = document.querySelector(".flash__msg--alert");
+          alertMsg.textContent = "Onvolledige of ongeldige input. Probeer het opnieuw.";
+          alert.classList.add("flash--alert--show");
+          setTimeout(function () {
+            alert.classList.remove("flash--alert--show");
+          }, 5000);
+        }
+      });
+    });
+  }
+}
+function submitFormWithDebounce(form) {
+  var debounceFn = debounce(function () {
+    form.submit();
+  }, 1000);
+  debounceFn();
+}
+function debounce(func, delay) {
+  var timeoutId;
+  return function () {
+    var context = this;
+    var args = arguments;
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function () {
+      func.apply(context, args);
+    }, delay);
+  };
+}
+
+/***/ }),
+
 /***/ "./app/public/scripts/app/modules/intersectionObserver.js":
 /*!****************************************************************!*\
   !*** ./app/public/scripts/app/modules/intersectionObserver.js ***!
@@ -195,6 +254,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_intersectionObserver_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/intersectionObserver.js */ "./app/public/scripts/app/modules/intersectionObserver.js");
 /* harmony import */ var _modules_form_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/form.js */ "./app/public/scripts/app/modules/form.js");
 /* harmony import */ var _modules_consent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/consent.js */ "./app/public/scripts/app/modules/consent.js");
+/* harmony import */ var _modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/formSubmit.js */ "./app/public/scripts/app/modules/formSubmit.js");
+
 
 
 
@@ -232,8 +293,10 @@ if (pageBody.classList.contains("landing")) {
 spanEmails.forEach(function (span) {
   span.innerHTML = '<a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers">info@goudster.be</a>';
 });
-(0,_modules_form_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+
+//setupForms();
 (0,_modules_consent_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
 })();
 
 /******/ })()
