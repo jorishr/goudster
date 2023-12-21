@@ -7,8 +7,8 @@ const createError = require("http-errors"),
   path = require("path"),
   logger = require("morgan"),
   indexRouter = require("./routes/index.cjs"),
-  port = process.env.SERVER_PORT,
-  helmet = require("helmet");
+  helmet = require("helmet"),
+  cookieParser = require("cookie-parser");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -20,6 +20,10 @@ app.use(logger("dev"));
 //body-parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//cookie-parser
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
 
 //statics
 app.use(express.static(path.join(__dirname, "public")));
@@ -50,4 +54,4 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-app.listen(port, console.log(`App listening on port ${port}`));
+module.exports = app;

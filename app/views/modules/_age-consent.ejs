@@ -1,0 +1,70 @@
+<div class="modal <%= removeModal ? '' : 'modal--show' %>">
+  <div class="modal__content-container">
+    <noscript class="noscript"></noscript>
+    <div class="modal__heading">
+      <div class="modal__heading__img-container">
+        <figure>
+          <img
+            class="modal__heading__img"
+            src="/images/logo_goudster.gif"
+            alt="Goudster Logo"
+            title="Goudster Logo"
+          />
+        </figure>
+      </div>
+      <div class="modal__heading__text-container">
+        <p class="modal__heading__text">
+          Bier met liefde gebrouwen, drink je met gezond verstand!
+        </p>
+        <p class="modal__heading__text">
+          Om deze website te bezoeken moet je 18 jaar of ouder zijn.
+        </p>
+      </div>
+    </div>
+    <form action="/consent" method="POST" class="modal__form">
+      <p class="modal__form__instruction">Wanneer ben jij geboren?</p>
+      <div class="modal__form__input-group">
+        <div class="modal__form__input-container">
+          <label for="day">Dag</label>
+          <input
+            id="day"
+            name="day"
+            type="text"
+            maxlength="2"
+            pattern="([1-9]|1[0-9]|2[0-9]|3[0-1])"
+            title="Geef de dag in waarop je bent geboren (1-31)"
+            autofocus
+            required
+          />
+        </div>
+        <div class="modal__form__input-container">
+          <label for="month">Maand</label>
+          <input
+            id="month"
+            name="month"
+            type="text"
+            maxlength="2"
+            pattern="([1-9]|1[0-2])"
+            title="Geef de maand in waarin je bent geboren (1-12)"
+            required="required"
+          />
+        </div>
+        <div class="modal__form__input-container">
+          <label for="year">Jaar</label>
+          <input
+            id="year"
+            name="year"
+            type="text"
+            maxlength="4"
+            pattern="\d{4}"
+            title="Geef het jaar in waarin je bent geboren (4 cijfers)"
+            required
+          />
+        </div>
+      </div>
+      <button class="btn btn--light modal__form__btn" type="submit">
+        Naar de website
+      </button>
+    </form>
+  </div>
+</div>

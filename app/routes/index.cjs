@@ -5,12 +5,27 @@ const express = require("express"),
   nodemailer = require("nodemailer");
 
 const { check, validationResult } = require("express-validator");
+const verifyAge = require("../helpers/verifyAge.cjs");
 
-/* GET home page. */
+/* home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Homepage", msg: "" });
+  const removeModal = req.cookies.ageConsent || false;
+  res.render("index", { title: "Homepage", msg: "", removeModal: removeModal });
 });
 
+router.post("/consent", function (req, res, next) {
+  const { day, month, year } = req.body;
+  const isValid = verifyAge(day, month, year);
+  if (isValid) {
+    res.cookie("ageConsent", true);
+    res.redirect("/");
+  } else {
+    const msg = "Oeps! Geen geldige geboortedatum";
+    res.render("index", { title: "Homepage", msg: msg, removeModal: false });
+  }
+});
+
+/* other routes */
 router.get("/ons-verhaal", function (req, res, next) {
   res.render("history", { title: "History" });
 });
@@ -31,7 +46,7 @@ router.get("/voorwaarden", function (req, res, next) {
   res.render("conditions", { title: "Terms and conditions" });
 });
 
-//contact form
+/* contact form routes*/
 router.get("/contact", function (req, res, next) {
   res.render("contact", { title: "Contact" });
 });
@@ -101,7 +116,7 @@ router.post(
   }
 );
 
-//mailing list
+/* mailing list signup*/
 const mgDomain = process.env.MAILGUN_DOMAIN;
 const mgHost = process.env.MAILGUN_HOST;
 const mailgun = require("mailgun-js")({
@@ -127,18 +142,21 @@ router.post(
 
     list.members().create(user, function (err, data) {
       if (err) {
-        res.render("error", { error: err });
+        res.render("error", { message: err, error: err });
       }
       console.log(data);
       res.render("index", {
+        title: "Homepage",
         msg: "Je bent nu geabonneerd op de Goudster nieuwsbrief!",
+        removeModal: true,
       });
     });
   }
 );
 
 router.get("/webmail", (req, res) => {
-  res.redirect("http://vserver114.axc.nl/roundcube");
+  const webmailLoginUrl = process.env.WEBMAIL_LOGIN_URL;
+  res.redirect(`${webmailLoginUrl}`);
 });
 
 module.exports = router;
