@@ -1,14 +1,17 @@
+// import packages
 require("dotenv").config();
-
 const createError = require("http-errors"),
   express = require("express"),
   app = express(),
   bodyParser = require("body-parser"),
   path = require("path"),
   logger = require("morgan"),
-  indexRouter = require("./routes/index.cjs"),
   helmet = require("helmet"),
   cookieParser = require("cookie-parser");
+
+//import route modules
+const index = require("./routes/index.cjs");
+const subscribe = require("./routes/subscribe.cjs");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -35,8 +38,9 @@ app.use((req, res, next) => {
   next();
 });
 
-//routes
-app.use("/", indexRouter);
+// use routes
+app.use(index);
+app.use(subscribe);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

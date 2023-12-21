@@ -116,44 +116,6 @@ router.post(
   }
 );
 
-/* mailing list signup*/
-const mgDomain = process.env.MAILGUN_DOMAIN;
-const mgHost = process.env.MAILGUN_HOST;
-const mailgun = require("mailgun-js")({
-  apiKey: process.env.MAILGUN_APIKEY,
-  domain: mgDomain,
-  host: mgHost,
-});
-const list = mailgun.lists(`mailing@${mgDomain}`);
-
-router.post(
-  "/subscribe",
-  [check("email").isEmail().normalizeEmail()],
-  (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
-    }
-
-    var user = {
-      subscribed: true,
-      address: `${req.body.email}`,
-    };
-
-    list.members().create(user, function (err, data) {
-      if (err) {
-        res.render("error", { message: err, error: err });
-      }
-      console.log(data);
-      res.render("index", {
-        title: "Homepage",
-        msg: "Je bent nu geabonneerd op de Goudster nieuwsbrief!",
-        removeModal: true,
-      });
-    });
-  }
-);
-
 router.get("/webmail", (req, res) => {
   const webmailLoginUrl = process.env.WEBMAIL_LOGIN_URL;
   res.redirect(`${webmailLoginUrl}`);

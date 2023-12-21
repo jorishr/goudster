@@ -49,7 +49,7 @@ function startNodemon(cb) {
     //script: "./app/index.cjs",
     script: "./app/bin/www.cjs",
     // watch core server file(s) that require server restart on change
-    watch: ["./app/index.cjs", "./app/routes/index.cjs"],
+    watch: ["./app/index.cjs", "./app/routes/**/*.cjs"],
   })
     .on("start", function onStart() {
       // ensure start only got called once
