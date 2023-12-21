@@ -30,7 +30,11 @@ const baseDir = "./app",
   viewFiles = baseDir + "/views",
   ejsGlob = baseDir + "/views/**/*.ejs",
   imageFiles = baseDir + "/public/images/**/*",
-  serverFiles = [baseDir + "/*.cjs", baseDir + "/routes/**/*.cjs"];
+  serverFiles = [
+    baseDir + "/*.cjs",
+    baseDir + "/routes/**/*.cjs",
+    baseDir + "/bin/**/*.cjs",
+  ];
 
 /* 
 #########################
@@ -42,7 +46,8 @@ function startNodemon(cb) {
   let called = false;
   return nodemon({
     // nodemon our expressjs server
-    script: "./app/index.cjs",
+    //script: "./app/index.cjs",
+    script: "./app/bin/www.cjs",
     // watch core server file(s) that require server restart on change
     watch: ["./app/index.cjs", "./app/routes/index.cjs"],
   })

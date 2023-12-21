@@ -6,11 +6,12 @@
   },
   "type": "module",
   "description": "Commercial website for the beer brand Goudster from Halen, BE.",
-  "main": "index.cjs",
+  "main": "bin/www.cjs",
   "scripts": {
     "dev": "npx gulp",
     "build": "npx gulp build",
-    "prod": "npx gulp prod"
+    "prod": "npx gulp prod",
+    "test": "npx jest --detectOpenHandles"
   },
   "repository": {
     "type": "git",
@@ -57,11 +58,13 @@
     "gulp-sass": "^5.1.0",
     "gulp-terser": "^2.1.0",
     "gulp-uglify": "^3.0.2",
+    "jest": "^29.7.0",
     "node-sass": "^9.0.0",
     "nodemon": "^3.0.2",
     "normalize.scss": "^0.1.0",
     "replace-in-file": "^7.0.2",
     "sass": "^1.69.5",
+    "supertest": "^6.3.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   }

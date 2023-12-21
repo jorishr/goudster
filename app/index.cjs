@@ -7,7 +7,6 @@ const createError = require("http-errors"),
   path = require("path"),
   logger = require("morgan"),
   indexRouter = require("./routes/index.cjs"),
-  port = process.env.SERVER_PORT,
   helmet = require("helmet"),
   cookieParser = require("cookie-parser");
 
@@ -55,4 +54,4 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-app.listen(port, console.log(`App listening on port ${port}`));
+module.exports = app;
