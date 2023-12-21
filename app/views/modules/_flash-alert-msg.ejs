@@ -1,0 +1,18 @@
+<!-- 
+    ###
+        - Flash messages are set and rendered by the backend server
+        - Alerts are produced via the front end JavaScript code
+    ### 
+-->
+<% if(msg !== '') { %>
+<div class="flash">
+  <div class="flash__content-container">
+    <p class="flash__msg"><%- msg %></p>
+  </div>
+</div>
+<% } %>
+<div class="flash flash--alert">
+  <div class="flash__content-container flash__content-container--alert">
+    <p class="flash__msg flash__msg--alert"></p>
+  </div>
+</div>

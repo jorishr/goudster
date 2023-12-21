@@ -1,53 +1,80 @@
-<%- include('modules/_header'); %>
+<%- include('modules/_header'); %> <%- include('modules/_flash-alert-msg'); %>
 <div class="page-content">
-    <div class="wrapper">
-        <div class="label-text">
-            <h1>CONTACTEER DE VERENIGDE BROUWERS</h1>
-            <p>Contacteer ons via het contactformulier of e-mail naar <span class="span-email"></span><noscript>"Enable Javascript to see this content."</noscript></p>
-        </div>
-        <form class="contact" action="send" method="POST">
-            <p class="antispm"><input type="text" name="url">This field should be empty</p>
-            <div class="form__inputs">
-                <div class="input-container">
-                    <label  for="name">Naam</label>
-                    <input  type="text" name="name" placeholder="Jouw naam..." 
-                            title="Jouw naam (verplicht)" required>      
-                </div>
-                <div class="input-container">
-                    <label  for="email">E-mail</label>
-                    <input  type="email" name="email" placeholder="Jouw e-mail..."
-                            title="Jouw e-mail (verplicht)" required>      
-                </div>
-                <div class="input-container">
-                    <label for="subject">Onderwerp</label>
-                    <select name="subject" id="subject" title="Selecteer een onderwerp">
-                        <option value="bestelling">bestelling</option>
-                        <option value="vraag">vraag</option>
-                        <option value="varia">varia</option>
-                    </select>
-                </div>
-                <div class="input-container">
-                    <label for="message">Bericht</label>
-                    <textarea   name="message" id="" rows="10"
-                                placeholder="Jouw bericht...(max. 1200 karakters)"
-                                minlength="10" maxlength="1200" required
-                                title="Type jouw bericht (verplicht)">
-                    </textarea>
-                </div>
-            </div>
-            <div class="form__consent">
-                <p>Ik accepteer dat mijn gegevens kunnen worden opgeslagen en gebruikt voor het afhandelen van mijn verzoek.</p>
-                <div class="form__consent-container">
-                    <label for="consent" class="checkbox-container">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <span class="checkbox-custom"></span>
-                    </label>
-                    <button class="btn" type="submit">Versturen</button>
-                </div>
-                <a href="/beleid" target="_blank">Lees meer over ons privacy-beleid</a>
-            </div>
-        </form>
+  <div class="wrapper">
+    <div class="label-text">
+      <h1>CONTACTEER DE VERENIGDE BROUWERS</h1>
+      <p>
+        Contacteer ons via het contactformulier of e-mail naar
+        <span class="span-email"></span
+        ><noscript>"Enable Javascript to see this content."</noscript>
+      </p>
     </div>
+    <form class="contact" action="send" method="POST">
+      <p class="antispm">
+        <input type="text" name="url" />This field should be empty
+      </p>
+      <div class="form__inputs">
+        <div class="input-container">
+          <label for="name">Naam</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Jouw naam..."
+            title="Jouw naam (verplicht)"
+            required
+          />
+        </div>
+        <div class="input-container">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Jouw e-mail..."
+            title="Jouw e-mail (verplicht)"
+            required
+          />
+        </div>
+        <div class="input-container">
+          <label for="subject">Onderwerp</label>
+          <select name="subject" id="subject" title="Selecteer een onderwerp">
+            <option value="bestelling">bestelling</option>
+            <option value="vraag">vraag</option>
+            <option value="varia">varia</option>
+          </select>
+        </div>
+        <div class="input-container">
+          <label for="message">Bericht</label>
+          <textarea
+            name="message"
+            id=""
+            rows="10"
+            placeholder="Jouw bericht...(max. 1200 karakters)"
+            minlength="10"
+            maxlength="1200"
+            required
+            title="Type jouw bericht (verplicht)"
+          >
+          </textarea>
+        </div>
+      </div>
+      <div class="form__consent">
+        <p>
+          Ik accepteer dat mijn gegevens kunnen worden opgeslagen en gebruikt
+          voor het afhandelen van mijn verzoek.
+        </p>
+        <div class="form__consent-container">
+          <label for="consent" class="checkbox-container">
+            <input type="checkbox" id="consent" name="consent" required />
+            <span class="checkbox-custom"></span>
+          </label>
+          <button class="btn" type="submit">Versturen</button>
+        </div>
+        <a href="/beleid" target="_blank">Lees meer over ons privacy-beleid</a>
+      </div>
+    </form>
+  </div>
 </div>
-<script>document.body.classList.add('contact')</script>
+<script>
+  document.body.classList.add("contact");
+</script>
 <%- include('modules/_footer'); %>

@@ -1,68 +1,113 @@
-<%- include('modules/_header'); %>
+<%- include('modules/_header'); %> <%- include('modules/_flash-alert-msg'); %>
 <div class="page-content">
-    <div class="info wrapper">
-        <div class="info__title">
-            <h1>Info voor horecazaken en drinkcentra</h1>
-        </div>
-        <div class="info__content">
-            <div class="info__content-images">
-                <img src="/images/bak_goudster.jpg" alt="Een bak Goudster flesjes">
-                <img src="/images/flesje_en_glas_vol.jpg" alt="Een vol glas Goudster op een bierkaartje">
-            </div>
-            <div class="info__content-text">
-                <p>Goudster bier is verkrijgbaar in flesjes van 33 cl (bak van 24) voor een richtprijs van 43,5 EUR, INCLUSIEF btw (21%) en INCLUSIEF 8,5 EUR leeggoed.</p>
-                <p>Goudster kan ook worden geleverd op vaten van 20 L en kleinere packs van 6 flesjes.</p>
-                <p>Speciale formules zijn bespreekbaar voor drinkcentra en horecazaken.</p>
-                <p>Ook promotiemateriaal is verkrijgbaar met o.a. de authentieke Goudster glazen, de Goudster tafelkaart en bierkaartjes.</p>
-            </div>
-        </div>
-        <div class="info__contact">
-            <hr>
-            <p>Goudster in uw horecazaak? Vul uw gegevens in via onderstaand contactformulier en wij bezorgen u zo snel mogelijk alle details.</p>
-        </div>
-        <form class="contact" action="send" method="POST">
-            <p class="antispm"><input type="text" name="url">This field should be empty</p>
-            <div class="form__inputs">
-                <div class="input-container">
-                    <label  for="name">Naam</label>
-                    <input  type="text" name="name" placeholder="Jouw naam..." 
-                            title="Jouw naam (verplicht)" required>      
-                </div>
-                <div class="input-container">
-                    <label  for="email">E-mail</label>
-                    <input  type="email" name="email" placeholder="Jouw e-mail..."
-                            title="Jouw e-mail (verplicht)" required>      
-                </div>
-                <div class="input-container">
-                    <label for="subject">Onderwerp</label>
-                    <select name="subject" id="subject" title="Selecteer een onderwerp">
-                        <option value="bestelling">bestelling</option>
-                        <option value="vraag">vraag</option>
-                        <option value="varia">varia</option>
-                    </select>
-                </div>
-                <div class="input-container">
-                    <label for="message">Bericht</label>
-                    <textarea   name="message" id="" rows="10"
-                                placeholder="Jouw bericht...(max. 1000 karakters)"
-                                minlength="25" maxlength="1000" required
-                                title="Schrijf jouw bericht (verplicht)">
-                    </textarea>
-                </div>
-            </div>
-            <div class="form__consent">
-                <p>Ik accepteer dat mijn gegevens kunnen worden opgeslagen en gebruikt voor het afhandelen van mijn verzoek.</p>
-                <div class="form__consent-container">
-                    <label for="consent" class="checkbox-container">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <span class="checkbox-custom"></span>
-                    </label>
-                    <button class="btn" type="submit" title="Bericht verzenden">Versturen</button>
-                </div>
-                <a href="/beleid" target="_blank" title="Goudster privacy-beleid">Lees meer over ons privacy-beleid</a>
-            </div>
-        </form>   
+  <div class="info wrapper">
+    <div class="info__title">
+      <h1>Info voor horecazaken en drinkcentra</h1>
     </div>
+    <div class="info__content">
+      <div class="info__content-images">
+        <img src="/images/bak_goudster.jpg" alt="Een bak Goudster flesjes" />
+        <img
+          src="/images/flesje_en_glas_vol.jpg"
+          alt="Een vol glas Goudster op een bierkaartje"
+        />
+      </div>
+      <div class="info__content-text">
+        <p>
+          Goudster bier is verkrijgbaar in flesjes van 33 cl (bak van 24) voor
+          een richtprijs van 43,5 EUR, INCLUSIEF btw (21%) en INCLUSIEF 8,5 EUR
+          leeggoed.
+        </p>
+        <p>
+          Goudster kan ook worden geleverd op vaten van 20 L en kleinere packs
+          van 6 flesjes.
+        </p>
+        <p>
+          Speciale formules zijn bespreekbaar voor drinkcentra en horecazaken.
+        </p>
+        <p>
+          Ook promotiemateriaal is verkrijgbaar met o.a. de authentieke Goudster
+          glazen, de Goudster tafelkaart en bierkaartjes.
+        </p>
+      </div>
+    </div>
+    <div class="info__contact">
+      <hr />
+      <p>
+        Goudster in uw horecazaak? Vul uw gegevens in via onderstaand
+        contactformulier en wij bezorgen u zo snel mogelijk alle details.
+      </p>
+    </div>
+    <form class="contact" action="send" method="POST">
+      <p class="antispm">
+        <input type="text" name="url" />This field should be empty
+      </p>
+      <div class="form__inputs">
+        <div class="input-container">
+          <label for="name">Naam</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Jouw naam..."
+            title="Jouw naam (verplicht)"
+            required
+          />
+        </div>
+        <div class="input-container">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Jouw e-mail..."
+            title="Jouw e-mail (verplicht)"
+            required
+          />
+        </div>
+        <div class="input-container">
+          <label for="subject">Onderwerp</label>
+          <select name="subject" id="subject" title="Selecteer een onderwerp">
+            <option value="bestelling">bestelling</option>
+            <option value="vraag">vraag</option>
+            <option value="varia">varia</option>
+          </select>
+        </div>
+        <div class="input-container">
+          <label for="message">Bericht</label>
+          <textarea
+            name="message"
+            id=""
+            rows="10"
+            placeholder="Jouw bericht...(max. 1000 karakters)"
+            minlength="25"
+            maxlength="1000"
+            required
+            title="Schrijf jouw bericht (verplicht)"
+          >
+          </textarea>
+        </div>
+      </div>
+      <div class="form__consent">
+        <p>
+          Ik accepteer dat mijn gegevens kunnen worden opgeslagen en gebruikt
+          voor het afhandelen van mijn verzoek.
+        </p>
+        <div class="form__consent-container">
+          <label for="consent" class="checkbox-container">
+            <input type="checkbox" id="consent" name="consent" required />
+            <span class="checkbox-custom"></span>
+          </label>
+          <button class="btn" type="submit" title="Bericht verzenden">
+            Versturen
+          </button>
+        </div>
+        <a href="/beleid" target="_blank" title="Goudster privacy-beleid"
+          >Lees meer over ons privacy-beleid</a
+        >
+      </div>
+    </form>
+  </div>
 </div>
-<script>document.body.classList.add('contact')</script>
+<script>
+  document.body.classList.add("contact");
+</script>
 <%- include('modules/_footer'); %>

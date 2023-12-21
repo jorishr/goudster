@@ -1,14 +1,9 @@
 <%- include('modules/_header'); %>
 <!-- import consent components -->
 <%- include('modules/_cookie-consent'); %> <%- include('modules/_age-consent');
-%>
+%> <%- include('modules/_flash-alert-msg'); %>
 <div class="page-content">
   <!--    hero section   -->
-  <% if(msg !== '') { %>
-  <div class="flash-msg-container">
-    <p class="flash"><%- msg %></p>
-  </div>
-  <% } %>
   <div class="scroll-icon"><i class="fas fa-angle-double-down fa-1x"></i></div>
   <div class="hero-section">
     <div class="wrapper">
