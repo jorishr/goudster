@@ -2,8 +2,17 @@
   background-color: $backgroundWhite;
   padding: 4em 1em;
 
-  @include mobile_lg {
-    padding: 4em 2em;
+  &__content-container {
+    padding: 4em 1em;
+
+    @include mobile_lg {
+      padding: 4em 2em;
+    }
+
+    @include tablet_md {
+      max-width: 66%;
+      margin: 0 auto;
+    }
   }
 
   &__heading {
@@ -11,6 +20,11 @@
 
   &__input-container {
     width: 100%;
+
+    @include tablet_md {
+      max-width: 54%;
+      margin: 0 auto;
+    }
   }
 
   &__form {

@@ -53,6 +53,35 @@ function setupConsent() {
 
 /***/ }),
 
+/***/ "./app/public/scripts/app/modules/flash.js":
+/*!*************************************************!*\
+  !*** ./app/public/scripts/app/modules/flash.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ removeFlashMsgFromDOM)
+/* harmony export */ });
+/* 
+The flash message content is set by Express server code and only shown once per render. The styling makes the container fade-out but the element remained in the DOM, overlapping with the menu.   
+*/
+
+function removeFlashMsgFromDOM() {
+  document.addEventListener("DOMContentLoaded", function () {
+    var flashMsgContainer = document.querySelector(".flash");
+    var flashMsgText = document.querySelector(".flash__msg");
+    var hasText = flashMsgText.textContent;
+    if (flashMsgContainer && hasText) {
+      setTimeout(function () {
+        flashMsgContainer.classList.add("flash--hide");
+      }, 5000);
+    }
+  });
+}
+
+/***/ }),
+
 /***/ "./app/public/scripts/app/modules/form.js":
 /*!************************************************!*\
   !*** ./app/public/scripts/app/modules/form.js ***!
@@ -124,7 +153,7 @@ function formSubmitHandlers() {
         if (form.checkValidity()) {
           submitFormWithDebounce(form);
         } else {
-          //alert the user with flash card
+          //alert the user with flash alert card
           var alert = document.querySelector(".flash--alert");
           var alertMsg = document.querySelector(".flash__msg--alert");
           alertMsg.textContent = "Onvolledige of ongeldige input. Probeer het opnieuw.";
@@ -140,7 +169,7 @@ function formSubmitHandlers() {
 function submitFormWithDebounce(form) {
   var debounceFn = debounce(function () {
     form.submit();
-  }, 1000);
+  }, 500);
   debounceFn();
 }
 function debounce(func, delay) {
@@ -255,6 +284,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_form_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/form.js */ "./app/public/scripts/app/modules/form.js");
 /* harmony import */ var _modules_consent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/consent.js */ "./app/public/scripts/app/modules/consent.js");
 /* harmony import */ var _modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/formSubmit.js */ "./app/public/scripts/app/modules/formSubmit.js");
+/* harmony import */ var _modules_flash_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/flash.js */ "./app/public/scripts/app/modules/flash.js");
+
 
 
 
@@ -297,6 +328,7 @@ spanEmails.forEach(function (span) {
 //setupForms();
 (0,_modules_consent_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
+(0,_modules_flash_js__WEBPACK_IMPORTED_MODULE_4__["default"])();
 })();
 
 /******/ })()

@@ -2,6 +2,7 @@ import appearOnScroll from "./modules/intersectionObserver.js";
 import setupForms from "./modules/form.js";
 import setupConsent from "./modules/consent.js";
 import formSubmitHandlers from "./modules/formSubmit.js";
+import removeFlashMsgFromDOM from "./modules/flash.js";
 
 const toggle = document.querySelector("#toggle"),
   extendMenu = document.querySelector(".menu__collapse"),
@@ -42,3 +43,4 @@ spanEmails.forEach((span) => {
 //setupForms();
 setupConsent();
 formSubmitHandlers();
+removeFlashMsgFromDOM();

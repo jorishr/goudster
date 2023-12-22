@@ -8,7 +8,7 @@ export default function formSubmitHandlers() {
         if (form.checkValidity()) {
           submitFormWithDebounce(form);
         } else {
-          //alert the user with flash card
+          //alert the user with flash alert card
           const alert = document.querySelector(".flash--alert");
           const alertMsg = document.querySelector(".flash__msg--alert");
           alertMsg.textContent =
@@ -26,7 +26,7 @@ export default function formSubmitHandlers() {
 function submitFormWithDebounce(form) {
   const debounceFn = debounce(() => {
     form.submit();
-  }, 1000);
+  }, 500);
   debounceFn();
 }
 

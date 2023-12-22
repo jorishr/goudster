@@ -35,7 +35,7 @@ router.get("/info", function (req, res, next) {
 });
 
 router.get("/waar-proeven", function (req, res, next) {
-  res.render("location", { title: "Locations" });
+  res.render("location", { title: "Locations", msg: "" });
 });
 
 router.get("/beleid", function (req, res, next) {
