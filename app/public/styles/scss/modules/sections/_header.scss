@@ -61,5 +61,9 @@
       width: unset;
       flex: 1;
     }
+
+    &--js-small {
+      padding: 0.25em 1em;
+    }
   }
 }

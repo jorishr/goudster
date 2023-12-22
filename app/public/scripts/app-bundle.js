@@ -308,12 +308,31 @@ function hideHeaderLogoOnLanding() {
     document.querySelector(".header__logo").classList.add("header__logo--hide");
   }
 }
+function checkInnerHeight() {
+  if (document.body.classList.contains("landing")) {
+    var innerHeight = window.innerHeight;
+    var innerWidth = window.innerWidth;
+    console.log(innerHeight < 640, innerWidth < 768);
+    if (innerHeight < 640 && innerWidth < 768) {
+      document.querySelector(".hero__cta__heading").remove();
+      document.querySelector(".header__navbar").classList.add("header__navbar--js-small");
+    }
+  }
+}
+function setHeroSectionHeight() {
+  var innerHeight = window.innerHeight;
+  var menuHeight = document.querySelector(".header").offsetHeight;
+  document.documentElement.style.setProperty("--innerHeight", "".concat(innerHeight, "px"));
+  document.documentElement.style.setProperty("--menuHeight", "".concat(menuHeight, "px"));
+}
 (0,_modules_consent_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 (0,_modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_flash_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
 togglePopupMenu();
 hideScrollIconOnScroll();
 hideHeaderLogoOnLanding();
+checkInnerHeight();
+setHeroSectionHeight();
 })();
 
 /******/ })()

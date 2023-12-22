@@ -52,9 +52,35 @@ function hideHeaderLogoOnLanding() {
   }
 }
 
+function checkInnerHeight() {
+  if (document.body.classList.contains("landing")) {
+    const innerHeight = window.innerHeight;
+    const innerWidth = window.innerWidth;
+    console.log(innerHeight < 640, innerWidth < 768);
+    if (innerHeight < 640 && innerWidth < 768) {
+      document.querySelector(".hero__cta__heading").remove();
+      document
+        .querySelector(".header__navbar")
+        .classList.add("header__navbar--js-small");
+    }
+  }
+}
+
+function setHeroSectionHeight() {
+  const innerHeight = window.innerHeight;
+  const menuHeight = document.querySelector(".header").offsetHeight;
+  document.documentElement.style.setProperty(
+    "--innerHeight",
+    `${innerHeight}px`
+  );
+  document.documentElement.style.setProperty("--menuHeight", `${menuHeight}px`);
+}
+
 setupConsent();
 formSubmitHandlers();
 removeFlashMsgFromDOM();
 togglePopupMenu();
 hideScrollIconOnScroll();
 hideHeaderLogoOnLanding();
+checkInnerHeight();
+setHeroSectionHeight();
