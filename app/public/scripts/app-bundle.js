@@ -193,6 +193,76 @@ var appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll)
 }, appearOptions);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (appearOnScroll);
 
+/***/ }),
+
+/***/ "./app/public/scripts/app/modules/layout.js":
+/*!**************************************************!*\
+  !*** ./app/public/scripts/app/modules/layout.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ layoutHelpers)
+/* harmony export */ });
+/* 
+    This logo visually conflicts with the hero section logo 
+    that has the same logo in it
+*/
+function hideHeaderLogoOnLanding() {
+  if (document.body.classList.contains("landing")) {
+    document.querySelector(".header__logo").classList.add("header__logo--hide");
+  }
+}
+function hideScrollIconOnScroll() {
+  var icon = document.querySelector(".scroll-down-icon");
+  window.addEventListener("scroll", function () {
+    icon.classList.remove("scroll-down-icon--active");
+  }, {
+    once: true
+  });
+}
+
+/* 
+    Calculate the actual available screen height, minus the browser status and menu bars 
+*/
+
+function adjustHeroStyles() {
+  if (document.body.classList.contains("landing")) {
+    var innerHeight = window.innerHeight;
+    var innerWidth = window.innerWidth;
+    var ctaHeading = document.querySelector(".hero__cta__heading");
+    var navBar = document.querySelector(".header__navbar");
+    if (innerHeight < 640 && innerWidth < 768) {
+      ctaHeading.classList.add("hero__cta__heading--hide");
+      navBar.classList.add("header__navbar--js-small");
+    } else {
+      ctaHeading.classList.remove("hero__cta__heading--hide");
+      navBar.classList.remove("header__navbar--js-small");
+    }
+  }
+}
+function setHeroSectionHeightVar() {
+  var innerHeight = window.innerHeight;
+  var menuHeight = document.querySelector("header").offsetHeight;
+  document.documentElement.style.setProperty("--innerHeight", "".concat(innerHeight, "px"));
+  document.documentElement.style.setProperty("--menuHeight", "".concat(menuHeight, "px"));
+}
+function layoutHelpers() {
+  setHeroSectionHeightVar();
+  adjustHeroStyles();
+  hideScrollIconOnScroll();
+  hideHeaderLogoOnLanding();
+  var resizeTimeout;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function () {
+      setHeroSectionHeightVar();
+      adjustHeroStyles();
+    }, 300);
+  });
+}
+
 /***/ })
 
 /******/ 	});
@@ -263,6 +333,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/formSubmit.js */ "./app/public/scripts/app/modules/formSubmit.js");
 /* harmony import */ var _modules_flash_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/flash.js */ "./app/public/scripts/app/modules/flash.js");
 /* harmony import */ var _modules_animateClose_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/animateClose.js */ "./app/public/scripts/app/modules/animateClose.js");
+/* harmony import */ var _modules_layout_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/layout.js */ "./app/public/scripts/app/modules/layout.js");
+
 
 
 
@@ -295,44 +367,11 @@ function togglePopupMenu() {
     } else menuPopup.classList.add("menu-pop-up--active");
   });
 }
-function hideScrollIconOnScroll() {
-  var icon = document.querySelector(".scroll-down-icon");
-  window.addEventListener("scroll", function () {
-    icon.classList.remove("scroll-down-icon--active");
-  }, {
-    once: true
-  });
-}
-function hideHeaderLogoOnLanding() {
-  if (document.body.classList.contains("landing")) {
-    document.querySelector(".header__logo").classList.add("header__logo--hide");
-  }
-}
-function checkInnerHeight() {
-  if (document.body.classList.contains("landing")) {
-    var innerHeight = window.innerHeight;
-    var innerWidth = window.innerWidth;
-    console.log(innerHeight < 640, innerWidth < 768);
-    if (innerHeight < 640 && innerWidth < 768) {
-      document.querySelector(".hero__cta__heading").remove();
-      document.querySelector(".header__navbar").classList.add("header__navbar--js-small");
-    }
-  }
-}
-function setHeroSectionHeight() {
-  var innerHeight = window.innerHeight;
-  var menuHeight = document.querySelector(".header").offsetHeight;
-  document.documentElement.style.setProperty("--innerHeight", "".concat(innerHeight, "px"));
-  document.documentElement.style.setProperty("--menuHeight", "".concat(menuHeight, "px"));
-}
 (0,_modules_consent_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 (0,_modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_flash_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
 togglePopupMenu();
-hideScrollIconOnScroll();
-hideHeaderLogoOnLanding();
-checkInnerHeight();
-setHeroSectionHeight();
+(0,_modules_layout_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
 })();
 
 /******/ })()

@@ -1,23 +1,24 @@
 .hero {
-  //see app.js: calc based on the actual size of the screen, without browser navigation
+  //see app.js for calculation of custom variables like height and some modfications for small screens
 
   height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
 
-  &__wrapper {
-    height: 100%;
-  }
-
   &__content-container {
-    height: 100%;
+    position: relative; //see scroll-down-icon.scss
+
+    //mind the browser menu's and own site menu
+    height: calc(var(--innerHeight) - var(--menuHeight));
 
     @include tablet_sm {
+      //two column view from here on
       display: flex;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
 
+      flex-direction: row;
       padding: 2em;
-      height: calc(var(--innerHeight) - var(--menuHeight));
     }
   }
 
@@ -39,6 +40,10 @@
     }
 
     &__heading {
+      display: block;
+      &--hide {
+        display: none;
+      }
       @include tablet_sm {
         margin-bottom: 2em;
       }
@@ -69,13 +74,13 @@
       @include tablet_sm {
         display: block;
         max-width: 12em;
+
         margin: 0 auto;
       }
     }
   }
 
   &__brand-image-container {
-    position: relative;
     text-align: center;
 
     @include tablet_sm {
@@ -84,7 +89,10 @@
   }
 
   &__brand-image {
-    width: 69%;
+    display: block;
+    margin: 0 auto;
+
+    width: 66%;
 
     @include tablet_sm {
       width: 100%;
