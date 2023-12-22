@@ -34,7 +34,10 @@ app.use(express.static(path.join(__dirname, "public")));
 //security
 app.use(helmet());
 app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "script-src 'self' 'unsafe-inline'");
+  res.setHeader(
+    "Content-Security-Policy",
+    "script-src 'self' 'unsafe-inline' https://kit.fontawesome.com"
+  );
   next();
 });
 

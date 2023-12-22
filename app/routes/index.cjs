@@ -31,7 +31,7 @@ router.get("/ons-verhaal", function (req, res, next) {
 });
 
 router.get("/info", function (req, res, next) {
-  res.render("info", { title: "Info" });
+  res.render("info", { title: "Info", msg: "" });
 });
 
 router.get("/waar-proeven", function (req, res, next) {
@@ -48,7 +48,7 @@ router.get("/voorwaarden", function (req, res, next) {
 
 /* contact form routes*/
 router.get("/contact", function (req, res, next) {
-  res.render("contact", { title: "Contact" });
+  res.render("contact", { title: "Contact", msg: "" });
 });
 
 router.post(
