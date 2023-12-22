@@ -105,51 +105,6 @@ function removeFlashMsgFromDOM() {
 
 /***/ }),
 
-/***/ "./app/public/scripts/app/modules/form.js":
-/*!************************************************!*\
-  !*** ./app/public/scripts/app/modules/form.js ***!
-  \************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ setupForms)
-/* harmony export */ });
-function setupForms() {
-  var pageBody = document.querySelector("body"),
-    checkbox = document.querySelector('input[type="checkbox"]'),
-    inputFields = document.querySelectorAll("input[required], textarea"),
-    contactSubmit = document.querySelector("form.contact button"),
-    subscribeBtn = document.querySelector(".form__consent button");
-  if (inputFields.length !== 0) {
-    if (pageBody.classList.contains("landing") || pageBody.classList.contains("hasCaptureEmail")) {
-      subscribeBtn.disabled = true;
-    }
-    if (pageBody.classList.contains("contact")) {
-      contactSubmit.disabled = true;
-    }
-    for (var i = 0; i < inputFields.length; i++) {
-      inputFields[i].addEventListener("input", function () {
-        var values = [];
-        var checked = checkbox.checked;
-        inputFields.forEach(function (field) {
-          return values.push(field.value);
-        });
-        if (pageBody.classList.contains("landing") || pageBody.classList.contains("hasCaptureEmail")) {
-          //there is more than one checkbox on this page
-          checked = document.querySelector('input[type="checkbox"].subscribe').checked;
-          subscribeBtn.disabled = values.includes("") || !checked;
-        }
-        if (pageBody.classList.contains("contact")) {
-          contactSubmit.disabled = values.includes("") || !checked;
-        }
-      });
-    }
-  }
-}
-
-/***/ }),
-
 /***/ "./app/public/scripts/app/modules/formSubmit.js":
 /*!******************************************************!*\
   !*** ./app/public/scripts/app/modules/formSubmit.js ***!
@@ -304,20 +259,16 @@ var __webpack_exports__ = {};
   \***************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_intersectionObserver_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/intersectionObserver.js */ "./app/public/scripts/app/modules/intersectionObserver.js");
-/* harmony import */ var _modules_form_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/form.js */ "./app/public/scripts/app/modules/form.js");
-/* harmony import */ var _modules_consent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/consent.js */ "./app/public/scripts/app/modules/consent.js");
-/* harmony import */ var _modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/formSubmit.js */ "./app/public/scripts/app/modules/formSubmit.js");
-/* harmony import */ var _modules_flash_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/flash.js */ "./app/public/scripts/app/modules/flash.js");
-/* harmony import */ var _modules_animateClose_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/animateClose.js */ "./app/public/scripts/app/modules/animateClose.js");
+/* harmony import */ var _modules_consent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/consent.js */ "./app/public/scripts/app/modules/consent.js");
+/* harmony import */ var _modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/formSubmit.js */ "./app/public/scripts/app/modules/formSubmit.js");
+/* harmony import */ var _modules_flash_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/flash.js */ "./app/public/scripts/app/modules/flash.js");
+/* harmony import */ var _modules_animateClose_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/animateClose.js */ "./app/public/scripts/app/modules/animateClose.js");
 
 
 
 
 
-
-var pageBody = document.querySelector("body"),
-  faders = document.querySelectorAll(".fade-in"),
-  scrollArrow = document.querySelector(".scroll-icon"),
+var faders = document.querySelectorAll(".fade-in"),
   spanEmails = document.querySelectorAll(".span-email");
 
 //intersection observer api fade-in
@@ -331,13 +282,6 @@ var vh = window.innerHeight * 0.01;
 //set the value in the --vh custom property to the root of the document
 document.documentElement.style.setProperty("--vh", "".concat(vh, "px"));
 
-//scroll arrow: hide on scroll
-if (pageBody.classList.contains("landing")) {
-  window.addEventListener("scroll", function () {
-    scrollArrow.style.display = "none";
-  });
-}
-
 //set email-address
 spanEmails.forEach(function (span) {
   span.innerHTML = '<a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers">info@goudster.be</a>';
@@ -347,14 +291,23 @@ function togglePopupMenu() {
   var menuPopup = document.querySelector(".menu-pop-up");
   if (toggle && menuPopup) toggle.addEventListener("click", function () {
     if (menuPopup.classList.contains("menu-pop-up--active")) {
-      (0,_modules_animateClose_js__WEBPACK_IMPORTED_MODULE_5__["default"])(menuPopup, "menu-pop-up");
+      (0,_modules_animateClose_js__WEBPACK_IMPORTED_MODULE_4__["default"])(menuPopup, "menu-pop-up");
     } else menuPopup.classList.add("menu-pop-up--active");
   });
 }
-(0,_modules_consent_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
-(0,_modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
-(0,_modules_flash_js__WEBPACK_IMPORTED_MODULE_4__["default"])();
+function hideScrollIconOnScroll() {
+  var icon = document.querySelector(".scroll-down-icon");
+  window.addEventListener("scroll", function () {
+    icon.classList.remove("scroll-down-icon--active");
+  }, {
+    once: true
+  });
+}
+(0,_modules_consent_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+(0,_modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_modules_flash_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
 togglePopupMenu();
+hideScrollIconOnScroll();
 })();
 
 /******/ })()

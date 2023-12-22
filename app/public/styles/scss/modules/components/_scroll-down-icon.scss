@@ -1,5 +1,5 @@
 .scroll-down-icon {
-  display: block;
+  display: none;
 
   position: absolute;
   bottom: 25%;
@@ -8,4 +8,8 @@
   opacity: 0;
 
   animation: moveArrow 3s ease-out infinite;
+
+  &--active {
+    display: block;
+  }
 }
