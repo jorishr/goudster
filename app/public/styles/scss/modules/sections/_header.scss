@@ -21,6 +21,14 @@
 
   padding: 1em 0 0;
 
+  @include tablet_md {
+    bottom: unset;
+    top: 0;
+
+    background-color: transparent;
+    border-top: unset;
+  }
+
   &__logo-container {
   }
 
@@ -29,6 +37,7 @@
   }
 
   &__navbar {
+    position: relative;
     width: 100%;
 
     padding: 1em 2em;

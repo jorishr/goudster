@@ -7,12 +7,20 @@
   flex-direction: row;
   justify-content: space-between;
 
+  @include tablet_md {
+    justify-content: flex-end;
+  }
+
   &__item {
     min-width: 33px; //required for dotted toggle
 
     margin-right: 1em;
 
     transition: transform 0.3s ease-in;
+
+    @include tablet_md {
+      margin-right: 2em;
+    }
 
     &:last-child {
       margin-right: 0;
@@ -31,6 +39,11 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      @include tablet_md {
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+      }
     }
 
     &__text {
@@ -38,6 +51,10 @@
       text-transform: capitalize;
 
       margin: 0.5em auto 0;
+
+      @include tablet_md {
+        margin: 0.5em 0.5em 0 0;
+      }
     }
   }
 }
