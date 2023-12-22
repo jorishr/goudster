@@ -38,6 +38,13 @@
       border-radius: 5px;
     }
 
+    &--disabled {
+      pointer-events: none;
+      a {
+        color: grey;
+      }
+    }
+
     &__link-container {
       display: flex;
       flex-direction: row-reverse;
