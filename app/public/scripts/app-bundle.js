@@ -303,11 +303,17 @@ function hideScrollIconOnScroll() {
     once: true
   });
 }
+function hideHeaderLogoOnLanding() {
+  if (document.body.classList.contains("landing")) {
+    document.querySelector(".header__logo").classList.add("header__logo--hide");
+  }
+}
 (0,_modules_consent_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 (0,_modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_flash_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
 togglePopupMenu();
 hideScrollIconOnScroll();
+hideHeaderLogoOnLanding();
 })();
 
 /******/ })()

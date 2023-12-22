@@ -27,13 +27,28 @@
 
     background-color: transparent;
     border-top: unset;
+
+    display: flex; // turns logo-container and navbar into flex items
   }
 
   &__logo-container {
+    display: none;
+
+    @include tablet_md {
+      display: block;
+      flex: 0 0 20%;
+
+      padding: 0 2em;
+    }
   }
 
   &__logo {
-    display: none;
+    width: 66%;
+
+    &--hide {
+      //hidden on landing page via JS to avoid duplication with hero section logo
+      display: none;
+    }
   }
 
   &__navbar {
@@ -41,5 +56,10 @@
     width: 100%;
 
     padding: 1em 2em;
+
+    @include tablet_md {
+      width: unset;
+      flex: 1;
+    }
   }
 }

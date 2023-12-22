@@ -46,8 +46,15 @@ function hideScrollIconOnScroll() {
   );
 }
 
+function hideHeaderLogoOnLanding() {
+  if (document.body.classList.contains("landing")) {
+    document.querySelector(".header__logo").classList.add("header__logo--hide");
+  }
+}
+
 setupConsent();
 formSubmitHandlers();
 removeFlashMsgFromDOM();
 togglePopupMenu();
 hideScrollIconOnScroll();
+hideHeaderLogoOnLanding();
