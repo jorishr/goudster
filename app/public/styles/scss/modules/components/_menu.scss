@@ -1,0 +1,43 @@
+/* 
+  ### NOTE ###
+  This is the base menu
+*/
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__item {
+    min-width: 33px; //required for dotted toggle
+
+    margin-right: 1em;
+
+    transition: transform 0.3s ease-in;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      transform: scale(1.025);
+    }
+
+    &--icon-only {
+      align-self: center;
+    }
+
+    &__link-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__text {
+      text-align: center;
+      text-transform: capitalize;
+
+      margin: 0.5em auto 0;
+    }
+  }
+}

@@ -3,10 +3,9 @@ import setupForms from "./modules/form.js";
 import setupConsent from "./modules/consent.js";
 import formSubmitHandlers from "./modules/formSubmit.js";
 import removeFlashMsgFromDOM from "./modules/flash.js";
+import animateClose from "./modules/animateClose.js";
 
-const toggle = document.querySelector("#toggle"),
-  extendMenu = document.querySelector(".menu__collapse"),
-  pageBody = document.querySelector("body"),
+const pageBody = document.querySelector("body"),
   faders = document.querySelectorAll(".fade-in"),
   scrollArrow = document.querySelector(".scroll-icon"),
   spanEmails = document.querySelectorAll(".span-email");
@@ -14,11 +13,6 @@ const toggle = document.querySelector("#toggle"),
 //intersection observer api fade-in
 faders.forEach((fader) => {
   appearOnScroll.observe(fader);
-});
-
-//header navbar functionality
-toggle.addEventListener("click", function (e) {
-  extendMenu.classList.toggle("visible");
 });
 
 //adapt vh variable for mobile screen
@@ -40,7 +34,18 @@ spanEmails.forEach((span) => {
     '<a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers">info@goudster.be</a>';
 });
 
-//setupForms();
+function togglePopupMenu() {
+  const toggle = document.querySelector("#toggle-menu-pop-up");
+  const menuPopup = document.querySelector(".menu-pop-up");
+  if (toggle && menuPopup)
+    toggle.addEventListener("click", () => {
+      if (menuPopup.classList.contains("menu-pop-up--active")) {
+        animateClose(menuPopup, "menu-pop-up");
+      } else menuPopup.classList.add("menu-pop-up--active");
+    });
+}
+
 setupConsent();
 formSubmitHandlers();
 removeFlashMsgFromDOM();
+togglePopupMenu();

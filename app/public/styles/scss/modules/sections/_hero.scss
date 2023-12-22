@@ -1,8 +1,9 @@
 .hero-section {
-  height: 100vh;
-  //see app.js: calc based on the actual size of the screen, without browsernav
+  //height: 100vh;
+  //see app.js: calc based on the actual size of the screen, without browser navigation
   height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
+
   .wrapper {
     height: 100%;
 

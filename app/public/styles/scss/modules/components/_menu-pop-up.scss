@@ -1,0 +1,48 @@
+/* 
+  ### NOTE ###
+  This is the menu that pops-up when toggling the dotted menu link in the base menu
+*/
+.menu-pop-up {
+  display: none;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-15%, -93%);
+
+  background-color: $mainGrey;
+  border-radius: 5px;
+
+  padding: 1em 0.5em;
+
+  &--active {
+    display: block;
+    animation: fade-in 500ms forwards;
+  }
+
+  &--closing {
+    animation: fade-out 500ms forwards;
+  }
+
+  &__item {
+    padding: 1em;
+
+    &:hover {
+      background-color: $otherBlack;
+      border-radius: 5px;
+    }
+
+    &__link-container {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    &__text {
+      text-align: right;
+      text-transform: capitalize;
+      margin: 0 1em 0 0;
+    }
+  }
+}

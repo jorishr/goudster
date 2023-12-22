@@ -2,6 +2,29 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./app/public/scripts/app/modules/animateClose.js":
+/*!********************************************************!*\
+  !*** ./app/public/scripts/app/modules/animateClose.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ animateClose)
+/* harmony export */ });
+// close with animation
+function animateClose(target, baseClass) {
+  target.classList.add("".concat(baseClass, "--closing"));
+  target.addEventListener("animationend", function () {
+    target.classList.remove("".concat(baseClass, "--active"));
+    target.classList.remove("".concat(baseClass, "--closing"));
+  }, {
+    once: true
+  });
+}
+
+/***/ }),
+
 /***/ "./app/public/scripts/app/modules/consent.js":
 /*!***************************************************!*\
   !*** ./app/public/scripts/app/modules/consent.js ***!
@@ -285,14 +308,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_consent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/consent.js */ "./app/public/scripts/app/modules/consent.js");
 /* harmony import */ var _modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/formSubmit.js */ "./app/public/scripts/app/modules/formSubmit.js");
 /* harmony import */ var _modules_flash_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/flash.js */ "./app/public/scripts/app/modules/flash.js");
+/* harmony import */ var _modules_animateClose_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/animateClose.js */ "./app/public/scripts/app/modules/animateClose.js");
 
 
 
 
 
-var toggle = document.querySelector("#toggle"),
-  extendMenu = document.querySelector(".menu__collapse"),
-  pageBody = document.querySelector("body"),
+
+var pageBody = document.querySelector("body"),
   faders = document.querySelectorAll(".fade-in"),
   scrollArrow = document.querySelector(".scroll-icon"),
   spanEmails = document.querySelectorAll(".span-email");
@@ -300,11 +323,6 @@ var toggle = document.querySelector("#toggle"),
 //intersection observer api fade-in
 faders.forEach(function (fader) {
   _modules_intersectionObserver_js__WEBPACK_IMPORTED_MODULE_0__["default"].observe(fader);
-});
-
-//header navbar functionality
-toggle.addEventListener("click", function (e) {
-  extendMenu.classList.toggle("visible");
 });
 
 //adapt vh variable for mobile screen
@@ -324,11 +342,19 @@ if (pageBody.classList.contains("landing")) {
 spanEmails.forEach(function (span) {
   span.innerHTML = '<a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers">info@goudster.be</a>';
 });
-
-//setupForms();
+function togglePopupMenu() {
+  var toggle = document.querySelector("#toggle-menu-pop-up");
+  var menuPopup = document.querySelector(".menu-pop-up");
+  if (toggle && menuPopup) toggle.addEventListener("click", function () {
+    if (menuPopup.classList.contains("menu-pop-up--active")) {
+      (0,_modules_animateClose_js__WEBPACK_IMPORTED_MODULE_5__["default"])(menuPopup, "menu-pop-up");
+    } else menuPopup.classList.add("menu-pop-up--active");
+  });
+}
 (0,_modules_consent_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
 (0,_modules_flash_js__WEBPACK_IMPORTED_MODULE_4__["default"])();
+togglePopupMenu();
 })();
 
 /******/ })()
