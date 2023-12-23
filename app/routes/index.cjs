@@ -27,7 +27,7 @@ router.post("/consent", function (req, res, next) {
 
 /* other routes */
 router.get("/ons-verhaal", function (req, res, next) {
-  res.render("history", { title: "History" });
+  res.render("history", { title: "History", msg: "" });
 });
 
 router.get("/info", function (req, res, next) {
@@ -39,11 +39,11 @@ router.get("/waar-proeven", function (req, res, next) {
 });
 
 router.get("/beleid", function (req, res, next) {
-  res.render("policy", { title: "Policy" });
+  res.render("policy", { title: "Policy", msg: "" });
 });
 
 router.get("/voorwaarden", function (req, res, next) {
-  res.render("conditions", { title: "Terms and conditions" });
+  res.render("conditions", { title: "Terms and conditions", msg: "" });
 });
 
 /* contact form routes*/
@@ -69,6 +69,7 @@ router.post(
       return res.render("contact", {
         data: req.body,
         errors: errors.mapped(),
+        msg: "",
       });
     }
     let transporter = nodemailer.createTransport({
