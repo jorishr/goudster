@@ -11,11 +11,18 @@
 
     text-align: center;
 
-    padding: 8em 2em 0.5em 2em;
-
+    padding: 8em 2em 8em 2em;
+    /* 
+        extra padding on bottom to create space for fixed header 
+        bottom menu on mobile devices
+    */
     @include tablet_sm {
       flex-direction: row;
       flex-wrap: wrap;
+    }
+
+    @include tablet_md {
+      padding: 8em 2em 1em 2em;
     }
   }
 

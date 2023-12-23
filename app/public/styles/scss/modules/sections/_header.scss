@@ -9,7 +9,7 @@
 */
 
 .header {
-  position: absolute;
+  position: fixed;
   bottom: 0;
 
   z-index: 3;
@@ -19,16 +19,20 @@
   background-color: $darkOrange;
   border-top: 2px solid $mainYellow;
 
-  padding: 1em 0 0;
-
   @include tablet_md {
     bottom: unset;
     top: 0;
 
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.66);
     border-top: unset;
+  }
 
-    display: flex; // turns logo-container and navbar into flex items
+  &__content-container {
+    // keep this container as long as wrapper class applied
+
+    @include tablet_md {
+      display: flex; // turns logo-container and navbar into flex items
+    }
   }
 
   &__logo-container {
@@ -38,7 +42,9 @@
       display: block;
       flex: 0 0 20%;
 
-      padding: 0 2em;
+      text-align: center;
+
+      padding: 0.5 2em;
     }
   }
 
@@ -55,11 +61,13 @@
     position: relative;
     width: 100%;
 
-    padding: 1em 2em;
+    padding: 1em 2em 0.5em 2em;
 
     @include tablet_md {
       width: unset;
       flex: 1;
+
+      padding: 1em 2em 1em 2em;
     }
 
     &--js-small {

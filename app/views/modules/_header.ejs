@@ -30,87 +30,91 @@
   </head>
   <body>
     <header class="header">
-      <div class="header__logo-container">
-        <a class="header__logo__link" href="/"
-          ><img
-            class="header__logo"
-            src="/images/logo_goudster.gif"
-            alt="Goudster Logo"
-            title="Goudster home"
-        /></a>
+      <div class="header__content-container wrapper">
+        <div class="header__logo-container">
+          <a class="header__logo__link" href="/"
+            ><img
+              class="header__logo"
+              src="/images/logo_goudster.gif"
+              alt="Goudster Logo"
+              title="Goudster home"
+          /></a>
+        </div>
+        <nav class="header__navbar">
+          <ul class="header__navbar__menu menu">
+            <li class="menu__item">
+              <a href="/ons-verhaal" class="menu__item__link-container"
+                ><i class="fas fa-history"></i
+                ><span class="menu__item__text">ons verhaal</span></a
+              >
+            </li>
+            <li class="menu__item">
+              <a href="/waar-proeven" class="menu__item__link-container"
+                ><i class="fas fa-location-dot"></i
+                ><span class="menu__item__text">waar proeven</span></a
+              >
+            </li>
+            <li
+              class="menu__item menu__item--icon-only"
+              id="toggle-menu-pop-up"
+            >
+              <button class="menu__item__btn">
+                <i class="fas fa-ellipsis-vertical fa-2x"></i>
+              </button>
+            </li>
+          </ul>
+          <ul class="header__navbar__menu-pop-up menu-pop-up">
+            <li class="menu-pop-up__item">
+              <a
+                href="/ons-verhaal"
+                class="menu-pop-up__item__link-container"
+                title="Ons verhaal"
+                ><i class="fas fa-history"></i
+                ><span class="menu-pop-up__item__text">ons verhaal</span></a
+              >
+            </li>
+            <li class="menu-pop-up__item">
+              <a
+                href="/waar-proeven"
+                class="menu-pop-up__item__link-container"
+                title="Waar kan je Goudster vinden?"
+                ><i class="fas fa-location-arrow"></i
+                ><span class="menu-pop-up__item__text">waar proeven</span></a
+              >
+            </li>
+            <li
+              class="menu-pop-up__item menu-pop-up__item--disabled"
+              id="webshop"
+            >
+              <a
+                href="#"
+                class="menu-pop-up__item__link-container"
+                title="Online bestellen"
+                ><i class="fas fa-shopping-basket"></i
+                ><span class="menu-pop-up__item__text">bestel online</span></a
+              >
+            </li>
+            <li class="menu-pop-up__item">
+              <a
+                href="/info"
+                class="menu-pop-up__item__link-container"
+                title="Info voor horeca"
+                ><i class="fas fa-beer"></i
+                ><span class="menu-pop-up__item__text">voor horeca</span></a
+              >
+            </li>
+            <li class="menu-pop-up__item">
+              <a
+                href="/contact"
+                class="menu-pop-up__item__link-container"
+                title="Contacteer ons"
+                ><i class="fas fa-address-book"></i
+                ><span class="menu-pop-up__item__text">contact</span></a
+              >
+            </li>
+          </ul>
+        </nav>
       </div>
-      <nav class="header__navbar wrapper">
-        <ul class="header__navbar__menu menu">
-          <li class="menu__item">
-            <a href="/ons-verhaal" class="menu__item__link-container"
-              ><i class="fas fa-history"></i
-              ><span class="menu__item__text">ons verhaal</span></a
-            >
-          </li>
-          <li class="menu__item">
-            <a href="/waar-proeven" class="menu__item__link-container"
-              ><i class="fas fa-location-dot"></i
-              ><span class="menu__item__text">waar proeven</span></a
-            >
-          </li>
-          <li class="menu__item menu__item--icon-only" id="toggle-menu-pop-up">
-            <a href="#" class="menu__item__link-container"
-              ><i class="fas fa-ellipsis-vertical fa-2x"
-                ><span class="menu__item__text"></span></i
-            ></a>
-          </li>
-        </ul>
-        <ul class="header__navbar__menu-pop-up menu-pop-up">
-          <li class="menu-pop-up__item">
-            <a
-              href="/ons-verhaal"
-              class="menu-pop-up__item__link-container"
-              title="Ons verhaal"
-              ><i class="fas fa-history"></i
-              ><span class="menu-pop-up__item__text">ons verhaal</span></a
-            >
-          </li>
-          <li class="menu-pop-up__item">
-            <a
-              href="/waar-proeven"
-              class="menu-pop-up__item__link-container"
-              title="Waar kan je Goudster vinden?"
-              ><i class="fas fa-location-arrow"></i
-              ><span class="menu-pop-up__item__text">waar proeven</span></a
-            >
-          </li>
-          <li
-            class="menu-pop-up__item menu-pop-up__item--disabled"
-            id="webshop"
-          >
-            <a
-              href="#"
-              class="menu-pop-up__item__link-container"
-              title="Online bestellen"
-              ><i class="fas fa-shopping-basket"></i
-              ><span class="menu-pop-up__item__text">bestel online</span></a
-            >
-          </li>
-          <li class="menu-pop-up__item">
-            <a
-              href="/info"
-              class="menu-pop-up__item__link-container"
-              title="Info voor horeca"
-              ><i class="fas fa-beer"></i
-              ><span class="menu-pop-up__item__text">voor horeca</span></a
-            >
-          </li>
-          <li class="menu-pop-up__item">
-            <a
-              href="/contact"
-              class="menu-pop-up__item__link-container"
-              title="Contacteer ons"
-              ><i class="fas fa-address-book"></i
-              ><span class="menu-pop-up__item__text">contact</span></a
-            >
-          </li>
-        </ul>
-      </nav>
     </header>
   </body>
 </html>
