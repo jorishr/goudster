@@ -44,9 +44,8 @@
     }
 
     &:hover {
-      transform: scale(1.025);
       cursor: pointer;
-      border: 1px solid $mainOrange;
+      box-shadow: 2px 2px 2px 0 $mainOrange;
     }
 
     &__content {

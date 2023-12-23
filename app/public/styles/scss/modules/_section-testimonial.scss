@@ -1,55 +1,75 @@
 .testimonial {
   background-color: $backgroundOtherWhite;
-  padding: 4em 1em;
   color: $textColor-dark;
-}
 
-.testimonial__content {
-  text-align: center;
-  padding: 0 2em;
+  padding: 4em 1em;
 
-  opacity: 1;
-  transition: opacity ease-in-out 0.3s;
-
-  &.reveal {
-    opacity: 1; //intersectional observer api
+  @include tablet_sm {
+    padding: 4em 2em;
   }
 
-  .testimonial__container:first-of-type {
+  &__heading {
+    //override the default style defined in _section-heading
+    margin-bottom: 4em !important;
+
+    hr {
+      width: 50%;
+    }
+  }
+
+  &__content-container {
+    text-align: center;
+
+    opacity: 1;
+    transition: opacity ease-in-out 0.3s;
+
+    @include tablet_md {
+      display: flex;
+    }
+  }
+
+  &__quote {
     margin-bottom: 4em;
-  }
 
-  .testimonial__container p:last-of-type {
-    color: $mainOrange;
-  }
+    @include tablet_md {
+      flex: 0 0 50%;
+    }
 
-  i.fa-angle-right {
-    color: $mainYellow;
-    margin-right: 1em;
-  }
+    &__text {
+      text-align: left;
+      line-height: 1.75;
 
-  p:first-of-type {
-    text-align: left;
-    line-height: 1.75;
-    padding: 1em 0;
-  }
+      padding: 1em 0;
 
-  p.author {
-    display: flex;
-    text-align: left;
+      @include tablet_md {
+        padding: 1em 1.5em;
+        max-width: 55ch;
+        margin: 0 auto;
+      }
+    }
+
+    &__author {
+      display: flex;
+      justify-content: flex-start;
+
+      text-align: left;
+
+      color: $mainOrange;
+
+      @include tablet_md {
+        justify-content: center;
+      }
+
+      //additional classes to font-awesome icons get lost during compilation
+      i.fa-angle-right {
+        color: $mainYellow;
+        margin-right: 0.5em;
+      }
+    }
   }
 }
 
 @media screen and (min-width: 768px) {
-  .testimonial__heading {
-    //override the default style defined in _section-heading
-    margin-bottom: 6em !important;
-  }
-
-  .testimonial__heading hr {
-    max-width: 250px;
-  }
-
   .testimonial__content {
     display: flex;
     padding-right: 0;
