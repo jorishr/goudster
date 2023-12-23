@@ -10,13 +10,15 @@ function hideHeaderLogoOnLanding() {
 
 function hideScrollIconOnScroll() {
   const icon = document.querySelector(".scroll-down-icon");
-  window.addEventListener(
-    "scroll",
-    () => {
-      icon.classList.remove("scroll-down-icon--active");
-    },
-    { once: true }
-  );
+  if (icon) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        icon.classList.remove("scroll-down-icon--active");
+      },
+      { once: true }
+    );
+  }
 }
 
 /* 

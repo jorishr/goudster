@@ -216,11 +216,13 @@ function hideHeaderLogoOnLanding() {
 }
 function hideScrollIconOnScroll() {
   var icon = document.querySelector(".scroll-down-icon");
-  window.addEventListener("scroll", function () {
-    icon.classList.remove("scroll-down-icon--active");
-  }, {
-    once: true
-  });
+  if (icon) {
+    window.addEventListener("scroll", function () {
+      icon.classList.remove("scroll-down-icon--active");
+    }, {
+      once: true
+    });
+  }
 }
 
 /* 
