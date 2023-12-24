@@ -1,17 +1,45 @@
-.error-container {
+.error {
+  padding: 8em 1em;
+
+  @include tablet_sm {
+    padding: 8em 2em;
+  }
+
+  @include tablet_md {
+    padding: 16em 2em;
+  }
+
+  &__content-container {
+    min-height: 66vh;
+
     text-align: center;
-    margin: 6em 0;
 
-    h2 {
-        margin-bottom: 2em;
-    }
+    @include tablet_md {
+      max-width: 55ch;
 
-    a {
-        display: block;
-        max-width: 30%;
-        margin: 0 auto;
-        background-color: $mainOrange;
-        color: $backgroundWhite;
-        padding: 1em 2em;
+      margin: 0 auto;
     }
+  }
+
+  &__msg {
+    font-size: 1.5em;
+    text-align: center;
+
+    margin-bottom: 2em;
+  }
+
+  &__status {
+    font-size: 1.25em;
+    text-align: center;
+
+    margin-bottom: 2em;
+  }
+
+  &__btn {
+    display: block;
+    width: 12em;
+
+    padding: 1em 1.5em !important;
+    margin: 0 auto;
+  }
 }
