@@ -1,0 +1,24 @@
+.socials-insert {
+  width: 15em;
+
+  &__divider {
+    width: 50%;
+    height: 0.125em;
+
+    background-color: $mainOrange;
+
+    margin-bottom: 1em;
+  }
+
+  &__link-container {
+    width: 50%;
+
+    display: flex;
+    justify-content: space-evenly;
+
+    margin: 0 auto;
+  }
+
+  &__link {
+  }
+}

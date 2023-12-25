@@ -1,313 +1,74 @@
 <%- include('modules/_header'); %> <%- include('modules/_flash-alert-msg'); %>
-<div class="page-content">
-  <div class="wrapper">
-    <div class="location">
-      <div class="location__title">
-        <h1>Waar Goudster proeven en bestellen</h1>
-      </div>
-      <div class="location__text">
-        <p>
-          Goudster wordt slechts enkele malen per jaar gebrouwen in beperkte
-          hoeveelheden.
-        </p>
-        <p>
-          Wil je als eerste weten wanneer een nieuwe lading wordt geleverd, hou
-          dan onze
+<div class="location page-content wrapper">
+  <div class="location__content-container">
+    <div class="location__intro">
+      <h1 class="location__title">Proeven en bestellen</h1>
+      <p>
+        Goudster wordt slechts enkele malen per jaar gebrouwen in beperkte
+        hoeveelheden maar is vlot verkrijgbaar in de regio rondom Halen in
+        horecazaken en drinkcenters. Bekijk op de kaart hieronder waar je
+        Goudster kan proeven of kopen.
+      </p>
+      <p>
+        Wil je als eerste weten wanneer een nieuwe lading Goudster wordt
+        gebrouwen en geleverd, volg ons dan via sociale media en schrijf je in
+        op onze nieuwsbrief via het formulier onderaan deze pagina.
+      </p>
+      <div class="socials-insert location__intro__socials-insert">
+        <hr class="socials-insert__divider" />
+        <div class="socials-insert__link-container">
           <a
+            class="socials-insert__link"
             href="http://www.facebook.com/dehalensegoudster"
             target="_blank"
+            title="Volg Goudster op Facebook"
             rel="noopener noreferrer"
-            title="Ga naar onze facebook pagina"
-            >FACEBOOK <i class="fas fa-external-link-alt"></i
+            ><i class="fab fa-facebook-square fa-2x"></i
           ></a>
-          in de gaten en abonneer je op onze
-          <a href="#abonneer" title="Abonneer op onze nieuwsbrief"
-            >NIEUWSBRIEF <i class="fas fa-user-plus"></i></a
-          >.
-        </p>
-        <h2>Horeca en drinkcentra</h2>
-        <p>
-          Goudster is verkrijgbaar bij verschillende drinkcentra en horecazaken
-          in de regio.
-        </p>
-        <p>Klik op logo's op de kaart of zoom in voor meer details.</p>
+          <a
+            class="socials-insert__link"
+            href="http://www.twitter.com/goudsterbier"
+            target="_blank"
+            title="Volg Goudster op X"
+            rel="noopener noreferrer"
+            ><i class="fa-brands fa-x-twitter fa-2x"></i
+          ></a>
+          <a
+            class="socials-insert__link"
+            href="http://www.instagram.com/goudsterbier"
+            target="_blank"
+            title="Volg Goudster op Instagram"
+            rel="noopener noreferrer"
+            ><i class="fa-brands fa-instagram fa-2x"></i
+          ></a>
+        </div>
       </div>
-      <div class="location__map-container">
-        <div id="map"></div>
-      </div>
-      <div class="location__text">
-        <h2>Online bestellen en zelf afhalen</h2>
-        <p>
-          Gebruik ons contactformulier of stuur een mailtje naar
-          <span class="span-email"></span
-          ><noscript>"Enable Javascript to see this content."</noscript>
-        </p>
-        <p>
-          Geef aan hoeveel bakken je wil aankopen en vervolgens kan je op het
-          afgesproken uur je bestelling komen ophalen in HALEN centrum.
-        </p>
-        <p>
-          De richtprijs voor een bak (24 flesjes van 33cl) is 43,5 EUR inclusief
-          btw en leeggoed (8,5 EUR).
-        </p>
-        <a class="btn" href="/contact" title="Contacteer de Verenigde Brouwers"
-          >online bestellen</a
-        >
-      </div>
+
+      <h2 class="location__section-title">Online bestellen</h2>
+      <p>
+        Onze webshop is momenteel offline maar als je in de omgeving van Halen
+        woont of er passeert dan kan je ons contacteren om een bestelling te
+        plaatsen en die vervolgens zelf af te halen. Gebruik ons
+        contactformulier of stuur een mailtje naar
+        <span class="span-email"></span
+        ><noscript>"Enable Javascript to see this content."</noscript>
+      </p>
+      <a
+        class="btn location__btn"
+        href="/contact"
+        title="Contacteer de Verenigde Brouwers"
+        >online bestellen</a
+      >
     </div>
   </div>
-  <!--    newsletter section   -->
-  <%- include('modules/_newsletter'); %>
-  <!--   <section class="newsletter-section">
-    <div class="newsletter-section__heading heading" id="abonneer">
-      <i class="fas fa-newspaper fa-4x"></i>
-      <h2>Goudster Nieuws</h2>
-      <h3>
-        Blijf op de hoogte van het laatste nieuws over Goudster en ontvang als
-        eerste speciale kortingen!
-      </h3>
-      <hr />
-    </div>
-    <div class="newsletter__input wrapper">
-      <form class="newsletter" action="subscribe" method="POST">
-        <input
-          name="email"
-          type="email"
-          placeholder="Jouw e-mail adres..."
-          title="Gebruik een geldig e-mailadres"
-          required
-        />
-        <div class="form__consent">
-          <p>
-            Ik wens sporadisch e-mails te ontvangen van de Verenigde Brouwers.
-            <a href="/beleid" target="_blank" title="Goudster privacy-beleid"
-              >Lees meer over ons privacy-beleid.</a
-            >
-          </p>
-          <button class="btn" type="submit">Aanmelden</button>
-          <div class="form__consent-container">
-            <label for="checkbox" class="checkbox-container">
-              <input
-                class="subscribe"
-                type="checkbox"
-                id="checkbox"
-                name="consent"
-                required
-              />
-              <span class="checkbox-custom"></span>
-            </label>
-          </div>
-        </div>
-      </form>
-    </div>
-  </section>
- -->
+  <div class="location__map-container">
+    <p>Klik op icoontjes op de kaart of zoom in voor meer details.</p>
+
+    <div class="location__map" id="map"></div>
+  </div>
 </div>
+<%- include('modules/_newsletter'); %>
 <script>
   document.body.classList.add("hasCaptureEmail");
 </script>
-<!-- Google Maps Code -->
-<script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRHk2FKTvY7GWFoSJyLusxvfnJZAcTteo&language=nl&region=BE&callback=initMap"
-  async
-  defer
-></script>
-<script>
-  let map;
-  function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-      center: { lat: 50.948139, lng: 5.11457 },
-      zoom: 10,
-    });
-
-    function addMarker(props) {
-      let marker = new google.maps.Marker({
-        position: props.coords,
-        map: map,
-        icon: props.icon,
-      });
-      //console.log(props.icon)
-      //console.log(marker)
-      if (props.icon) {
-        marker.setIcon(props.icon);
-      }
-      if (props.name) {
-        var infoWindow = new google.maps.InfoWindow({
-          content: `<h1>${props.name}</h1`,
-        });
-      }
-      marker.addListener("click", function () {
-        infoWindow.open(map, marker);
-      });
-    }
-
-    const places = [
-      {
-        name: "Golf, Lummen",
-        coords: new google.maps.LatLng(50.993705, 5.226711),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "'t Vloot, Linkhout",
-        coords: new google.maps.LatLng(50.963271, 5.146496),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Café De Markt, Halen",
-        coords: new google.maps.LatLng(50.948305, 5.113703),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Vandepoel Drinkcenter, Halen",
-        coords: new google.maps.LatLng(50.948095, 5.108037),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Thomas Drink, Zoutleeuw",
-        coords: new google.maps.LatLng(50.830499, 5.113714),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Sportcafé De Koekoek, Halen",
-        coords: new google.maps.LatLng(50.946865, 5.11589),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Buurthuis-De Toekomst, Zellik",
-        coords: new google.maps.LatLng(50.953, 5.084273),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Brasserie 3punt, Halen",
-        coords: new google.maps.LatLng(50.94941, 5.114359),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Den AperO, Diest",
-        coords: new google.maps.LatLng(50.984152, 5.05078),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "De Rotemse Molen, Halen",
-        coords: new google.maps.LatLng(50.928832, 5.092178),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Huis van Hem, Halen",
-        coords: new google.maps.LatLng(50.940806, 5.105423),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Immigrand, Diest",
-        coords: new google.maps.LatLng(50.979488, 5.054977),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Proxy Delhaize, Halen",
-        coords: new google.maps.LatLng(50.949516, 5.114395),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Spar, Halen",
-        coords: new google.maps.LatLng(50.948102, 5.108236),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Drankenhandel Claes, Lummen",
-        coords: new google.maps.LatLng(50.988164, 5.195896),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Café Groenhof, Schaffen",
-        coords: new google.maps.LatLng(50.990513, 5.081114),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "De Sigaret, Diest",
-        coords: new google.maps.LatLng(50.983599, 5.054736),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "De Groene Munt, Diest",
-        coords: new google.maps.LatLng(50.984894, 5.053982),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Place Douze, Halen",
-        coords: new google.maps.LatLng(50.947809, 5.114072),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Museum de Reinvoart, Halen",
-        coords: new google.maps.LatLng(50.932681, 5.063551),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Stamineeke, Webbekom",
-        coords: new google.maps.LatLng(50.972876, 5.071093),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Brasserie Huys Frederic, Herk-de-Stad",
-        coords: new google.maps.LatLng(50.95721, 5.176336),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Omnidrinks Bungeneers, Nieuwerkerken",
-        coords: new google.maps.LatLng(50.889616, 5.191029),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Mucca Rosa, Herk-de-Stad",
-        coords: new google.maps.LatLng(50.948292, 5.123005),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Traiteur Nico, Halen",
-        coords: new google.maps.LatLng(50.947701, 5.1094),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Lavendelhoeve, Stokrooi",
-        coords: new google.maps.LatLng(50.9635, 5.277173),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Schmedz, Diest",
-        coords: new google.maps.LatLng(50.984274, 5.050664),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "t Puur Genot, Diest",
-        coords: new google.maps.LatLng(50.984668, 5.049057),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Oud Diest, Diest",
-        coords: new google.maps.LatLng(50.984176, 5.050766),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Herberg De Pastorie, Zelem",
-        coords: new google.maps.LatLng(50.97845, 5.099864),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "Drankenhandel KEFO-JANNES, Diest",
-        coords: new google.maps.LatLng(50.980845, 5.060089),
-        icon: "/images/favicon.ico",
-      },
-      {
-        name: "De XIIe Oogst, Halen",
-        coords: new google.maps.LatLng(50.94836, 5.115024),
-        icon: "/images/favicon.ico",
-      },
-    ];
-
-    places.forEach((place) => {
-      addMarker(place);
-    });
-  }
-</script>
-
 <%- include('modules/_footer'); %>
