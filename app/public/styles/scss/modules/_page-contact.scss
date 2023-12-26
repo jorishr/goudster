@@ -1,183 +1,142 @@
-.label-text {
-    text-align: left;
-    padding: 0 2em;
-    margin-top: 3em;
+.contact {
+  &__content-container {
+    padding: 4em 1em;
 
-    h1 {
-        font-size: 1.5rem;
+    @include mobile_lg {
+      padding: 4em 2em;
     }
 
-    a {
+    @include tablet_md {
+      padding: 8em 2em;
+    }
+  }
+
+  &__intro {
+    margin-bottom: 4em;
+
+    @include tablet_md {
+      max-width: 75ch;
+      margin: 0 auto 4em;
+    }
+
+    &__title {
+      font-size: 1.5em;
+      text-align: center;
+
+      margin-bottom: 2em;
+    }
+
+    &__text {
+      &__link > a {
         color: $mainOrange;
+      }
     }
-}
+  }
 
-form.contact {
+  &__form {
     width: 100%;
-    max-width: 650px;
-    margin: 0 auto 4em auto;
-    padding: 2em;
-    color: $textColor-dark;
+    margin: 0 auto 4em;
 
-    .input-container {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 2em;
-
-        label {
-            margin-bottom: 1em;
-            color: $lightYellow;
-            text-transform: uppercase;
-            font-weight: 600;
-
-            &::after {
-                content: '*';
-                color: $mainOrange;
-                padding-left: .5em;
-                font-size: .75rem;
-            }
-
-            &[for="subject"]::after {
-                display: none;                
-            }
-        }
-
-        input, 
-        select,
-        textarea {
-            padding: 1em;
-            background-color: $backgroundOtherWhite;
-        }
-
-        input:focus-within,
-        textarea:focus-within,
-        select:focus-within {
-            outline: $mainYellow 3px solid;
-        }
-
-        select {
-            text-transform: capitalize;
-        }
+    &__anti-spam {
+      display: none;
     }
 
-    .form__consent {
-        text-align: center;
+    &__content-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-        p {
-            color: $lightYellow;
-            line-height: 1.75;
-            display: block;
-            margin-bottom: 2em;
-        }
-
-        button {
-            text-transform: uppercase;
-            color: $backgroundOtherWhite;
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        button[disabled] {
-            opacity: .5;
-        }
-
-        button:focus {
-            outline: $mainOrange 1px solid;            
-        }
-
-        .form__consent-container {
-            margin-bottom: 2em;
-
-            //custom checkbox 
-            .checkbox-container {
-                position: relative;
-
-                input {
-                    position: absolute;
-                    width: 0;
-                    height: 0;
-                    opacity: 0;
-                    
-                    cursor: pointer;
-                }
-
-                .checkbox-custom {
-                    display: block;
-                    position: absolute;
-                    left: -10px;
-                    top: -5px;
-                    transform: translateX(-50px);
-                    height: 30px;
-                    width: 30px;
-                    background-color: $backgroundWhite;
-                    border: 3px solid $mainYellow;
-                    margin: 0 auto;
-                }
-
-                .checkbox-custom:hover {
-                    background-color: $mainGrey;
-                    cursor: pointer;
-                }
-
-                input:checked ~ .checkbox-custom {
-                    background-color: $mainGrey;
-                }
-
-                //checkmark
-                .checkbox-custom::after {
-                    display: none;
-                    content: '';
-                    position: absolute;
-                    left: 7px;
-                    top: 4px;
-                    
-                    width: 5px;
-                    height: 10px;
-                    border: solid $backgroundWhite;
-                    border-width: 0 4px 4px 0;
-                    /* border-radius: 8px; */
-                    transform: rotate(45deg);
-                }
-                
-                input:checked ~ .checkbox-custom::after {
-                    display: block;
-                }     
-            } 
-        }
-
-        a {
-            display: block;
-            color: $mainOrange;
-            font-size: .75rem;
-        }
+      width: 100%;
+      color: $textColor-dark;
     }
 
-    @media screen and (min-width: 992px){
-        & {
-            display: flex;   
-            width: 100%;
-            max-width: 1200px;
-                   
-            .form__inputs {
-                width: 60%;
-                margin-right: 4em;
+    &__input-container {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2em;
 
-                input,
-                select {
-                    width: 60%;
-                }
+      width: 100%;
 
-                textarea {
-                    width: 100%
-                }
-            }     
-
-            .form__consent {
-                width: 40%;
-                align-self: flex-end;
-                margin-bottom: 2em;
-            }
-        }
-    
+      @include tablet_md {
+        max-width: 55ch;
+        margin: 0 auto 2em;
+      }
     }
+
+    &__label {
+      text-transform: uppercase;
+      font-weight: 600;
+
+      color: $lightYellow;
+      margin-bottom: 1em;
+
+      &::after {
+        content: "*";
+        color: $mainOrange;
+        padding-left: 0.5em;
+        font-size: 0.75rem;
+      }
+
+      &[for="subject"]::after {
+        display: none;
+      }
+    }
+
+    &__input,
+    &__select,
+    &__textarea {
+      background-color: $backgroundOtherWhite;
+      padding: 1em;
+
+      &:focus-within {
+        outline: $mainYellow 0.1875em solid;
+      }
+    }
+
+    &__select {
+      text-transform: capitalize;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &__consent-container {
+      @include tablet_md {
+        max-width: 55ch;
+        margin: 0 auto 2em;
+      }
+    }
+
+    &__consent-text {
+      & > a {
+        color: $mainOrange;
+      }
+    }
+
+    &__submit-container {
+      padding: 1em;
+    }
+
+    &__btn {
+      // positioning in line with custom-checkbox
+      position: relative;
+      top: -0.1875em;
+      font-weight: 700;
+      font-size: 1em;
+      text-transform: uppercase;
+      color: $backgroundOtherWhite;
+
+      margin-left: 4em;
+
+      &[disabled] {
+        opacity: 0.5;
+      }
+
+      &:focus {
+        outline: $mainOrange 0.625em solid;
+      }
+    }
+  }
 }
