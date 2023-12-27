@@ -1,6 +1,6 @@
 nodemailer = require("nodemailer");
 
-function sendEmailToAdmin(body) {
+module.exports = function sendEmailToAdmin(body) {
   const emailOutput = `
     <p>Een nieuw bericht via de website.</p>
     <h3>Van:</h3>
@@ -42,6 +42,4 @@ function sendEmailToAdmin(body) {
     console.log("Message sent: %s", info.messageId);
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
   });
-}
-
-module.exports = sendEmailToAdmin;
+};

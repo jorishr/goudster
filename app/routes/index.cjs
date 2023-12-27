@@ -70,16 +70,17 @@ router.post(
       .isEmpty()
       .withMessage("Geen geldig bericht."),
   ],
-  async function (req, res) {
+  function (req, res) {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      console.error(errors);
       return res.render("contact", {
         msg: `De ingevoerde data is ongeldig en kan niet worden aanvaard door de server. Probeer het opnieuw.`,
         removeModal: true,
       });
     }
-    await sendEmailToAdmin(req.body);
+
+    sendEmailToAdmin(req.body);
+
     const msg = "Uw bericht werd correct verzonden!";
     res.render("index", { msg: msg, removeModal: true });
   }
