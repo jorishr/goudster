@@ -25,6 +25,31 @@ function animateClose(target, baseClass) {
 
 /***/ }),
 
+/***/ "./app/public/scripts/app/modules/checkbox.js":
+/*!****************************************************!*\
+  !*** ./app/public/scripts/app/modules/checkbox.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ handleCheckbox)
+/* harmony export */ });
+function handleCheckbox() {
+  var contactFormCheckbox = document.querySelector('.contact__form input[type="checkbox"]');
+  var contactFormSubmitBtn = document.querySelector(".contact__form button");
+  if (contactFormSubmitBtn) {
+    contactFormSubmitBtn.disabled = true;
+  }
+  if (contactFormCheckbox) {
+    contactFormCheckbox.addEventListener("click", function () {
+      contactFormSubmitBtn.disabled = !contactFormCheckbox.checked;
+    });
+  }
+}
+
+/***/ }),
+
 /***/ "./app/public/scripts/app/modules/consent.js":
 /*!***************************************************!*\
   !*** ./app/public/scripts/app/modules/consent.js ***!
@@ -62,15 +87,6 @@ function setupConsent() {
     if (ageStorage || tmpAgeConsent) {
       modal.classList.remove("modal--show");
     }
-
-    //modal functionality
-    /*     modalClose.addEventListener("click", function (e) {
-      modal.classList.remove("modal--show");
-      sessionStorage.setItem("tmpAgeConsent", true);
-      if (checkbox.checked) {
-        localStorage.setItem("ageConsent", true);
-      }
-    }); */
   }
 }
 
@@ -336,6 +352,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_flash_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/flash.js */ "./app/public/scripts/app/modules/flash.js");
 /* harmony import */ var _modules_animateClose_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/animateClose.js */ "./app/public/scripts/app/modules/animateClose.js");
 /* harmony import */ var _modules_layout_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/layout.js */ "./app/public/scripts/app/modules/layout.js");
+/* harmony import */ var _modules_checkbox_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/checkbox.js */ "./app/public/scripts/app/modules/checkbox.js");
+
 
 
 
@@ -374,6 +392,7 @@ function togglePopupMenu() {
 (0,_modules_flash_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
 togglePopupMenu();
 (0,_modules_layout_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
+(0,_modules_checkbox_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
 })();
 
 /******/ })()

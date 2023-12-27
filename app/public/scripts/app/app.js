@@ -4,6 +4,7 @@ import formSubmitHandlers from "./modules/formSubmit.js";
 import removeFlashMsgFromDOM from "./modules/flash.js";
 import animateClose from "./modules/animateClose.js";
 import layoutHelpers from "./modules/layout.js";
+import handleCheckbox from "./modules/checkbox.js";
 
 const faders = document.querySelectorAll(".fade-in"),
   spanEmails = document.querySelectorAll(".span-email");
@@ -41,3 +42,4 @@ formSubmitHandlers();
 removeFlashMsgFromDOM();
 togglePopupMenu();
 layoutHelpers();
+handleCheckbox();

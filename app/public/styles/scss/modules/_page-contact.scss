@@ -131,11 +131,7 @@
       margin-left: 4em;
 
       &[disabled] {
-        opacity: 0.5;
-      }
-
-      &:focus {
-        outline: $mainOrange 0.625em solid;
+        opacity: 0.7;
       }
     }
   }
