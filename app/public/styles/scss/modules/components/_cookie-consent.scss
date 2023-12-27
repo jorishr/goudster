@@ -1,4 +1,6 @@
 .cookie-consent {
+  display: none;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -18,10 +20,6 @@
 
   &--show {
     display: flex;
-  }
-
-  &--hide {
-    display: none;
   }
 
   &__btn-container {

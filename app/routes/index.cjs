@@ -18,8 +18,9 @@ router.post("/consent", function (req, res, next) {
   const { day, month, year } = req.body;
   const isValid = verifyAge(day, month, year);
   if (isValid) {
-    res.cookie("ageConsent", true);
+    res.cookie("ageConsent", true, { sameSite: "strict" });
     res.redirect("/");
+    // this will read the cookie from local storage, see consent.js
   } else {
     const msg = "Oeps! Geen geldige geboortedatum";
     res.render("index", { title: "Homepage", msg: msg, removeModal: false });

@@ -27,7 +27,7 @@ See more @ [liondigits.com](https://www.liondigits.com)
 - GDPR compliant forms with active consent before button can be clicked
 - Modal pop-up on page load for active age consent
 - Cookie bar pop-up with link to privacy-policy
-- User consent settings are stored in browser localStorage
+- User consent setting is stored in and read from cookie
 - Custom Map via Google Maps API
 - Flash card pop-ups for client side validation errors and server side messages
 - Debounce functionality for form submit buttons to prevent multiple submissions

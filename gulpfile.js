@@ -11,6 +11,7 @@ import cssnano from "gulp-cssnano";
 import htmlMin from "gulp-htmlmin";
 import uglify from "gulp-uglify";
 import terser from "gulp-terser";
+import replace from "gulp-replace";
 import { deleteAsync } from "del";
 import imageMin from "gulp-imagemin";
 import webpackConfig from "./webpack.config.js";
@@ -33,6 +34,7 @@ const baseDir = "./app",
   serverFiles = [
     baseDir + "/*.cjs",
     baseDir + "/routes/**/*.cjs",
+    baseDir + "/helpers/*.cjs",
     baseDir + "/bin/**/*.cjs",
   ];
 
@@ -165,7 +167,10 @@ function minifyHtml() {
 }
 
 function buildServerFiles() {
-  return src(serverFiles, { base: "./app" }).pipe(terser()).pipe(dest(distDir));
+  return src(serverFiles, { base: "./app" })
+    .pipe(replace(/'unsafe-inline'/g, ""))
+    .pipe(terser())
+    .pipe(dest(distDir));
 }
 
 const build = series(
@@ -181,7 +186,7 @@ function prodServer(cb) {
   let called = false;
   return nodemon({
     // nodemon our expressjs server
-    script: "./dist/index.cjs",
+    script: "./dist/bin/www.cjs",
     // watch core server file(s) that require server restart on change
     watch: ["./dist/index.cjs"],
   })

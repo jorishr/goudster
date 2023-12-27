@@ -1,34 +1,25 @@
 export default function setupConsent() {
-  const modalClose = document.querySelector(
-      '.modal__form button[type="submit"]'
-    ),
-    modal = document.querySelector(".modal"),
-    cookieConsentBar = document.querySelector(".cookie-consent"),
-    cookieConsentBtn = document.querySelector("#cookie-consent"),
-    pageBody = document.querySelector("body"),
-    header = document.querySelector("header"),
-    checkbox = document.querySelector('input[type="checkbox"]');
+  const modal = document.querySelector(".modal");
+  const cookieConsentBar = document.querySelector(".cookie-consent");
+  const cookieConsentBtn = document.querySelector("#cookie-consent");
 
-  //landing page functionality
-  if (pageBody.classList.contains("landing")) {
-    header.classList.add("landing");
+  const cookieStorage = localStorage.getItem("cookieConsent");
+  console.log(cookieStorage, localStorage);
+  if (cookieStorage) {
+    cookieConsentBar.classList.remove("cookie-consent--show");
+  }
 
-    let cookieStorage = localStorage.getItem("cookieConsent");
-    if (cookieStorage) {
-      cookieConsentBar.classList.add("cookie-consent--hide");
-      cookieConsentBar.classList.remove("cookie-consent--show");
-    }
+  cookieConsentBtn.addEventListener("click", function (e) {
+    cookieConsentBar.classList.remove("cookie-consent--show");
+    //cookieConsentBar.classList.add("cookie-consent--hide");
+    console.log("Setting consent cookie...");
+    localStorage.setItem("cookieConsent", true);
+    console.log("Set?", localStorage);
+  });
 
-    cookieConsentBtn.addEventListener("click", function (e) {
-      cookieConsentBar.classList.remove("cookie-consent--show");
-      cookieConsentBar.classList.add("cookie-consent--hide");
-      localStorage.setItem("cookieConsent", true);
-    });
-
-    let ageStorage = localStorage.getItem("ageConsent");
-    let tmpAgeConsent = sessionStorage.getItem("tmpAgeConsent");
-    if (ageStorage || tmpAgeConsent) {
-      modal.classList.remove("modal--show");
-    }
+  const ageConsentCookie = localStorage.getItem("ageConsent");
+  const tmpAgeConsent = sessionStorage.getItem("tmpAgeConsent");
+  if (ageConsentCookie || tmpAgeConsent) {
+    modal.classList.remove("modal--show");
   }
 }
