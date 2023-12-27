@@ -202,12 +202,18 @@ var appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll)
     if (!entry.isIntersecting) {
       return;
     } else {
-      entry.target.classList.add("link-section__link--reveal");
+      entry.target.classList.add("timeline__item--reveal");
       appearOnScroll.unobserve(entry.target);
     }
   });
 }, appearOptions);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (appearOnScroll);
+function setFadeIn() {
+  var faders = document.querySelectorAll(".fade-in");
+  faders.forEach(function (fader) {
+    appearOnScroll.observe(fader);
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (setFadeIn);
 
 /***/ }),
 
@@ -281,6 +287,60 @@ function layoutHelpers() {
   });
 }
 
+/***/ }),
+
+/***/ "./app/public/scripts/app/modules/nav.js":
+/*!***********************************************!*\
+  !*** ./app/public/scripts/app/modules/nav.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ togglePopupMenu)
+/* harmony export */ });
+/* harmony import */ var _animateClose_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./animateClose.js */ "./app/public/scripts/app/modules/animateClose.js");
+
+function togglePopupMenu() {
+  var toggle = document.querySelector("#toggle-menu-pop-up");
+  var menuPopup = document.querySelector(".menu-pop-up");
+  if (toggle && menuPopup) toggle.addEventListener("click", function () {
+    if (menuPopup.classList.contains("menu-pop-up--active")) {
+      (0,_animateClose_js__WEBPACK_IMPORTED_MODULE_0__["default"])(menuPopup, "menu-pop-up");
+    } else menuPopup.classList.add("menu-pop-up--active");
+  });
+}
+
+/***/ }),
+
+/***/ "./app/public/scripts/app/modules/setText.js":
+/*!***************************************************!*\
+  !*** ./app/public/scripts/app/modules/setText.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ setText)
+/* harmony export */ });
+function setFooterCopyrightText() {
+  var fullText = "Verenigde Brouwers &copy; 2014 &mdash; ".concat(new Date().getFullYear(), " Alle Rechten Voorbehouden");
+  document.querySelector(".footer__copyright__text").innerHTML = fullText;
+}
+function setEmailLinks() {
+  var emailLinks = document.querySelectorAll(".span-email");
+  var linkHtmlText = '<a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers">info@goudster.be</a>';
+  if (emailLinks.length > 0) {
+    emailLinks.forEach(function (span) {
+      span.innerHTML = linkHtmlText;
+    });
+  }
+}
+function setText() {
+  setEmailLinks();
+  setFooterCopyrightText();
+}
+
 /***/ })
 
 /******/ 	});
@@ -350,9 +410,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_consent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/consent.js */ "./app/public/scripts/app/modules/consent.js");
 /* harmony import */ var _modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/formSubmit.js */ "./app/public/scripts/app/modules/formSubmit.js");
 /* harmony import */ var _modules_flash_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/flash.js */ "./app/public/scripts/app/modules/flash.js");
-/* harmony import */ var _modules_animateClose_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/animateClose.js */ "./app/public/scripts/app/modules/animateClose.js");
-/* harmony import */ var _modules_layout_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/layout.js */ "./app/public/scripts/app/modules/layout.js");
-/* harmony import */ var _modules_checkbox_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/checkbox.js */ "./app/public/scripts/app/modules/checkbox.js");
+/* harmony import */ var _modules_layout_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/layout.js */ "./app/public/scripts/app/modules/layout.js");
+/* harmony import */ var _modules_checkbox_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/checkbox.js */ "./app/public/scripts/app/modules/checkbox.js");
+/* harmony import */ var _modules_setText_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/setText.js */ "./app/public/scripts/app/modules/setText.js");
+/* harmony import */ var _modules_nav_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/nav.js */ "./app/public/scripts/app/modules/nav.js");
 
 
 
@@ -360,39 +421,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var faders = document.querySelectorAll(".fade-in"),
-  spanEmails = document.querySelectorAll(".span-email");
 
-//intersection observer api fade-in
-faders.forEach(function (fader) {
-  _modules_intersectionObserver_js__WEBPACK_IMPORTED_MODULE_0__["default"].observe(fader);
-});
-
-//adapt vh variable for mobile screen
-//get the viewport height and multiply by 1% to get a value for a vh unit
-var vh = window.innerHeight * 0.01;
-//set the value in the --vh custom property to the root of the document
-document.documentElement.style.setProperty("--vh", "".concat(vh, "px"));
-
-//set email-address
-spanEmails.forEach(function (span) {
-  span.innerHTML = '<a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers">info@goudster.be</a>';
-});
-function togglePopupMenu() {
-  var toggle = document.querySelector("#toggle-menu-pop-up");
-  var menuPopup = document.querySelector(".menu-pop-up");
-  if (toggle && menuPopup) toggle.addEventListener("click", function () {
-    if (menuPopup.classList.contains("menu-pop-up--active")) {
-      (0,_modules_animateClose_js__WEBPACK_IMPORTED_MODULE_4__["default"])(menuPopup, "menu-pop-up");
-    } else menuPopup.classList.add("menu-pop-up--active");
-  });
-}
+(0,_modules_layout_js__WEBPACK_IMPORTED_MODULE_4__["default"])();
 (0,_modules_consent_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+(0,_modules_nav_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
 (0,_modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_modules_checkbox_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
 (0,_modules_flash_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
-togglePopupMenu();
-(0,_modules_layout_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
-(0,_modules_checkbox_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
+(0,_modules_setText_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
+(0,_modules_intersectionObserver_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 })();
 
 /******/ })()
