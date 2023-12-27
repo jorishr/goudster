@@ -21,21 +21,29 @@ See more @ [liondigits.com](https://www.liondigits.com)
 ### Front end features
 
 - Responsive design with mobile first approach
-- Bottom menu on mobile
+- Bottom menu on mobile, top menu on desktop
 - Custom built company history timeline
+- Fade-in animations for timeline items via Intersection Observer API
 - GDPR compliant forms with active consent before button can be clicked
 - Modal pop-up on page load for active age consent
 - Cookie bar pop-up with link to privacy-policy
 - User consent settings are stored in browser localStorage
 - Custom Map via Google Maps API
+- Flash card pop-ups for client side validation errors and server side messages
+- Debounce functionality for form submit buttons to prevent multiple submissions
+- Custom error page for 404 and server side errors
 
 ### Backend features
 
-- ExpressJS webserver
+- ExpressJs web server
 - Server side HTML rendering with EJS
 - Newsletter sign up handling via Mailgun API.
 - Contact form handling via Nodemailer and Mailgun API.
+- Server side form content validation (Express-validatorJs)
 - Age verification: input birthday validation check
+- Routing with Express-Router
+- Jest Integration Testing for route handlers and form validation
+- Middleware for spam prevention
 
 ### Task runner and build tools
 
