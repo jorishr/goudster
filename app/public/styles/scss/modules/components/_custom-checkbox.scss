@@ -1,0 +1,59 @@
+.custom-checkbox {
+  position: relative;
+
+  &__input {
+    /* 
+        we use the functionality of the input element but the styling is entirely done with the span element below 
+    */
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    cursor: pointer;
+
+    &:checked ~ span {
+      background-color: $mainGrey;
+    }
+
+    &:checked ~ span::after {
+      display: block;
+    }
+  }
+
+  &__span {
+    // custom checkbox
+    display: block;
+    position: absolute;
+
+    height: 1.875em;
+    width: 1.875em;
+
+    background-color: $backgroundWhite;
+    border: 0.1875em solid $mainYellow;
+
+    margin: 0 auto;
+
+    &:hover {
+      background-color: $mainGrey;
+      cursor: pointer;
+    }
+    // check-mark
+    &::after {
+      display: none;
+      content: "";
+
+      position: absolute;
+      top: 0.25em;
+      left: 0.4375em;
+
+      width: 0.3125em;
+      height: 0.625em;
+
+      border: solid $backgroundWhite;
+      border-width: 0 0.25em 0.25em 0;
+      /* border-radius: 8px; */
+      transform: rotate(45deg);
+    }
+  }
+}

@@ -28,11 +28,18 @@
     @include pc_sm {
       max-width: 66%;
     }
+    @include pc_lg {
+      max-width: 33%;
+    }
 
     &--alert {
       background-color: rgba(255, 0, 0, 0.95);
       color: #fff;
     }
+  }
+
+  &--hide {
+    display: none;
   }
 
   &--alert {

@@ -1,175 +1,227 @@
-#history-first,
-#history-second,
-#history-third,
-#history-fourth, 
-#history-fifth,
-#history-sixt,
-#history-seventh {
-    scroll-behavior: smooth;
-}
-
-.intro, .credits {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 650px;
-    padding: 2em;
-    margin-top: .5em;
-    line-height: 1.75;
-    text-align: center;
-
-    h1, h3 {
-        text-align: center;
-    }
-
-    h1 {
-        color: $mainOrange;
-        text-transform: capitalize;
-    }
-}
-
-.timeline-links {
-    padding: 0 2em;
-    max-width: 650px;
-    margin: 0 auto 2em auto;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    a {
-        color: $mainOrange;
-        font-size: .8rem;
-        margin-top: 1em;
-    
-        &::after {
-            content:'|';
-            margin: 0 1em;
-        }
-
-        &:last-child::after{
-            display: none;
-        }
-    }
-
-
-}
-
-blockquote {
-    line-height: 1.5;
-    font-size: .95rem;
-}
-
-.credits {
-    margin-bottom: 4em;
-}
-
 .timeline {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    padding: 1em 0 1em 1em;
-    margin: 0 auto;
+  padding: 4em 1em;
 
-    //vertical line
-    &::before {
-        content: '';
-        width: 5px;
-        height: 99.6%;
-        background-color: $mainOrange;
-        border-radius: 1em;
-        position: absolute;
-        left: 10px;
-        top: 0;            
+  @include mobile_lg {
+    padding: 4em 2em;
+  }
+
+  @include tablet_md {
+    padding: 8em 2em;
+  }
+
+  &__intro {
+    margin: 0 0 4em 0;
+
+    @include tablet_md {
+      max-width: 55ch;
+      margin: 0 auto 4em;
     }
-}
 
-.container {
+    &__title {
+      color: $mainOrange;
+      text-transform: capitalize;
+      text-align: center;
+      margin-bottom: 1em;
+    }
+  }
+
+  &__menu-container {
+    margin-bottom: 4em;
+
+    @include tablet_sm {
+      max-width: 21em;
+      margin: 0 auto 4em;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $mainGrey;
+    border-radius: 5px;
+
     padding: 1em;
-    position: relative;
-    margin: 0 auto 4em auto;
-    //intersection observer api fade-in
-    opacity: 0;
-    transition: opacity .35s ease-in;
+    margin: 0;
 
-    &.reveal {
-        opacity: 1;     //intersection observer api fade-in
-    }
+    &__item {
+      width: 100%;
 
-    &::before {
-        content: '';
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        
-        background-color: $mainYellow;
-        position: absolute;
-        left: -14px;
-        top: 1em;
-    }
+      background-color: $otherBlack;
 
-    .content {
-        background-color: $backgroundOtherWhite;
-        color: $textColor-dark;
-        padding: 1em 2em;       
-        border-radius: .5em;   
+      margin-bottom: 0.5em;
 
-        h2 {
-            font-size: 1.125rem;
-            text-transform: uppercase;
-            color: $mainOrange;
-        }
+      &__link {
+        display: block;
 
-        p {
-            line-height: 1.75;
-            text-align: left;
-        }
-
-        img {
-            display: block;
-            margin: 2em auto;
-            width: 80%;
-            height: auto;
-        }
-
-        blockquote {
-            margin-left: .5em;
-            margin-right: 0;
-        }
-    }
-}
-
-@media screen and (min-width: 768px){
-
-    .intro,
-    .credits {
         text-align: center;
-    }
+        transition: all 0.5s ease-in-out;
 
-    .timeline {
+        padding: 1em 1.5em;
 
-        padding: 1em; 
-
-        &::before {
-            left: 50%;
-            margin-left: 7px;
+        &:hover {
+          background-color: $lightYellow;
+          color: $otherBlack;
         }
+      }
     }
+  }
 
-    .container {
-        width: 50%;
-        position: relative;
-    }
+  &__content-container {
+    //here you set the position of the entire timeline block
+    position: relative;
 
-    .container.left {
-        left: 0;
-        margin: 0 1em 0 0;
+    // vertical line
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10px;
 
-        &::before {
-            left: 100%;
-        }
-    }
+      width: 0.375em;
+      height: 99.6%;
 
-    .container.right {
+      background-color: $mainOrange;
+      border-radius: 1em;
+
+      @include pc_sm {
         left: 50%;
-        margin: 0 0 0 14px;
+        transform: translateX(-50%);
+      }
     }
+  }
+
+  &__item {
+    //here you set the position of the item on inside the timeline block
+    position: relative;
+
+    opacity: 0;
+    transition: opacity 0.35s ease-in;
+
+    padding: 1.5em 0 0 1.5em; //push free from vertical line
+
+    margin: 0 auto 4em;
+
+    &--reveal {
+      opacity: 1; //intersection observer api fade-in
+    }
+
+    // the dot on the timeline
+    &::before {
+      content: "";
+
+      position: absolute;
+      left: 2.5px;
+      top: 1.5em;
+
+      width: 20px;
+      height: 20px;
+
+      border-radius: 50%;
+      background-color: $mainYellow;
+    }
+
+    &--left {
+      @include pc_sm {
+        right: 50%;
+        transform: translateX(50%);
+
+        width: 50%;
+
+        padding: 1.5em 1.5em 0 0; //push free from vertical line
+
+        &::before {
+          width: 27px;
+          height: 27px;
+
+          left: unset;
+          right: -0.825em;
+        }
+      }
+    }
+
+    &--right {
+      @include pc_sm {
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 50%;
+
+        &::before {
+          width: 27px;
+          height: 27px;
+
+          left: -0.825em;
+        }
+      }
+    }
+
+    &__scroll-up {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      margin: 0 0.25em 0.25em 0;
+
+      @include tablet_md {
+        right: 50%;
+        transform: translateX(50%);
+        margin: 0 0 0.5em 0;
+      }
+
+      a {
+        color: $mainGrey;
+      }
+    }
+
+    &__content-container {
+      //here you set the styling of the timeline item and its content
+      background-color: $backgroundOtherWhite;
+      color: $textColor-dark;
+      border-radius: 0.5em;
+
+      padding: 0.5em;
+
+      @include tablet_md {
+        padding: 2em;
+      }
+    }
+
+    &__title {
+      text-align: center;
+      text-transform: capitalize;
+    }
+
+    &__blockquote {
+      font-style: italic;
+      line-height: 1.5;
+      margin: 0;
+
+      &:first-of-type {
+        margin-bottom: 0.5em;
+      }
+    }
+
+    &__image {
+      display: block;
+
+      @include tablet_md {
+        width: 82%;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__credits {
+    @include tablet_md {
+      max-width: 55ch;
+      margin: 0 auto 4em;
+    }
+
+    &__title {
+      text-align: center;
+    }
+  }
 }

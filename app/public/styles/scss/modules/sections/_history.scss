@@ -21,24 +21,7 @@
     }
   }
 
-  &__link {
-    display: block;
-    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.25);
-    border-radius: 9px;
-
-    transition: all 0.3s ease-in;
-
-    margin-bottom: 4em;
-
-    @include pc_sm {
-      max-width: 40%;
-    }
-    &:hover {
-      transform: scale(1.025);
-      cursor: pointer;
-      border: 1px solid $mainOrange;
-    }
-  }
+  //the content is wrapped in an a-tag. That a-tag re-uses the styling from _link-section__link
 
   &__heading {
     padding: 0 1em;

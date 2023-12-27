@@ -1,0 +1,15 @@
+.scroll-down-icon {
+  display: none;
+
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+
+  opacity: 0;
+
+  animation: moveArrow 3s ease-out infinite;
+
+  &--active {
+    display: block;
+  }
+}

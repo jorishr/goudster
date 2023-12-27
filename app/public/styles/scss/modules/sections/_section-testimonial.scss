@@ -1,0 +1,106 @@
+.testimonial {
+  background-color: $backgroundOtherWhite;
+  color: $textColor-dark;
+
+  padding: 4em 1em;
+
+  @include tablet_sm {
+    padding: 4em 2em;
+  }
+
+  &__heading {
+    //override the default style defined in _section-heading
+    margin-bottom: 4em !important;
+
+    hr {
+      width: 50%;
+    }
+  }
+
+  &__content-container {
+    text-align: center;
+
+    transition: opacity ease-in-out 0.3s;
+
+    @include tablet_md {
+      display: flex;
+    }
+  }
+
+  &__quote {
+    margin-bottom: 4em;
+
+    @include tablet_md {
+      flex: 0 0 50%;
+    }
+
+    &__text {
+      text-align: left;
+      line-height: 1.75;
+
+      padding: 1em 0;
+
+      @include tablet_md {
+        padding: 1em 1.5em;
+        max-width: 55ch;
+        margin: 0 auto;
+      }
+    }
+
+    &__author {
+      display: flex;
+      justify-content: flex-start;
+
+      text-align: left;
+
+      color: $mainOrange;
+
+      @include tablet_md {
+        justify-content: center;
+      }
+
+      //additional classes to font-awesome icons get lost during compilation
+      i.fa-angle-right {
+        color: $mainYellow;
+        margin-right: 0.5em;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .testimonial__content {
+    display: flex;
+    padding-right: 0;
+    padding-left: 4em;
+  }
+
+  .testimonial__container {
+    flex: 1;
+  }
+
+  .testimonial__container + .testimonial__container {
+    margin-left: 1em;
+  }
+
+  .testimonial__container {
+    display: flex;
+    flex-wrap: wrap;
+
+    i {
+      margin-right: 0.5em;
+    }
+    p.quote {
+      width: 70%;
+      padding-top: 0;
+      margin: 0;
+      font-size: 1rem;
+    }
+    p.author {
+      display: flex;
+      margin-left: 4em;
+      margin-top: 0;
+      text-align: left;
+    }
+  }
+}

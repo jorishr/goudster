@@ -2,6 +2,54 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./app/public/scripts/app/modules/animateClose.js":
+/*!********************************************************!*\
+  !*** ./app/public/scripts/app/modules/animateClose.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ animateClose)
+/* harmony export */ });
+// close with animation
+function animateClose(target, baseClass) {
+  target.classList.add("".concat(baseClass, "--closing"));
+  target.addEventListener("animationend", function () {
+    target.classList.remove("".concat(baseClass, "--active"));
+    target.classList.remove("".concat(baseClass, "--closing"));
+  }, {
+    once: true
+  });
+}
+
+/***/ }),
+
+/***/ "./app/public/scripts/app/modules/checkbox.js":
+/*!****************************************************!*\
+  !*** ./app/public/scripts/app/modules/checkbox.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ handleCheckbox)
+/* harmony export */ });
+function handleCheckbox() {
+  var contactFormCheckbox = document.querySelector('.contact__form input[type="checkbox"]');
+  var contactFormSubmitBtn = document.querySelector(".contact__form button");
+  if (contactFormSubmitBtn) {
+    contactFormSubmitBtn.disabled = true;
+  }
+  if (contactFormCheckbox) {
+    contactFormCheckbox.addEventListener("click", function () {
+      contactFormSubmitBtn.disabled = !contactFormCheckbox.checked;
+    });
+  }
+}
+
+/***/ }),
+
 /***/ "./app/public/scripts/app/modules/consent.js":
 /*!***************************************************!*\
   !*** ./app/public/scripts/app/modules/consent.js ***!
@@ -39,61 +87,36 @@ function setupConsent() {
     if (ageStorage || tmpAgeConsent) {
       modal.classList.remove("modal--show");
     }
-
-    //modal functionality
-    /*     modalClose.addEventListener("click", function (e) {
-      modal.classList.remove("modal--show");
-      sessionStorage.setItem("tmpAgeConsent", true);
-      if (checkbox.checked) {
-        localStorage.setItem("ageConsent", true);
-      }
-    }); */
   }
 }
 
 /***/ }),
 
-/***/ "./app/public/scripts/app/modules/form.js":
-/*!************************************************!*\
-  !*** ./app/public/scripts/app/modules/form.js ***!
-  \************************************************/
+/***/ "./app/public/scripts/app/modules/flash.js":
+/*!*************************************************!*\
+  !*** ./app/public/scripts/app/modules/flash.js ***!
+  \*************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ setupForms)
+/* harmony export */   "default": () => (/* binding */ removeFlashMsgFromDOM)
 /* harmony export */ });
-function setupForms() {
-  var pageBody = document.querySelector("body"),
-    checkbox = document.querySelector('input[type="checkbox"]'),
-    inputFields = document.querySelectorAll("input[required], textarea"),
-    contactSubmit = document.querySelector("form.contact button"),
-    subscribeBtn = document.querySelector(".form__consent button");
-  if (inputFields.length !== 0) {
-    if (pageBody.classList.contains("landing") || pageBody.classList.contains("hasCaptureEmail")) {
-      subscribeBtn.disabled = true;
+/* 
+The flash message content is set by Express server code and only shown once per render. The styling makes the container fade-out but the element remained in the DOM, overlapping with the menu.   
+*/
+
+function removeFlashMsgFromDOM() {
+  document.addEventListener("DOMContentLoaded", function () {
+    var flashMsgContainer = document.querySelector(".flash");
+    var flashMsgText = document.querySelector(".flash__msg");
+    var hasText = flashMsgText.textContent;
+    if (flashMsgContainer && hasText) {
+      setTimeout(function () {
+        flashMsgContainer.classList.add("flash--hide");
+      }, 5000);
     }
-    if (pageBody.classList.contains("contact")) {
-      contactSubmit.disabled = true;
-    }
-    for (var i = 0; i < inputFields.length; i++) {
-      inputFields[i].addEventListener("input", function () {
-        var values = [];
-        var checked = checkbox.checked;
-        inputFields.forEach(function (field) {
-          return values.push(field.value);
-        });
-        if (pageBody.classList.contains("landing") || pageBody.classList.contains("hasCaptureEmail")) {
-          //there is more than one checkbox on this page
-          checked = document.querySelector('input[type="checkbox"].subscribe').checked;
-          subscribeBtn.disabled = values.includes("") || !checked;
-        }
-        if (pageBody.classList.contains("contact")) {
-          contactSubmit.disabled = values.includes("") || !checked;
-        }
-      });
-    }
-  }
+  });
 }
 
 /***/ }),
@@ -124,7 +147,7 @@ function formSubmitHandlers() {
         if (form.checkValidity()) {
           submitFormWithDebounce(form);
         } else {
-          //alert the user with flash card
+          //alert the user with flash alert card
           var alert = document.querySelector(".flash--alert");
           var alertMsg = document.querySelector(".flash__msg--alert");
           alertMsg.textContent = "Onvolledige of ongeldige input. Probeer het opnieuw.";
@@ -140,7 +163,7 @@ function formSubmitHandlers() {
 function submitFormWithDebounce(form) {
   var debounceFn = debounce(function () {
     form.submit();
-  }, 1000);
+  }, 500);
   debounceFn();
 }
 function debounce(func, delay) {
@@ -179,12 +202,144 @@ var appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll)
     if (!entry.isIntersecting) {
       return;
     } else {
-      entry.target.classList.add("link-section__link--reveal");
+      entry.target.classList.add("timeline__item--reveal");
       appearOnScroll.unobserve(entry.target);
     }
   });
 }, appearOptions);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (appearOnScroll);
+function setFadeIn() {
+  var faders = document.querySelectorAll(".fade-in");
+  faders.forEach(function (fader) {
+    appearOnScroll.observe(fader);
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (setFadeIn);
+
+/***/ }),
+
+/***/ "./app/public/scripts/app/modules/layout.js":
+/*!**************************************************!*\
+  !*** ./app/public/scripts/app/modules/layout.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ layoutHelpers)
+/* harmony export */ });
+/* 
+    This logo visually conflicts with the hero section logo 
+    that has the same logo in it
+*/
+function hideHeaderLogoOnLanding() {
+  if (document.body.classList.contains("landing")) {
+    document.querySelector(".header__logo").classList.add("header__logo--hide");
+  }
+}
+function hideScrollIconOnScroll() {
+  var icon = document.querySelector(".scroll-down-icon");
+  if (icon) {
+    window.addEventListener("scroll", function () {
+      icon.classList.remove("scroll-down-icon--active");
+    }, {
+      once: true
+    });
+  }
+}
+
+/* 
+    Calculate the actual available screen height, minus the browser status and menu bars 
+*/
+
+function adjustHeroStyles() {
+  if (document.body.classList.contains("landing")) {
+    var innerHeight = window.innerHeight;
+    var innerWidth = window.innerWidth;
+    var ctaHeading = document.querySelector(".hero__cta__heading");
+    var navBar = document.querySelector(".header__navbar");
+    if (innerHeight < 640 && innerWidth < 768) {
+      ctaHeading.classList.add("hero__cta__heading--hide");
+      navBar.classList.add("header__navbar--js-small");
+    } else {
+      ctaHeading.classList.remove("hero__cta__heading--hide");
+      navBar.classList.remove("header__navbar--js-small");
+    }
+  }
+}
+function setHeroSectionHeightVar() {
+  var innerHeight = window.innerHeight;
+  var menuHeight = document.querySelector("header").offsetHeight;
+  document.documentElement.style.setProperty("--innerHeight", "".concat(innerHeight, "px"));
+  document.documentElement.style.setProperty("--menuHeight", "".concat(menuHeight, "px"));
+}
+function layoutHelpers() {
+  setHeroSectionHeightVar();
+  adjustHeroStyles();
+  hideScrollIconOnScroll();
+  hideHeaderLogoOnLanding();
+  var resizeTimeout;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function () {
+      setHeroSectionHeightVar();
+      adjustHeroStyles();
+    }, 300);
+  });
+}
+
+/***/ }),
+
+/***/ "./app/public/scripts/app/modules/nav.js":
+/*!***********************************************!*\
+  !*** ./app/public/scripts/app/modules/nav.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ togglePopupMenu)
+/* harmony export */ });
+/* harmony import */ var _animateClose_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./animateClose.js */ "./app/public/scripts/app/modules/animateClose.js");
+
+function togglePopupMenu() {
+  var toggle = document.querySelector("#toggle-menu-pop-up");
+  var menuPopup = document.querySelector(".menu-pop-up");
+  if (toggle && menuPopup) toggle.addEventListener("click", function () {
+    if (menuPopup.classList.contains("menu-pop-up--active")) {
+      (0,_animateClose_js__WEBPACK_IMPORTED_MODULE_0__["default"])(menuPopup, "menu-pop-up");
+    } else menuPopup.classList.add("menu-pop-up--active");
+  });
+}
+
+/***/ }),
+
+/***/ "./app/public/scripts/app/modules/setText.js":
+/*!***************************************************!*\
+  !*** ./app/public/scripts/app/modules/setText.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ setText)
+/* harmony export */ });
+function setFooterCopyrightText() {
+  var fullText = "Verenigde Brouwers &copy; 2014 &mdash; ".concat(new Date().getFullYear(), " Alle Rechten Voorbehouden");
+  document.querySelector(".footer__copyright__text").innerHTML = fullText;
+}
+function setEmailLinks() {
+  var emailLinks = document.querySelectorAll(".span-email");
+  var linkHtmlText = '<a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers">info@goudster.be</a>';
+  if (emailLinks.length > 0) {
+    emailLinks.forEach(function (span) {
+      span.innerHTML = linkHtmlText;
+    });
+  }
+}
+function setText() {
+  setEmailLinks();
+  setFooterCopyrightText();
+}
 
 /***/ })
 
@@ -252,51 +407,29 @@ var __webpack_exports__ = {};
   \***************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_intersectionObserver_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/intersectionObserver.js */ "./app/public/scripts/app/modules/intersectionObserver.js");
-/* harmony import */ var _modules_form_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/form.js */ "./app/public/scripts/app/modules/form.js");
-/* harmony import */ var _modules_consent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/consent.js */ "./app/public/scripts/app/modules/consent.js");
-/* harmony import */ var _modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/formSubmit.js */ "./app/public/scripts/app/modules/formSubmit.js");
+/* harmony import */ var _modules_consent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/consent.js */ "./app/public/scripts/app/modules/consent.js");
+/* harmony import */ var _modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/formSubmit.js */ "./app/public/scripts/app/modules/formSubmit.js");
+/* harmony import */ var _modules_flash_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/flash.js */ "./app/public/scripts/app/modules/flash.js");
+/* harmony import */ var _modules_layout_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/layout.js */ "./app/public/scripts/app/modules/layout.js");
+/* harmony import */ var _modules_checkbox_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/checkbox.js */ "./app/public/scripts/app/modules/checkbox.js");
+/* harmony import */ var _modules_setText_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/setText.js */ "./app/public/scripts/app/modules/setText.js");
+/* harmony import */ var _modules_nav_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/nav.js */ "./app/public/scripts/app/modules/nav.js");
 
 
 
 
-var toggle = document.querySelector("#toggle"),
-  extendMenu = document.querySelector(".menu__collapse"),
-  pageBody = document.querySelector("body"),
-  faders = document.querySelectorAll(".fade-in"),
-  scrollArrow = document.querySelector(".scroll-icon"),
-  spanEmails = document.querySelectorAll(".span-email");
 
-//intersection observer api fade-in
-faders.forEach(function (fader) {
-  _modules_intersectionObserver_js__WEBPACK_IMPORTED_MODULE_0__["default"].observe(fader);
-});
 
-//header navbar functionality
-toggle.addEventListener("click", function (e) {
-  extendMenu.classList.toggle("visible");
-});
 
-//adapt vh variable for mobile screen
-//get the viewport height and multiply by 1% to get a value for a vh unit
-var vh = window.innerHeight * 0.01;
-//set the value in the --vh custom property to the root of the document
-document.documentElement.style.setProperty("--vh", "".concat(vh, "px"));
 
-//scroll arrow: hide on scroll
-if (pageBody.classList.contains("landing")) {
-  window.addEventListener("scroll", function () {
-    scrollArrow.style.display = "none";
-  });
-}
-
-//set email-address
-spanEmails.forEach(function (span) {
-  span.innerHTML = '<a href="mailto:info@goudster.be" title="Mail naar de Verenigde Brouwers">info@goudster.be</a>';
-});
-
-//setupForms();
-(0,_modules_consent_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
-(0,_modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
+(0,_modules_layout_js__WEBPACK_IMPORTED_MODULE_4__["default"])();
+(0,_modules_consent_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+(0,_modules_nav_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
+(0,_modules_formSubmit_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_modules_checkbox_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
+(0,_modules_flash_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
+(0,_modules_setText_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
+(0,_modules_intersectionObserver_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 })();
 
 /******/ })()

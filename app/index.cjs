@@ -34,7 +34,10 @@ app.use(express.static(path.join(__dirname, "public")));
 //security
 app.use(helmet());
 app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "script-src 'self' 'unsafe-inline'");
+  res.setHeader(
+    "Content-Security-Policy",
+    "script-src 'self' 'unsafe-inline' https://kit.fontawesome.com"
+  );
   next();
 });
 
@@ -55,7 +58,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.render("error", { msg: "" });
 });
 
 module.exports = app;

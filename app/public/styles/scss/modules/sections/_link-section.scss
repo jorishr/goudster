@@ -31,10 +31,6 @@
       max-width: 40%;
     }
 
-    &--reveal {
-      opacity: 1; //see intersectional observer API
-    }
-
     &:first-of-type {
       margin-bottom: 4em;
 
@@ -44,9 +40,8 @@
     }
 
     &:hover {
-      transform: scale(1.025);
       cursor: pointer;
-      border: 1px solid $mainOrange;
+      box-shadow: 2px 2px 2px 0 $mainOrange;
     }
 
     &__content {

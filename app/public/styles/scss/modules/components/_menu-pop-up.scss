@@ -1,0 +1,61 @@
+/* 
+  ### NOTE ###
+  This is the menu that pops-up when toggling the dotted menu link in the base menu. It is positioned relative to the navbar element in the header section
+*/
+.menu-pop-up {
+  display: none;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-15%, -93%);
+
+  background-color: $mainGrey;
+  border-radius: 5px;
+
+  padding: 1em 0.5em;
+
+  @include tablet_md {
+    top: unset;
+    bottom: 0;
+    transform: translate(-33%, 96%);
+  }
+
+  &--active {
+    display: block;
+    animation: fade-in 500ms forwards;
+  }
+
+  &--closing {
+    animation: fade-out 500ms forwards;
+  }
+
+  &__item {
+    padding: 1em;
+
+    &:hover {
+      background-color: $otherBlack;
+      border-radius: 5px;
+    }
+
+    &--disabled {
+      pointer-events: none;
+      a {
+        color: grey;
+      }
+    }
+
+    &__link-container {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    &__text {
+      text-align: right;
+      text-transform: capitalize;
+      margin: 0 1em 0 0;
+    }
+  }
+}

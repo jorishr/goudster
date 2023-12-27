@@ -1,31 +1,28 @@
-.policy-text-container {
-    padding: 2em;
-    padding-bottom: 8em;
+.policy {
+  padding: 4em 1em;
+
+  @include tablet_sm {
+    padding: 4em 2em;
+  }
+
+  @include tablet_md {
+    padding: 8em 2em;
+  }
+
+  &__content-container {
     width: 100%;
 
-    h1,
-    h2 {
-        text-transform: uppercase;
-        color: $mainOrange;
-        margin: 2em 0;
+    @include tablet_sm {
+      max-width: 55ch;
+      margin: 0 auto;
     }
+  }
 
-    h1 {
-        font-size: 1.5rem;
-    }
+  &__title {
+    font-size: 1.5em;
+  }
 
-    h2 {
-        font-size: 1rem;
-        font-weight: 700;
-    }
-
-    p {
-        line-height: 1.75;
-    }
-
-    @media screen and (min-width: 768px){
-        max-width: 50%;
-        margin: 0 0 0 auto;        
-    }
-
+  &__section-title {
+    font-size: 1.25em;
+  }
 }

@@ -2,7 +2,7 @@
 @import "modules/variables";
 @import "modules/mixins";
 @import "modules/global";
-@import "modules/section-testimonial";
+@import "modules/animations";
 @import "modules/page-history";
 @import "modules/page-info";
 @import "modules/page-location";
@@ -15,6 +15,12 @@
 @import "modules/components/btns";
 @import "modules/components/heading";
 @import "modules/components/alert-msg";
+@import "modules/components/menu";
+@import "modules/components/menu-pop-up";
+@import "modules/components/scroll-down-icon";
+@import "modules/components/socials-insert";
+@import "modules/components/custom-checkbox";
+@import "modules/sections/section-testimonial";
 @import "modules/sections/header";
 @import "modules/sections/hero";
 @import "modules/sections/link-section";

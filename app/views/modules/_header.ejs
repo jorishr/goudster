@@ -15,13 +15,11 @@
     <title>Goudster, Echt Oud Belgisch Bier!</title>
     <!-- Scripts -->
     <script defer src="/scripts/app-bundle.js"></script>
-    <!-- Stylesheets -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
-      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+    <script
+      src="https://kit.fontawesome.com/49d7940b9d.js"
       crossorigin="anonymous"
-    />
+    ></script>
+    <!-- Stylesheets -->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
       rel="stylesheet"
@@ -31,48 +29,92 @@
     <link rel="shortcut icon" href="/images/favicon.ico" />
   </head>
   <body>
-    <header>
-      <nav class="navbar wrapper">
-        <a class="logo" href="/"
-          ><img src="/images/logo_goudster.gif" alt="Goudster Logo" /><i
-            class="fas fa-home"
-          ></i
-        ></a>
-        <ul class="menu">
-          <li class="menu__link hide-mobile">
-            <a href="/ons-verhaal"><i class="fas fa-history"></i>ons verhaal</a>
-          </li>
-          <li class="menu__link hide-mobile">
-            <a href="/waar-proeven"
-              ><i class="fas fa-location-arrow"></i>waar proeven</a
+    <header class="header">
+      <div class="header__content-container wrapper">
+        <div class="header__logo-container">
+          <a class="header__logo__link" href="/"
+            ><img
+              class="header__logo"
+              src="/images/logo_goudster.gif"
+              alt="Goudster Logo"
+              title="Goudster home"
+          /></a>
+        </div>
+        <nav class="header__navbar">
+          <ul class="header__navbar__menu menu">
+            <li class="menu__item">
+              <a href="/ons-verhaal" class="menu__item__link-container"
+                ><i class="fas fa-history"></i
+                ><span class="menu__item__text">ons verhaal</span></a
+              >
+            </li>
+            <li class="menu__item">
+              <a href="/waar-proeven" class="menu__item__link-container"
+                ><i class="fas fa-location-dot"></i
+                ><span class="menu__item__text">waar proeven</span></a
+              >
+            </li>
+            <li
+              class="menu__item menu__item--icon-only"
+              id="toggle-menu-pop-up"
             >
-          </li>
-          <li class="menu__link" id="toggle">
-            <a href="#"><i class="fas fa-ellipsis-h fa-2x"></i></a>
-          </li>
-        </ul>
-        <ul class="menu__collapse">
-          <li class="hide-lg">
-            <a href="/ons-verhaal"><i class="fas fa-history"></i>ons verhaal</a>
-          </li>
-          <li class="hide-lg">
-            <a href="/waar-proeven"
-              ><i class="fas fa-location-arrow"></i>waar proeven</a
+              <button class="menu__item__btn">
+                <i class="fas fa-ellipsis-vertical fa-2x"></i>
+              </button>
+            </li>
+          </ul>
+          <ul class="header__navbar__menu-pop-up menu-pop-up">
+            <li class="menu-pop-up__item">
+              <a
+                href="/ons-verhaal"
+                class="menu-pop-up__item__link-container"
+                title="Ons verhaal"
+                ><i class="fas fa-history"></i
+                ><span class="menu-pop-up__item__text">ons verhaal</span></a
+              >
+            </li>
+            <li class="menu-pop-up__item">
+              <a
+                href="/waar-proeven"
+                class="menu-pop-up__item__link-container"
+                title="Waar kan je Goudster vinden?"
+                ><i class="fas fa-location-arrow"></i
+                ><span class="menu-pop-up__item__text">waar proeven</span></a
+              >
+            </li>
+            <li
+              class="menu-pop-up__item menu-pop-up__item--disabled"
+              id="webshop"
             >
-          </li>
-          <li id="shop">
-            <a href="#"
-              ><i class="fas fa-shopping-basket"></i>shop online (soon)</a
-            >
-          </li>
-          <li>
-            <a href="/info"><i class="fas fa-beer"></i>info voor cafe's</a>
-          </li>
-          <li>
-            <a href="/contact"><i class="fas fa-address-card"></i>contact</a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                href="#"
+                class="menu-pop-up__item__link-container"
+                title="Online bestellen"
+                ><i class="fas fa-shopping-basket"></i
+                ><span class="menu-pop-up__item__text">bestel online</span></a
+              >
+            </li>
+            <li class="menu-pop-up__item">
+              <a
+                href="/info"
+                class="menu-pop-up__item__link-container"
+                title="Info voor horeca"
+                ><i class="fas fa-beer"></i
+                ><span class="menu-pop-up__item__text">voor horeca</span></a
+              >
+            </li>
+            <li class="menu-pop-up__item">
+              <a
+                href="/contact"
+                class="menu-pop-up__item__link-container"
+                title="Contacteer ons"
+                ><i class="fas fa-address-book"></i
+                ><span class="menu-pop-up__item__text">contact</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   </body>
 </html>

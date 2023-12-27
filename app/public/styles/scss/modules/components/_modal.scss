@@ -120,6 +120,10 @@
       @include tablet_md {
         max-width: 33%;
       }
+
+      @include pc_lg {
+        max-width: 18%;
+      }
     }
   }
 }

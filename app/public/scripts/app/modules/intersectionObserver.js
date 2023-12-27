@@ -13,11 +13,18 @@ const appearOnScroll = new IntersectionObserver(function (
     if (!entry.isIntersecting) {
       return;
     } else {
-      entry.target.classList.add("link-section__link--reveal");
+      entry.target.classList.add("timeline__item--reveal");
       appearOnScroll.unobserve(entry.target);
     }
   });
 },
 appearOptions);
 
-export default appearOnScroll;
+function setFadeIn() {
+  const faders = document.querySelectorAll(".fade-in");
+  faders.forEach((fader) => {
+    appearOnScroll.observe(fader);
+  });
+}
+
+export default setFadeIn;
