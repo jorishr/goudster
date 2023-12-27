@@ -1,11 +1,12 @@
 require("dotenv").config();
 
-const express = require("express"),
-  router = express.Router(),
-  nodemailer = require("nodemailer");
-
+const express = require("express");
+router = express.Router();
 const { check, validationResult } = require("express-validator");
+
+const formHoneyPot = require("./middleware/honeypot.cjs");
 const verifyAge = require("../helpers/verifyAge.cjs");
+const sendEmailToAdmin = require("../helpers/sendEmailToAdmin.cjs");
 
 /* home page. */
 router.get("/", function (req, res, next) {
@@ -53,67 +54,34 @@ router.get("/contact", function (req, res, next) {
 
 router.post(
   "/send",
+  formHoneyPot,
   [
-    check("name").not().isEmpty().trim().escape(),
-    check("email").isEmail().normalizeEmail(),
-    check("message").not().isEmpty().trim().escape(),
-    check("notifyOnReply").toBoolean(),
+    check("name")
+      .trim()
+      .escape()
+      .not()
+      .isEmpty()
+      .withMessage("Geef een naam op."),
+    check("email").isEmail().normalizeEmail().withMessage("Ongeldige email."),
+    check("message")
+      .trim()
+      .escape()
+      .not()
+      .isEmpty()
+      .withMessage("Geen geldig bericht."),
   ],
-  function (req, res) {
-    //spam protection
-    if (req.body.url !== "") {
-      return res.render("index", { msg: "Hello Spambot!" });
-    }
+  async function (req, res) {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.error(errors);
       return res.render("contact", {
-        data: req.body,
-        errors: errors.mapped(),
-        msg: "",
+        msg: `De ingevoerde data is ongeldig en kan niet worden aanvaard door de server. Probeer het opnieuw.`,
+        removeModal: true,
       });
     }
-    let transporter = nodemailer.createTransport({
-      host: "smtp.eu.mailgun.org",
-      port: 587,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: process.env.EMAIL, // generated ethereal user
-        pass: process.env.PASSWORD, // generated ethereal password
-      },
-      tls: { rejectUnauthorized: false },
-    });
-    const output = `
-  <p>Een nieuw bericht via de website.</p>
-  <h3>Van:</h3>
-  <ul>  
-    <li>Naam: ${req.body.name}</li>
-    <li>Onderwerp: ${req.body.subject}</li>
-    <li>Email: ${req.body.email}</li>
-  </ul>
-  <h3>Bericht</h3>
-  <p>${req.body.message}</p>
-  <br>
-  <hr>
-  <p><em>Deze e-mail is automatisch gegenereerd door de Goudster website. Om de afzender te antwoorden: schrijf een nieuwe e-mail en gebruik het opgegeven e-mailadres.</em></p>
-  `;
-
-    let mailOptions = {
-      from: '"Goudster Website" <mg@jorisraymaekers.com>', // sender address
-      to: "info@goudster.be", // list of receivers
-      subject: `Vraag via de website: ${req.body.subject}`, // Subject line
-      text: `${req.body.message}`, // plain text body
-      html: output, // html body
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        return console.log(error);
-      }
-      console.log("Message sent: %s", info.messageId);
-      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-      let msg = "Uw bericht werd correct verzonden!";
-      res.render("index", { msg: msg });
-    });
+    await sendEmailToAdmin(req.body);
+    const msg = "Uw bericht werd correct verzonden!";
+    res.render("index", { msg: msg, removeModal: true });
   }
 );
 
