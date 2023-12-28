@@ -1,1 +1,2 @@
-console.log('hello from vendor.js');
+import initMap from "./maps.js";
+initMap();

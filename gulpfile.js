@@ -15,6 +15,8 @@ import replace from "gulp-replace";
 import { deleteAsync } from "del";
 import imageMin from "gulp-imagemin";
 import webpackConfig from "./webpack.config.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 const sass = gulpSass(dartSass);
 
@@ -150,7 +152,11 @@ function cssBuild() {
 }
 
 function jsBuild() {
+  const mapsApiKey = process.env.GOOGLE_MAPS_API;
+  const mapsMapId = process.env.GOOGLE_MAPS_MAP_ID;
   return src(jsBuildFiles)
+    .pipe(replace("GOOGLE_MAPS_API", `${mapsApiKey}`))
+    .pipe(replace("DEMO-MAP-ID", `${mapsMapId}`))
     .pipe(uglify())
     .pipe(dest(distDir + "/public/scripts"));
 }
