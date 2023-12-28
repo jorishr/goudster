@@ -1,0 +1,14 @@
+.logo-on-mobile {
+  width: 15%;
+  max-width: 3em;
+  margin: 0 auto 2em;
+
+  @include tablet_md {
+    display: none;
+  }
+
+  &__image {
+    border-radius: 0.3125em;
+    opacity: 0.6;
+  }
+}
