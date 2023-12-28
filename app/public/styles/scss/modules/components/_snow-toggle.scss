@@ -1,0 +1,49 @@
+.snow-toggle {
+  &__checkbox {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+
+    &:checked + label {
+      background: $darkOrange;
+    }
+
+    &:checked + label::after {
+      left: calc(100% - 2px);
+      transform: translateX(-100%);
+    }
+  }
+
+  // this is the box you see
+  &__label {
+    position: relative;
+
+    display: block;
+
+    text-indent: -9999px;
+    cursor: pointer;
+
+    width: 40px;
+    height: 20px;
+
+    background: $otherBlack;
+    border-radius: 20px;
+
+    &:active::after {
+      width: 22px;
+    }
+
+    // switch inside
+    &::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      background: $lightYellow;
+      border-radius: 16px;
+      transition: 0.3s;
+    }
+  }
+}

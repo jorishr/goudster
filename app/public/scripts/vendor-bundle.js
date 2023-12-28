@@ -430,7 +430,6 @@ function checkDataRange() {
   var currentDate = new Date();
   var currentMonth = currentDate.getMonth() + 1;
   var currentDay = currentDate.getDate();
-  console.log(currentDay, currentMonth);
 
   // Define the start and end dates for the condition
   var startMonth = 12; // December
@@ -440,7 +439,6 @@ function checkDataRange() {
 
   // Check if the current date is within the specified range
   var isInDateRange = currentMonth === startMonth && currentDay >= startDay || currentMonth > startMonth && currentMonth < endMonth || currentMonth === endMonth && currentDay <= endDay;
-  console.log(isInDateRange);
   if (isInDateRange) {
     return true;
   } else {
@@ -1067,7 +1065,7 @@ function runSnowfall() {
       maxRadius: 30,
       // min/max speed
       minSpeed: 1,
-      maxSpeed: 5,
+      maxSpeed: 3,
       // custom symbol or text for snowflakes
       text: "\u2744",
       // color of snowflakes

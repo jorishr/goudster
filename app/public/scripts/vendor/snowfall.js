@@ -280,7 +280,7 @@ export default function runSnowfall() {
       maxRadius: 30,
       // min/max speed
       minSpeed: 1,
-      maxSpeed: 5,
+      maxSpeed: 3,
       // custom symbol or text for snowflakes
       text: "\u2744",
       // color of snowflakes
