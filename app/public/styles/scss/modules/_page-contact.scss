@@ -94,6 +94,11 @@
       }
     }
 
+    &__input,
+    &__select {
+      max-width: 21em;
+    }
+
     &__select {
       text-transform: capitalize;
 
