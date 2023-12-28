@@ -272,21 +272,42 @@ class Snowfall {
 export default function runSnowfall() {
   const shouldRun = checkDataRange();
   if (shouldRun) {
-    const snowfall = new Snowfall({
-      // number of snowflakes
-      count: 100,
-      // min/max size
-      minRadius: 10,
-      maxRadius: 30,
-      // min/max speed
-      minSpeed: 1,
-      maxSpeed: 3,
-      // custom symbol or text for snowflakes
-      text: "\u2744",
-      // color of snowflakes
-      color: "#ffffff",
-      // z-index for the canvas
-      zIndex: "1000",
+    let snowfall = initSnowFall();
+    let isRunning = true;
+
+    const snowToggleContainer = document.querySelector(".snow-toggle");
+    const snowToggleCheckbox = document.querySelector(".snow-toggle__checkbox");
+    const snowToggleLabel = document.querySelector(".snow-toggle__label");
+    snowToggleContainer.classList.add("snow-toggle--show");
+    snowToggleCheckbox.checked = true;
+    snowToggleLabel.addEventListener("click", () => {
+      if (isRunning) {
+        snowfall.destroy();
+        isRunning = false;
+      } else {
+        snowfall = initSnowFall();
+        isRunning = true;
+      }
     });
   }
+}
+
+function initSnowFall() {
+  const snowfall = new Snowfall({
+    // number of snowflakes
+    count: 100,
+    // min/max size
+    minRadius: 10,
+    maxRadius: 30,
+    // min/max speed
+    minSpeed: 1,
+    maxSpeed: 3,
+    // custom symbol or text for snowflakes
+    text: "\u2744",
+    // color of snowflakes
+    color: "#ffffff",
+    // z-index for the canvas
+    zIndex: "1000",
+  });
+  return snowfall;
 }

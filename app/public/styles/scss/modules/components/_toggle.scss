@@ -1,4 +1,10 @@
 .snow-toggle {
+  display: none;
+
+  &--show {
+    display: block;
+  }
+
   &__checkbox {
     height: 0;
     width: 0;

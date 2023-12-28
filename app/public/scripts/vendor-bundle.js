@@ -1057,23 +1057,42 @@ function Snowfall() {
 function runSnowfall() {
   var shouldRun = (0,_helpers_checkDateRange_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
   if (shouldRun) {
-    var snowfall = new Snowfall({
-      // number of snowflakes
-      count: 100,
-      // min/max size
-      minRadius: 10,
-      maxRadius: 30,
-      // min/max speed
-      minSpeed: 1,
-      maxSpeed: 3,
-      // custom symbol or text for snowflakes
-      text: "\u2744",
-      // color of snowflakes
-      color: "#ffffff",
-      // z-index for the canvas
-      zIndex: "1000"
+    var snowfall = initSnowFall();
+    var isRunning = true;
+    var snowToggleContainer = document.querySelector(".snow-toggle");
+    var snowToggleCheckbox = document.querySelector(".snow-toggle__checkbox");
+    var snowToggleLabel = document.querySelector(".snow-toggle__label");
+    snowToggleContainer.classList.add("snow-toggle--show");
+    snowToggleCheckbox.checked = true;
+    snowToggleLabel.addEventListener("click", function () {
+      if (isRunning) {
+        snowfall.destroy();
+        isRunning = false;
+      } else {
+        snowfall = initSnowFall();
+        isRunning = true;
+      }
     });
   }
+}
+function initSnowFall() {
+  var snowfall = new Snowfall({
+    // number of snowflakes
+    count: 100,
+    // min/max size
+    minRadius: 10,
+    maxRadius: 30,
+    // min/max speed
+    minSpeed: 1,
+    maxSpeed: 3,
+    // custom symbol or text for snowflakes
+    text: "\u2744",
+    // color of snowflakes
+    color: "#ffffff",
+    // z-index for the canvas
+    zIndex: "1000"
+  });
+  return snowfall;
 }
 
 /***/ })
