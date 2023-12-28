@@ -32,8 +32,8 @@ router.get("/ons-verhaal", function (req, res, next) {
   res.render("history", { title: "History", msg: "" });
 });
 
-router.get("/info", function (req, res, next) {
-  res.render("info", { title: "Info", msg: "" });
+router.get("/product-info", function (req, res, next) {
+  res.render("product-info", { title: "Product Info", msg: "" });
 });
 
 router.get("/waar-proeven", function (req, res, next) {

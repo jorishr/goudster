@@ -1,0 +1,142 @@
+<%- include('modules/_header'); %> <%- include('modules/_flash-alert-msg'); %>
+<%- include('modules/_cookie-consent'); %>
+<div class="products page-content wrapper">
+  <div class="products__content-container">
+    <div class="products__intro">
+      <h1 class="products__intro__title">Goudster product info</h1>
+      <div class="products__text-container">
+        <p class="products__text">
+          Goudster bier is verkrijgbaar op vaten van 20 liter. Je kan bakken
+          bestellen met flesjes van 33 cl (een bak van 24). We hebben ook
+          kleinere verpakkingen met 6 flesjes.
+        </p>
+        <p class="products__text">
+          Speciale formules en promoties zijn bespreekbaar voor drinkcentra en
+          horecazaken. Contacteer ons via onderstaand contactformulier.
+        </p>
+        <p class="products__text"></p>
+        <p class="products__text">
+          Goudster drink je uiteraard uit een het daar speciaal voor ontworpen
+          Goudster glas, geserveerd op een Goudster bierkaartje. We hebben ook
+          promotiemateriaal zoals een Goudster tafelkaart met uitleg over het
+          bier en onze rijkgevulde geschiedenis.
+        </p>
+        <div class="products__intro__image-container">
+          <figure>
+            <img
+              src="/images/flesje_en_glas_vol.jpg"
+              alt="Een vol glas Goudster op een bierkaartje"
+              class="products__intro__image"
+            />
+          </figure>
+          <figure>
+            <img
+              src="/images/bak_goudster.jpg"
+              alt="Een bak Goudster flesjes"
+              class="products__intro__image"
+            />
+          </figure>
+        </div>
+        <p>
+          De richtprijs voor een bak Goudster (24 flesjes) is 43,5 EUR,
+          inclusief 8,5 EUR leeggoed en inclusief BTW (21%).
+        </p>
+      </div>
+    </div>
+    <div class="products__contact-container">
+      <hr class="products__contact__divider" />
+      <p class="products__contact__text">
+        Goudster in uw horecazaak? Nog vragen over ons bier? Vul uw gegevens in
+        via onderstaand contactformulier en wij bezorgen u zo snel mogelijk alle
+        antwoorden en verdere details.
+      </p>
+      <form class="contact__form" method="post" action="send">
+        <div class="contact__form__anti-spam">
+          <label for="yourMessage">Your Message</label>
+          <input type="text" name="yourMessage" id="yourMessage" />
+        </div>
+        <div class="contact__form__content-container">
+          <div class="contact__form__input-container">
+            <label class="contact__form__label" for="name">Naam</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Jouw naam..."
+              title="Jouw naam (verplicht)"
+              required
+              class="contact__form__input"
+              autocomplete="name"
+            />
+          </div>
+          <div class="contact__form__input-container">
+            <label class="contact__form__label" for="email">E-mail</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Jouw e-mail..."
+              title="Jouw e-mail (verplicht)"
+              required
+              class="contact__form__input"
+              autocomplete="email"
+            />
+          </div>
+          <div class="contact__form__input-container">
+            <label class="contact__form__label" for="subject">Onderwerp</label>
+            <select
+              name="subject"
+              id="subject"
+              title="Selecteer een onderwerp"
+              class="contact__form__select"
+            >
+              <option value="bestelling">bestelling</option>
+              <option value="vraag">vraag</option>
+              <option value="varia">varia</option>
+            </select>
+          </div>
+          <div class="contact__form__input-container">
+            <label class="contact__form__label" for="message">Bericht</label>
+            <textarea
+              name="message"
+              id="message"
+              rows="10"
+              placeholder="Jouw bericht...(max. 1200 karakters)"
+              minlength="10"
+              maxlength="1200"
+              required
+              title="Type jouw bericht (verplicht)"
+              class="contact__form__textarea"
+            >
+            </textarea>
+          </div>
+        </div>
+        <div class="contact__form__consent-container">
+          <p class="contact__form__consent-text">
+            Ik accepteer dat mijn gegevens kunnen worden opgeslagen en gebruikt
+            voor het afhandelen van mijn verzoek.
+            <a href="/beleid" target="_blank"
+              >Lees meer over ons privacy-beleid</a
+            >
+          </p>
+          <div class="contact__form__submit-container">
+            <label for="consent" class="custom-checkbox">
+              <input
+                class="custom-checkbox__input"
+                type="checkbox"
+                id="consent"
+                name="consent"
+                required
+              />
+              <span class="custom-checkbox__span"></span>
+            </label>
+            <button class="btn contact__form__btn" type="submit">
+              Versturen
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('modules/_footer'); %>

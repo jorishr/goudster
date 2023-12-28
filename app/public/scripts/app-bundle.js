@@ -65,16 +65,12 @@ function setupConsent() {
   var cookieConsentBar = document.querySelector(".cookie-consent");
   var cookieConsentBtn = document.querySelector("#cookie-consent");
   var cookieStorage = localStorage.getItem("cookieConsent");
-  console.log(cookieStorage, localStorage);
   if (cookieStorage) {
     cookieConsentBar.classList.remove("cookie-consent--show");
   }
   cookieConsentBtn.addEventListener("click", function (e) {
     cookieConsentBar.classList.remove("cookie-consent--show");
-    //cookieConsentBar.classList.add("cookie-consent--hide");
-    console.log("Setting consent cookie...");
     localStorage.setItem("cookieConsent", true);
-    console.log("Set?", localStorage);
   });
   var ageConsentCookie = localStorage.getItem("ageConsent");
   var tmpAgeConsent = sessionStorage.getItem("tmpAgeConsent");

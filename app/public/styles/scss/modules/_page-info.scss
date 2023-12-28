@@ -1,88 +1,72 @@
-.info__title,
-.info__content-text,
-.info__contact {
-    padding: 0 2em;
-    max-width: 500px;
-    margin: 0 auto;
-}
+.products {
+  padding: 4em 1em;
 
-.info__title {
-    width: 100%;
-    margin-top: 3em;
-    line-height: 1.75;
-    text-align: center;
+  @include mobile_lg {
+    padding: 4em 2em;
+  }
 
-    h1 {
-        font-size: 1.5rem;
-        text-align: center;
-        text-transform: uppercase;
-    }
-}
+  @include tablet_md {
+    padding: 8em 2em;
+  }
 
-.info__content-images {
-    padding: 1em 0;
-    text-align: center;
+  &__content-container {
+  }
 
-    img {
-        width: auto;
-        height: 100px;
-    }
-}
+  &__intro {
+    margin-bottom: 2em;
 
-.info__content-text,
-.info__contact {
-    line-height: 1.75;
-}
-
-.info__content-text {
-    margin-bottom: 4em;
-}
-
-.info__contact {
-
-    p {
-        color: $mainOrange;
+    @include tablet_md {
+      max-width: 75ch;
+      margin: 0 auto 2em;
     }
 
-    hr {
-        background-color: $darkOrange;
-        height: 3px;
-        width: 200px;
-        margin: 0;
+    &__title {
+      text-align: center;
+      margin-bottom: 1em;
     }
-}
 
-@media screen and (min-width: 768px){
-    .info__content {
+    &__image-container {
+      padding: 1em 0;
+
+      @include mobile_lg {
+        max-width: 21em;
+        margin: 0 auto;
+      }
+
+      @include tablet_md {
         display: flex;
-        padding: 0 1em;
-        justify-content: space-evenly;
+        flex-direction: row;
+        justify-content: center;
+        max-width: 66%;
+      }
+    }
+
+    &__image {
+      border-radius: 0.3125em;
+    }
+  }
+
+  // the contact form itself re-uses the styles from _page-contact.scss
+  &__contact-container {
+    @include tablet_md {
+      max-width: 55ch;
+      margin: 0 auto;
+    }
+  }
+
+  &__contact {
+    &__divider {
+      background-color: $mainOrange;
+      height: 0.1875em;
+      width: 33%;
+
+      margin-bottom: 2em;
+    }
+
+    &__text {
+      &:last-of-type {
         margin-bottom: 2em;
-
-        .info__content-text {
-            order: 1;
-            margin: unset;
-        }
-
-        .info__content-images {
-            order: 2;
-            margin: unset;
-            display: flex;
-            flex-direction: column;
-
-            img {
-                width: 80%;
-                height: auto;
-                margin-bottom: 1em;
-            }
-        }
+      }
     }
+  }
 }
-
-
-@media screen and (min-width: 992px) {
-    .info__contact {
-        text-align: left;
-        margin: 0 auto 0 0;
-    }
-}   

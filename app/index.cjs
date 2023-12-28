@@ -36,7 +36,7 @@ app.use(helmet());
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "script-src 'self' 'unsafe-inline' https://kit.fontawesome.com"
+    "script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://maps.googleapis.com"
   );
   next();
 });

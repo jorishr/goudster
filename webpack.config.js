@@ -29,5 +29,13 @@ export default {
       },
     ],
   },
+  resolve: {
+    fallback: {
+      path: ["path-browserify"],
+      os: ["os-browserify"],
+      crypto: ["crypto-browserify"],
+      stream: ["stream-browserify"],
+    },
+  },
   devtool: "cheap-module-source-map",
 };
