@@ -24,6 +24,11 @@
   &--active {
     display: block;
     animation: fade-in 500ms forwards;
+
+    @include tablet_md {
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
 
   &--closing {
