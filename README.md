@@ -32,6 +32,7 @@ See more @ [liondigits.com](https://www.liondigits.com)
 - Flash card pop-ups for client side validation errors and server side messages
 - Debounce functionality for form submit buttons to prevent multiple submissions
 - Custom error page for 404 and server side errors
+- Snow.js integration with custom toggle in menu to enable/disable animation
 
 ### Backend features
 
@@ -47,7 +48,7 @@ See more @ [liondigits.com](https://www.liondigits.com)
 
 ### Task runner and build tools
 
-Gulp task runner with browser-sync and nodemon. CSS written in SASS. JavaScript compilation with Webpack.
+Gulp task runner with browser-sync and nodemon. CSS written in SASS. JavaScript compilation with Webpack. Type is set to modules: files with `.js` extension are ES6. CommonJs files have the `.cjs` extension.
 
 _Dev notes_:
 

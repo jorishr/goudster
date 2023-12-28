@@ -1,1 +1,8 @@
+User-agent: *
+Disallow: /error/
+Disallow: /consent/
+Disallow: /send/
+Disallow: /subscribe/
+Disallow: /webmail/
+
 Sitemap: https://goudster.be/sitemap.xml
