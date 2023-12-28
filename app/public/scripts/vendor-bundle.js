@@ -414,6 +414,40 @@ class Loader {
 
 /***/ }),
 
+/***/ "./app/helpers/checkDateRange.js":
+/*!***************************************!*\
+  !*** ./app/helpers/checkDateRange.js ***!
+  \***************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ checkDataRange)
+/* harmony export */ });
+// this function helps snowfall.js to determine whether it should run
+
+function checkDataRange() {
+  var currentDate = new Date();
+  var currentMonth = currentDate.getMonth() + 1;
+  var currentDay = currentDate.getDate();
+
+  // Define the start and end dates for the condition
+  var startMonth = 12; // December
+  var startDay = 15;
+  var endMonth = 2; // February
+  var endDay = 15;
+
+  // Check if the current date is within the specified range
+  var isInDateRange = currentMonth === startMonth && currentDay >= startDay || currentMonth > startMonth && currentMonth < endMonth || currentMonth === endMonth && currentDay <= endDay;
+  if (isInDateRange) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/***/ }),
+
 /***/ "./app/public/scripts/vendor/maps.js":
 /*!*******************************************!*\
   !*** ./app/public/scripts/vendor/maps.js ***!
@@ -438,6 +472,8 @@ https://developers.google.com/maps/documentation/javascript/load-maps-js-api
 
 ### API KEY
 Note that the public API key is not loaded dynamically. It is added to during the build process with a Gulp task. This code will run in a browser environment without .env file. During development or for maintenance tasks, add the key manually. When done set the string to the value as is.
+
+Similar thing for the mapId. In development use DEMO-MAP-ID. The gulp task will replace it with the correct one.
 */
 
 
@@ -735,6 +771,330 @@ var places = [{
   }
 }];
 
+/***/ }),
+
+/***/ "./app/public/scripts/vendor/snowfall.js":
+/*!***********************************************!*\
+  !*** ./app/public/scripts/vendor/snowfall.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ runSnowfall)
+/* harmony export */ });
+/* harmony import */ var _helpers_checkDateRange_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../helpers/checkDateRange.js */ "./app/helpers/checkDateRange.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+/*!
+ * This animation should run between 15 decemeber and 15 february. Condition
+ * checked by helper function.
+ *
+ * Snowfall.js - A JavaScript library for creating and animating snowflakes on a web page
+ * https://github.com/Andrey-1988-dev/snowfall.js
+ *
+ * Author: Andrey Yurkevich (https://github.com/Andrey-1988-dev)
+ * Contact: yurkevich.a.n.1988@gmail.com
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * Version: 1.1.0
+ * Date: 2021-11-27T00:00Z
+ */
+
+"use strict";
+
+// Class for creating snowflakes
+var Snowflake = /*#__PURE__*/_createClass(
+// Constructor takes x and y coordinates, radius, speed and color of the snowflake
+function Snowflake(_canvas, h, s, c, t) {
+  var _this = this;
+  _classCallCheck(this, Snowflake);
+  // Function to calculate the new position of the snowflake relative to the edge of the canvas
+  _defineProperty(this, "calculateNewPosition", function (oldPosition, oldCanvasSize, newCanvasSize) {
+    // Calculate the old position of the snowflake from the edge in percentage
+    var percentage = oldPosition / (oldCanvasSize / 100);
+    // Calculate the new position of the snowflake from the edge in pixels
+    // Return the new position
+    return newCanvasSize / 100 * percentage;
+  });
+  _defineProperty(this, "updateAfterCanvasResize", function (oldCanvasWidth, oldCanvasHeight, newCanvasWidth, newCanvasHeight) {
+    if (oldCanvasWidth !== newCanvasWidth) {
+      // Call the function to calculate the new position of the snowflake from the left edge
+      _this.x = _this.calculateNewPosition(_this.x, oldCanvasWidth, newCanvasWidth);
+    }
+    if (oldCanvasHeight !== newCanvasHeight) {
+      // Call the function to calculate the new position of the snowflake from the top edge
+      _this.y = _this.calculateNewPosition(_this.y, oldCanvasHeight, newCanvasHeight);
+    }
+  });
+  // Method to draw the snowflake on the canvas
+  _defineProperty(this, "draw", function (ctx) {
+    // Check if the snowflake is within the visible area
+    if (_this.x + _this.h >= window.scrollX && _this.x - _this.h <= window.scrollX + window.innerWidth && _this.y + _this.h >= window.scrollY && _this.y - _this.h <= window.scrollY + window.innerHeight) {
+      ctx.font = _this.h + "px Arial, sans-serif"; // set the font and text size
+      ctx.fillText(_this.t, _this.x, _this.y); // draw the text with the snowflake symbol
+      ctx.fillStyle = _this.c; // set the color
+    }
+  });
+  // Method to update the position of the snowflake
+  _defineProperty(this, "update", function (canvas) {
+    _this.y += _this.s; // increase the y coordinate by the speed
+    // if the snowflake goes beyond the bottom edge of the canvas, move it to the top
+    if (_this.s > 0) {
+      if (_this.y > canvas.height) {
+        _this.y = -_this.h;
+        _this.x = Math.random() * canvas.width;
+      }
+    } else {
+      if (_this.y < 0) {
+        _this.y = canvas.height + _this.h;
+        _this.x = Math.random() * canvas.width;
+      }
+    }
+  });
+  // Generate a random x coordinate within the canvas width
+  this.x = Math.random() * _canvas.width; // x coordinate
+  // Generate a random y coordinate within the canvas height
+  this.y = Math.random() * _canvas.height; // y coordinate
+  this.h = h; // font size
+  this.s = s; // speed
+  this.c = c; // color
+  this.t = t; // text
+});
+var Snowfall = /*#__PURE__*/_createClass(
+// Constructor takes parameters for creating snowflakes
+function Snowfall() {
+  var _this2 = this;
+  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  _classCallCheck(this, Snowfall);
+  _defineProperty(this, "requestAnimationFrame", void 0);
+  // Function to resize the canvas
+  _defineProperty(this, "resizeCanvas", function () {
+    var oldCanvasWidth, oldCanvasHeight;
+    if (_this2.snowflakes) {
+      oldCanvasWidth = _this2.canvas.width;
+      oldCanvasHeight = _this2.canvas.height;
+    }
+    _this2.canvas.style.display = "none";
+
+    // Set the width and height of the canvas equal to the width and height of the browser window
+    if (window.devicePixelRatio > 1) {
+      var scrollWidth = document.documentElement.scrollWidth;
+      var scrollHeight = document.documentElement.scrollHeight;
+      _this2.canvas.width = scrollWidth * window.devicePixelRatio;
+      _this2.canvas.height = scrollHeight * window.devicePixelRatio;
+      _this2.canvas.style.width = scrollWidth + "px";
+      _this2.canvas.style.height = scrollHeight + "px";
+      _this2.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    } else {
+      _this2.canvas.width = document.documentElement.scrollWidth;
+      _this2.canvas.height = document.documentElement.scrollHeight;
+    }
+    _this2.canvas.style.display = "";
+    if (_this2.snowflakes) {
+      var newCanvasWidth = _this2.canvas.width;
+      var newCanvasHeight = _this2.canvas.height;
+      // Loop through the array of snowflakes
+      var _iterator = _createForOfIteratorHelper(_this2.snowflakes),
+        _step;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var snowflake = _step.value;
+          // Update the position of the snowflake after resizing the canvas
+          snowflake.updateAfterCanvasResize(oldCanvasWidth, oldCanvasHeight, newCanvasWidth, newCanvasHeight);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+    }
+  });
+  // Function to create snowflakes and add them to the array
+  _defineProperty(this, "createSnowflakes", function () {
+    // Loop through the number of snowflakes
+    for (var i = 0; i < _this2.count; i++) {
+      // Generate a random radius within the minimum and maximum radius
+      var r = _this2.minRadius + Math.random() * (_this2.maxRadius - _this2.minRadius);
+      // Generate the speed based on the size of the snowflake
+      var rp = void 0;
+      if (_this2.minRadius !== _this2.maxRadius) {
+        rp = (r - _this2.minRadius) / ((_this2.maxRadius - _this2.minRadius) / 100);
+      } else {
+        rp = 100;
+      }
+      var s = _this2.minSpeed + (_this2.maxSpeed - _this2.minSpeed) / 100 * rp;
+      // Create a new snowflake object with the given parameters
+      var snowflake = new Snowflake(_this2.canvas, r, s, _this2.color, _this2.text);
+      // Add the snowflake to the array
+      _this2.snowflakes.push(snowflake);
+    }
+  });
+  // Function to animate the snowflakes
+  _defineProperty(this, "animateSnowflakes", function () {
+    // Clear the canvas
+    _this2.ctx.clearRect(0, 0, _this2.canvas.width, _this2.canvas.height);
+
+    // Loop through the array of snowflakes
+    var _iterator2 = _createForOfIteratorHelper(_this2.snowflakes),
+      _step2;
+    try {
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var snowflake = _step2.value;
+        // Draw the snowflake on the canvas
+        snowflake.draw(_this2.ctx);
+        // Update the position of the snowflake
+        snowflake.update(_this2.canvas);
+      }
+      // Request a new animation frame
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
+    }
+    _this2.requestAnimationFrame = requestAnimationFrame(_this2.animateSnowflakes);
+  });
+  // Method to destroy the snowfall and remove the canvas element
+  _defineProperty(this, "destroy", function () {
+    cancelAnimationFrame(_this2.requestAnimationFrame);
+    document.getElementById("snowfall").remove();
+    for (var name in _this2) {
+      delete _this2[name];
+    }
+    // Empty the array of snowflakes
+    _this2.snowflakes = [];
+    // Remove the event listener for resize
+    window.removeEventListener("resize", _this2.resizeCanvas);
+  });
+  var _options$count = options.count,
+    count = _options$count === void 0 ? 100 : _options$count,
+    _options$minRadius = options.minRadius,
+    minRadius = _options$minRadius === void 0 ? 10 : _options$minRadius,
+    _options$maxRadius = options.maxRadius,
+    maxRadius = _options$maxRadius === void 0 ? 30 : _options$maxRadius,
+    _options$minSpeed = options.minSpeed,
+    minSpeed = _options$minSpeed === void 0 ? 3 : _options$minSpeed,
+    _options$maxSpeed = options.maxSpeed,
+    maxSpeed = _options$maxSpeed === void 0 ? 10 : _options$maxSpeed,
+    _options$text = options.text,
+    text = _options$text === void 0 ? "❄" : _options$text,
+    _options$color = options.color,
+    color = _options$color === void 0 ? "#99ccff" : _options$color,
+    _options$zIndex = options.zIndex,
+    zIndex = _options$zIndex === void 0 ? "1000" : _options$zIndex;
+  count = Number(count);
+  minRadius = Number(minRadius);
+  if (minRadius <= 0) {
+    minRadius = 10;
+  }
+  maxRadius = Number(maxRadius);
+  if (maxRadius <= 0) {
+    maxRadius = 30;
+  }
+  minSpeed = Number(minSpeed);
+  maxSpeed = Number(maxSpeed);
+  var snowfieldCanvas = document.createElement("canvas");
+  snowfieldCanvas.id = "snowfall";
+  snowfieldCanvas.style.zIndex = zIndex;
+  snowfieldCanvas.style.position = "absolute";
+  snowfieldCanvas.style.top = "0";
+  snowfieldCanvas.style.left = "0";
+  snowfieldCanvas.style.pointerEvents = "none";
+  document.body.append(snowfieldCanvas);
+
+  // Get the canvas element by id
+  this.canvas = snowfieldCanvas;
+  // Get the drawing context on the canvas
+  this.ctx = this.canvas.getContext("2d");
+  // Set the width and height of the canvas equal to the width and height of the browser window
+  this.resizeCanvas();
+  // Add an event handler to resize the canvas when the window size changes
+  window.addEventListener("resize", function () {
+    // Use requestAnimationFrame to optimize the resizing
+    requestAnimationFrame(_this2.resizeCanvas.bind(_this2));
+  });
+
+  // Create an array to store the snowflakes
+  this.snowflakes = [];
+  // Set the number of snowflakes
+  this.count = count;
+  // Set the minimum and maximum radius of the snowflakes
+  this.minRadius = minRadius;
+  this.maxRadius = maxRadius;
+  // Set the speed of the snowflakes
+  this.minSpeed = minSpeed;
+  this.maxSpeed = maxSpeed;
+  // Set the color of the snowflakes
+  this.color = color;
+  // Set the text
+  this.text = text;
+  // Call the function to create the snowflakes
+  this.createSnowflakes();
+  // Call the function to animate the snowflakes
+  this.animateSnowflakes();
+});
+function runSnowfall() {
+  var shouldRun = (0,_helpers_checkDateRange_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  if (shouldRun) {
+    var snowfall = initSnowFall();
+    var isRunning = true;
+    var snowToggleContainer = document.querySelector(".snow-toggle");
+    var snowToggleCheckbox = document.querySelector(".snow-toggle__checkbox");
+    var snowToggleLabel = document.querySelector(".snow-toggle__label");
+    snowToggleContainer.classList.add("snow-toggle--show");
+    snowToggleCheckbox.checked = true;
+    snowToggleLabel.addEventListener("click", function () {
+      if (isRunning) {
+        snowfall.destroy();
+        isRunning = false;
+      } else {
+        snowfall = initSnowFall();
+        isRunning = true;
+      }
+    });
+  }
+}
+function initSnowFall() {
+  var snowfall = new Snowfall({
+    // number of snowflakes
+    count: 100,
+    // min/max size
+    minRadius: 10,
+    maxRadius: 30,
+    // min/max speed
+    minSpeed: 1,
+    maxSpeed: 3,
+    // custom symbol or text for snowflakes
+    text: "\u2744",
+    // color of snowflakes
+    color: "#ffffff",
+    // z-index for the canvas
+    zIndex: "1000"
+  });
+  return snowfall;
+}
+
 /***/ })
 
 /******/ 	});
@@ -801,8 +1161,11 @@ var __webpack_exports__ = {};
   \*********************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _maps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./maps.js */ "./app/public/scripts/vendor/maps.js");
+/* harmony import */ var _snowfall_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./snowfall.js */ "./app/public/scripts/vendor/snowfall.js");
+
 
 (0,_maps_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+(0,_snowfall_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 })();
 
 /******/ })()
