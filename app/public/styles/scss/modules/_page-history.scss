@@ -1,8 +1,8 @@
 .timeline {
-  padding: 4em 1em;
+  padding: 2em 1em;
 
   @include mobile_lg {
-    padding: 4em 2em;
+    padding: 2em 2em;
   }
 
   @include tablet_md {

@@ -75,10 +75,17 @@
 
     &__btn {
       text-transform: uppercase;
-      color: $backgroundOtherWhite;
+      color: #ffffff;
+      background-color: $darkOrange;
+      border: 0.125em solid $darkOrange;
 
       &:disabled {
         opacity: 0.5;
+      }
+
+      &:hover {
+        background-color: $backgroundOtherWhite;
+        color: $textColor-dark;
       }
     }
   }
