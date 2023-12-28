@@ -66,6 +66,7 @@
     &__input-group {
       display: flex;
       flex-direction: column;
+      margin-bottom: 1em;
 
       @include tablet_md {
         display: flex;
@@ -83,7 +84,7 @@
 
       font-size: 18px;
 
-      margin-bottom: 0.5em;
+      margin-bottom: 1em;
 
       @include tablet_md {
         margin-right: 0.5em;
@@ -93,7 +94,7 @@
         margin-bottom: 1.5em;
 
         @include tablet_md {
-          margin-bottom: 0.5em;
+          margin-bottom: 1em;
           margin-right: 0;
         }
       }
@@ -107,22 +108,19 @@
 
         border-bottom: 1px $mainYellow solid;
       }
+
+      label {
+        margin-bottom: 0.5em;
+      }
     }
 
     &__btn {
       width: 100%;
+      max-width: 12em;
       margin-bottom: 2em;
 
-      @include mobile_lg {
-        max-width: 66%;
-      }
-
-      @include tablet_md {
-        max-width: 33%;
-      }
-
-      @include pc_lg {
-        max-width: 18%;
+      &:hover {
+        color: $textColor-dark;
       }
     }
   }
