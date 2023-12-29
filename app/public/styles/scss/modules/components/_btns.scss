@@ -1,0 +1,26 @@
+.btn {
+  text-align: center;
+  letter-spacing: 1px;
+
+  background-color: $darkOrange;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.25);
+
+  transition: all ease-in 0.3s;
+
+  padding: 0.5em 1em;
+
+  &--outline {
+    background-color: unset;
+    border: 1px $lightYellow solid;
+  }
+
+  &--light {
+    background-color: $lightYellow;
+    color: $darkOrange;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -1,14 +1,18 @@
-const path = require('path');
+import { fileURLToPath } from "url";
+import path, { dirname } from "path";
 
-module.exports = {
-  mode: 'development',
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default {
+  mode: "development",
   entry: {
-    app: './app/public/scripts/app/app.js',
-    vendor: './app/public/scripts/vendor/vendor.js'
+    app: "./app/public/scripts/app/app.js",
+    vendor: "./app/public/scripts/vendor/vendor.js",
   },
   output: {
-    path: path.resolve(__dirname, './app/public/scripts'),
-    filename: '[name]-bundle.js'
+    path: path.resolve(__dirname, "./app/public/scripts"),
+    filename: "[name]-bundle.js",
   },
   module: {
     rules: [
@@ -16,12 +20,22 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      }
-    ]
-  }
+            presets: ["@babel/preset-env"],
+            plugins: ["@babel/plugin-syntax-dynamic-import"],
+          },
+        },
+      },
+    ],
+  },
+  resolve: {
+    fallback: {
+      path: ["path-browserify"],
+      os: ["os-browserify"],
+      crypto: ["crypto-browserify"],
+      stream: ["stream-browserify"],
+    },
+  },
+  devtool: "cheap-module-source-map",
 };

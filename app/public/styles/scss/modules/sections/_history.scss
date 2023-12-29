@@ -1,0 +1,61 @@
+.history {
+  background-color: $backgroundOtherWhite;
+
+  &__content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 4em 1em;
+    margin: 0 auto;
+
+    @include mobile_lg {
+      padding: 4em 2em;
+    }
+
+    @include pc_sm {
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: flex-start;
+    }
+  }
+
+  //the content is wrapped in an a-tag. That a-tag re-uses the styling from _link-section__link
+
+  &__heading {
+    padding: 0 1em;
+
+    @include tablet_sm {
+      padding: 0 2em;
+    }
+  }
+
+  &__image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+
+    figure {
+      margin: 0;
+
+      &:first-of-type {
+        margin-bottom: 2em;
+      }
+
+      img {
+        border-radius: 9px;
+
+        @include pc_sm {
+          width: 63%;
+        }
+
+        @include pc_lg {
+          width: 57%;
+        }
+      }
+    }
+  }
+}

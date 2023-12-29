@@ -1,0 +1,105 @@
+.hero {
+  //see app.js for calculation of custom variables like height and some modfications for small screens
+
+  height: calc(var(--vh, 1vh) * 100);
+  overflow: hidden;
+
+  &__content-container {
+    position: relative; //see scroll-down-icon.scss
+
+    //mind the browser menu's and own site menu
+    height: calc(var(--innerHeight) - var(--menuHeight));
+
+    @include tablet_sm {
+      //two column view from here on
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      flex-direction: row;
+      padding: 2em;
+    }
+  }
+
+  &__cta {
+    width: 100%;
+
+    text-align: center;
+    color: $lightYellow;
+
+    padding: 2em 2em 0 2em;
+
+    @include tablet_sm {
+      width: 50%;
+    }
+
+    &__logo {
+      max-width: 45%;
+      margin-bottom: 1em;
+    }
+
+    &__heading {
+      display: block;
+      &--hide {
+        display: none;
+      }
+      @include tablet_sm {
+        margin-bottom: 2em;
+      }
+
+      &__title {
+        font-size: 1.5em;
+        color: $mainYellow;
+
+        @include pc_sm {
+          font-size: 2em;
+        }
+      }
+
+      &__subtitle {
+        font-size: 1em;
+        color: $lightGrey;
+        font-style: italic;
+
+        @include pc_sm {
+          font-size: 1.5em;
+        }
+      }
+    }
+
+    &__btn {
+      display: none;
+
+      @include tablet_sm {
+        display: block;
+        max-width: 12em;
+
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__brand-image-container {
+    text-align: center;
+
+    @include tablet_sm {
+      width: 50%;
+    }
+  }
+
+  &__brand-image {
+    display: block;
+    margin: 0 auto;
+
+    width: 66%;
+
+    @include tablet_sm {
+      width: 100%;
+    }
+
+    @include pc_sm {
+      width: 66%;
+    }
+  }
+}

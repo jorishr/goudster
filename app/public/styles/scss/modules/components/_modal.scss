@@ -1,0 +1,127 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index: 4;
+
+  background-color: $darkOrange;
+  opacity: 0.99;
+
+  overflow-y: auto;
+
+  &--show {
+    display: block;
+  }
+
+  &__content-container {
+    width: 100%;
+    height: 100%;
+
+    font-size: 20px;
+
+    padding: 2em;
+  }
+
+  &__heading {
+    text-align: center;
+
+    &__img-container {
+      margin-bottom: 2em;
+    }
+
+    &__img {
+      @include mobile_lg {
+        max-width: 66%;
+      }
+
+      @include tablet_md {
+        max-width: 33%;
+      }
+    }
+    &__text-container {
+      max-width: 55ch;
+      margin: 0 auto 2em;
+    }
+
+    &__text {
+      line-height: 1.5;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__instruction {
+      font-size: 18px;
+      color: $mainYellow;
+    }
+
+    &__input-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em;
+
+      @include tablet_md {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 2em;
+      }
+    }
+
+    &__input-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 18px;
+
+      margin-bottom: 1em;
+
+      @include tablet_md {
+        margin-right: 0.5em;
+      }
+
+      &:last-of-type {
+        margin-bottom: 1.5em;
+
+        @include tablet_md {
+          margin-bottom: 1em;
+          margin-right: 0;
+        }
+      }
+
+      input {
+        width: 3em;
+        text-align: center;
+
+        color: $mainYellow;
+        background-color: unset;
+
+        border-bottom: 1px $mainYellow solid;
+      }
+
+      label {
+        margin-bottom: 0.5em;
+      }
+    }
+
+    &__btn {
+      width: 100%;
+      max-width: 12em;
+      margin-bottom: 2em;
+
+      &:hover {
+        color: $textColor-dark;
+      }
+    }
+  }
+}

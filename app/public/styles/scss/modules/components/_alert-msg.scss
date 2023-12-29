@@ -1,0 +1,61 @@
+//flash cards set and rendered by backend code
+//flash--alert is triggered by front end JavaScript
+.flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 7;
+
+  width: 100%;
+
+  animation: fadeOut 5s 2s forwards;
+
+  &__content-container {
+    width: 95%;
+
+    text-align: center;
+    color: $textColor-dark;
+    font-weight: 700;
+    font-size: 18px;
+
+    background-color: $backgroundWhite;
+    border-radius: 5px;
+
+    padding: 1em 2em;
+    margin: 0.5em auto 0;
+
+    @include pc_sm {
+      max-width: 66%;
+    }
+    @include pc_lg {
+      max-width: 33%;
+    }
+
+    &--alert {
+      background-color: rgba(255, 0, 0, 0.95);
+      color: #fff;
+    }
+  }
+
+  &--hide {
+    display: none;
+  }
+
+  &--alert {
+    display: none;
+
+    &--show {
+      display: block;
+    }
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,55 @@
+.link-section {
+  background-color: $backgroundWhite;
+  padding: 4em 1em;
+
+  @include mobile_lg {
+    padding: 4em 2em;
+  }
+
+  &__content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include pc_sm {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
+  &__link {
+    flex: 1;
+    opacity: 1;
+
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+
+    transition: all 0.3s ease-in;
+
+    @include pc_sm {
+      max-width: 40%;
+    }
+
+    &:first-of-type {
+      margin-bottom: 4em;
+
+      @include pc_sm {
+        margin-bottom: 0;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 2px 2px 2px 0 $mainOrange;
+    }
+
+    &__content {
+      padding: 0 1em;
+
+      @include tablet_sm {
+        padding: 0 2em;
+      }
+    }
+  }
+}

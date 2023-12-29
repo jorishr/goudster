@@ -1,0 +1,93 @@
+/*
+    #########
+    DEV NOTES
+    #########
+
+- mobile first approach
+- landing class gets added through js on homepage only
+- the navbar has two menu components: see _menu.scss & menu-pop-up.scss
+*/
+
+.header {
+  position: fixed;
+  bottom: 0;
+
+  z-index: 3;
+
+  width: 100%;
+
+  background-color: $darkOrange;
+  border-top: 2px solid $mainYellow;
+
+  @include tablet_md {
+    bottom: unset;
+    top: 0;
+
+    background-color: rgba(0, 0, 0, 0.66);
+    border-top: unset;
+  }
+
+  &__content-container {
+    // keep this container as long as wrapper class applied
+
+    @include tablet_md {
+      display: flex; // turns logo-container and navbar into flex items
+    }
+  }
+
+  &__logo-container {
+    display: none;
+
+    @include tablet_md {
+      display: block;
+      flex: 0 0 20%;
+
+      text-align: center;
+
+      padding: 0.5em 2em;
+    }
+  }
+
+  &__logo {
+    width: 66%;
+
+    &--hide {
+      //hidden on landing page via JS to avoid duplication with hero section logo
+      display: none;
+    }
+  }
+
+  &__navbar {
+    position: relative;
+    width: 100%;
+
+    padding: 1em 2em 0.5em 2em;
+
+    @include tablet_md {
+      width: unset;
+      flex: 1;
+
+      padding: 1em 2em 1em 2em;
+    }
+
+    &--js-small {
+      padding: 0.25em 1em;
+    }
+
+    &__snow-toggle {
+      display: flex;
+      justify-content: center;
+
+      margin: 0 0 1em 1.5em;
+
+      @include tablet_md {
+        // order of nav elements is reversed on desktop
+        margin: 1em 0 0 1.5em;
+      }
+
+      &__text {
+        margin-right: 1em;
+      }
+    }
+  }
+}

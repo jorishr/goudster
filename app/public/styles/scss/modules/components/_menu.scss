@@ -1,0 +1,68 @@
+/* 
+  ### NOTE ###
+  This is the base menu
+*/
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  font-size: 0.75em;
+
+  @include tablet_md {
+    justify-content: flex-end;
+    font-size: 1em;
+  }
+
+  &__item {
+    min-width: 33px; //required for dotted toggle
+
+    margin-right: 1em;
+
+    transition: transform 0.3s ease-in;
+
+    @include tablet_md {
+      margin-right: 2em;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--icon-only {
+      align-self: center;
+    }
+
+    &__link-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @include tablet_md {
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+
+        &:hover {
+          color: $mainYellow;
+        }
+      }
+    }
+
+    &__text {
+      text-align: center;
+      text-transform: capitalize;
+
+      margin: 0.5em auto 0;
+
+      @include tablet_md {
+        margin: 0.5em 0.5em 0 0;
+      }
+    }
+
+    &__btn {
+      background-color: unset;
+      color: $lightYellow;
+    }
+  }
+}
