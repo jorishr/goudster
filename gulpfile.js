@@ -28,6 +28,7 @@ const baseDir = "./app",
   jsWatchFiles = [
     baseDir + "/public/scripts/app/**/*.js",
     baseDir + "/public/scripts/vendor/*.js",
+    baseDir + "/helpers/*.js",
   ],
   jsBuildFiles = baseDir + "/public/scripts/*.js",
   viewFiles = baseDir + "/views",
@@ -179,9 +180,22 @@ function buildServerFiles() {
     .pipe(dest(distDir));
 }
 
+function copySEOFiles() {
+  return gulp
+    .src([baseDir + "/robots.txt", baseDir + "/sitemap.xml"])
+    .pipe(gulp.dest(distDir));
+}
+
 const build = series(
   delDist,
-  parallel(optimizeImages, minifyHtml, buildServerFiles, cssBuild, jsBuild)
+  parallel(
+    optimizeImages,
+    minifyHtml,
+    buildServerFiles,
+    cssBuild,
+    jsBuild,
+    copySEOFiles
+  )
 );
 /* 
 #####################################

@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.1] - 01-2024
+
+Minor release that includes a bug fix and some improvements for the build process.
+
 ## [2.0.0] - 12-2023
 
 Major release update with multiple design changes, dependency upgrades, refactoring, bug fixes and tool upgrades. Most notable changes:
