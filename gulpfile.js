@@ -28,6 +28,7 @@ const baseDir = "./app",
   jsWatchFiles = [
     baseDir + "/public/scripts/app/**/*.js",
     baseDir + "/public/scripts/vendor/*.js",
+    baseDir + "/helpers/*.js",
   ],
   jsBuildFiles = baseDir + "/public/scripts/*.js",
   viewFiles = baseDir + "/views",
