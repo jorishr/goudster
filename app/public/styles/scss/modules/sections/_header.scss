@@ -73,21 +73,5 @@
     &--js-small {
       padding: 0.25em 1em;
     }
-
-    &__snow-toggle {
-      display: flex;
-      justify-content: center;
-
-      margin: 0 0 1em 1.5em;
-
-      @include tablet_md {
-        // order of nav elements is reversed on desktop
-        margin: 1em 0 0 1.5em;
-      }
-
-      &__text {
-        margin-right: 1em;
-      }
-    }
   }
 }

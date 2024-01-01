@@ -2,7 +2,13 @@
   display: none;
 
   &--show {
-    display: block;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__text {
+    // this is the text that accompanies the checkbox
+    margin-right: 1em;
   }
 
   &__checkbox {

@@ -14,7 +14,7 @@ export default function checkDataRange() {
   // Check if the current date is within the specified range
   const isInDateRange =
     (currentMonth === startMonth && currentDay >= startDay) ||
-    (currentMonth > startMonth && currentMonth < endMonth) ||
+    currentMonth === 1 ||
     (currentMonth === endMonth && currentDay <= endDay);
 
   if (isInDateRange) {

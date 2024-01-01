@@ -438,7 +438,7 @@ function checkDataRange() {
   var endDay = 15;
 
   // Check if the current date is within the specified range
-  var isInDateRange = currentMonth === startMonth && currentDay >= startDay || currentMonth > startMonth && currentMonth < endMonth || currentMonth === endMonth && currentDay <= endDay;
+  var isInDateRange = currentMonth === startMonth && currentDay >= startDay || currentMonth === 1 || currentMonth === endMonth && currentDay <= endDay;
   if (isInDateRange) {
     return true;
   } else {

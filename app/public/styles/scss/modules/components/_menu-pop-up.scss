@@ -63,4 +63,16 @@
       margin: 0 1em 0 0;
     }
   }
+
+  &__snow-toggle {
+    /* 
+      Here we only deal with the positioning of the toggle inside the menu, see _toggle.scss for base styles
+    */
+    margin: 0 0 1em 1.5em;
+
+    @include tablet_md {
+      // order of nav elements is reversed on desktop
+      margin: 1em 0 0 1.5em;
+    }
+  }
 }
