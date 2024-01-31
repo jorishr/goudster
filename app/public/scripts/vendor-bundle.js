@@ -414,37 +414,13 @@ class Loader {
 
 /***/ }),
 
-/***/ "./app/helpers/checkDateRange.js":
-/*!***************************************!*\
-  !*** ./app/helpers/checkDateRange.js ***!
-  \***************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ "./node_modules/snowfall-js-plugin/snowAnimationSwitchStyles.css":
+/*!***********************************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/snowAnimationSwitchStyles.css ***!
+  \***********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ checkDataRange)
-/* harmony export */ });
-// this function helps snowfall.js to determine whether it should run
-
-function checkDataRange() {
-  var currentDate = new Date();
-  var currentMonth = currentDate.getMonth() + 1;
-  var currentDay = currentDate.getDate();
-
-  // Define the start and end dates for the condition
-  var startMonth = 12; // December
-  var startDay = 15;
-  var endMonth = 2; // February
-  var endDay = 15;
-
-  // Check if the current date is within the specified range
-  var isInDateRange = currentMonth === startMonth && currentDay >= startDay || currentMonth === 1 || currentMonth === endMonth && currentDay <= endDay;
-  if (isInDateRange) {
-    return true;
-  } else {
-    return false;
-  }
-}
+module.exports = __webpack_require__.p + "8df0af50b30aee47b144.css";
 
 /***/ }),
 
@@ -773,32 +749,558 @@ var places = [{
 
 /***/ }),
 
-/***/ "./app/public/scripts/vendor/snowfall.js":
-/*!***********************************************!*\
-  !*** ./app/public/scripts/vendor/snowfall.js ***!
-  \***********************************************/
+/***/ "./app/public/scripts/vendor/snowfall-js-plugin.js":
+/*!*********************************************************!*\
+  !*** ./app/public/scripts/vendor/snowfall-js-plugin.js ***!
+  \*********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ runSnowfall)
+/* harmony export */   snowfallAnimationParams: () => (/* binding */ snowfallAnimationParams)
 /* harmony export */ });
-/* harmony import */ var _helpers_checkDateRange_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../helpers/checkDateRange.js */ "./app/helpers/checkDateRange.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var snowfallAnimationParams = {
+  snowfall: {
+    count: 33,
+    maxSpeed: 6,
+    canvasHeightLimit: 1
+  },
+  switches: {
+    txt: "Sneeuw",
+    styles: {
+      bgClrOff: "#202020",
+      bgClrOn: "#7a2800",
+      toggleClr: "#ffffc0",
+      txtClr: "#ffffc0",
+      txtPosition: "1"
+    }
+  }
+};
 
+/***/ }),
+
+/***/ "./node_modules/snowfall-js-plugin/autoStart.js":
+/*!******************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/autoStart.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getAutoStart: () => (/* binding */ getAutoStart)
+/* harmony export */ });
+/* harmony import */ var _userSettings_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./userSettings.js */ "./node_modules/snowfall-js-plugin/userSettings.js");
+/* harmony import */ var _logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./logger.js */ "./node_modules/snowfall-js-plugin/logger.js");
+
+
+
+function getAutoStart(configParams) {
+  const autostartConfig = getAutostartConfig(configParams);
+  const userPreference = (0,_userSettings_js__WEBPACK_IMPORTED_MODULE_0__.checkUserSettings)(); // true, false or undefined
+
+  (0,_logger_js__WEBPACK_IMPORTED_MODULE_1__.logInfo)(`Autostart Config Value: ${autostartConfig}`);
+  (0,_logger_js__WEBPACK_IMPORTED_MODULE_1__.logInfo)(`User Preference: ${userPreference}`);
+
+  // user preferences takes precedence over autoStartConfig
+  if (userPreference !== undefined) {
+    return userPreference;
+  } else return autostartConfig;
+}
+
+function getAutostartConfig(configParams) {
+  if (configParams.autostartOnMobile && configParams.autostartOnDesktop) {
+    return true;
+  } else {
+    if (window.innerWidth >= 768 && configParams.autostartOnDesktop)
+      return true;
+    else if (window.innerHeight <= 768 && configParams.autostartOnMobile)
+      return true;
+    else return false;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/snowfall-js-plugin/canRunAnimation.js":
+/*!************************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/canRunAnimation.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   canRunAnimation: () => (/* binding */ canRunAnimation)
+/* harmony export */ });
+/* harmony import */ var _checkDateRange_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./checkDateRange.js */ "./node_modules/snowfall-js-plugin/checkDateRange.js");
+/* harmony import */ var _checkHardware_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./checkHardware.js */ "./node_modules/snowfall-js-plugin/checkHardware.js");
+/* harmony import */ var _logger_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./logger.js */ "./node_modules/snowfall-js-plugin/logger.js");
+/* harmony import */ var _prefersReducedMotion_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./prefersReducedMotion.js */ "./node_modules/snowfall-js-plugin/prefersReducedMotion.js");
+
+
+
+
+
+function canRunAnimation(configParams) {
+  let hardwareCheck;
+  let insideDateRange;
+  let accessibilityCheck = true;
+  if (configParams.checkHardware) {
+    hardwareCheck = (0,_checkHardware_js__WEBPACK_IMPORTED_MODULE_1__.checkHardware)();
+  } else hardwareCheck = true;
+  if (configParams.checkDateRange) {
+    insideDateRange = (0,_checkDateRange_js__WEBPACK_IMPORTED_MODULE_0__.checkDateRange)(configParams.dateRange);
+  } else insideDateRange = true;
+  if (configParams.checkReducedMotionPreference) {
+    accessibilityCheck = (0,_prefersReducedMotion_js__WEBPACK_IMPORTED_MODULE_3__.checkReducedMotionConfig)(configParams);
+  }
+  (0,_logger_js__WEBPACK_IMPORTED_MODULE_2__.logInfo)(
+    `Result of canRunAnimationCheck: hardwareCheck: ${hardwareCheck}; insideDateRange: ${insideDateRange}; accessibilityCheck: ${accessibilityCheck}`
+  );
+
+  return hardwareCheck && insideDateRange && accessibilityCheck;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/snowfall-js-plugin/checkDateRange.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/checkDateRange.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   checkDateRange: () => (/* binding */ checkDateRange),
+/* harmony export */   isValidDate: () => (/* binding */ isValidDate)
+/* harmony export */ });
+/* harmony import */ var _logger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logger.js */ "./node_modules/snowfall-js-plugin/logger.js");
+
+
+function checkDateRange(dateRange = {}) {
+  let result = false;
+  let validDateRange = true;
+  if (Object.keys(dateRange).length !== 0) {
+    validDateRange =
+      isValidDate(dateRange.startMonth, dateRange.startDay) &&
+      isValidDate(dateRange.endMonth, dateRange.endDay);
+    if (
+      dateRange.startMonth === dateRange.endMonth &&
+      dateRange.startDay >= dateRange.endDay
+    ) {
+      validDateRange = false;
+    }
+  }
+
+  validDateRange
+    ? (result = checkCurrentDate(dateRange))
+    : (0,_logger_js__WEBPACK_IMPORTED_MODULE_0__.logError)(
+        "Invalid date range values provided in the config file. Check documentation for more information."
+      );
+
+  (0,_logger_js__WEBPACK_IMPORTED_MODULE_0__.logInfo)(`Check Date Range Result: ${result}`);
+  return result;
+}
+
+function checkCurrentDate(dateRange) {
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth() + 1;
+  const currentDay = currentDate.getDate();
+
+  // Define the start and end dates for the condition, fallback to default
+  const startMonth = dateRange.startMonth || 12; // December
+  const startDay = dateRange.startDay || 15;
+  const endMonth = dateRange.endMonth || 2; // February
+  const endDay = dateRange.endDay || 15;
+
+  return isInDateRange(
+    currentMonth,
+    currentDay,
+    startMonth,
+    endMonth,
+    startDay,
+    endDay
+  );
+}
+
+function isInDateRange(
+  currentMonth,
+  currentDay,
+  startMonth,
+  endMonth,
+  startDay,
+  endDay
+) {
+  if (startMonth < endMonth) {
+    return (
+      (currentMonth === startMonth && currentDay >= startDay) ||
+      (currentMonth > startMonth && currentMonth < endMonth) ||
+      (currentMonth === endMonth && currentDay <= endDay)
+    );
+  } else if (startMonth === endMonth) {
+    return currentDay >= startDay && currentDay <= endDay;
+  } else {
+    return (
+      (currentMonth === startMonth && currentDay >= startDay) ||
+      (currentMonth > startMonth && currentMonth <= 12) ||
+      (currentMonth >= 1 && currentMonth < endMonth) ||
+      (currentMonth === endMonth && currentDay <= endDay)
+    );
+  }
+}
+
+function isValidDate(month, day) {
+  if (typeof month !== "number" || typeof day !== "number") {
+    return false;
+  }
+
+  if (month < 1 || month > 12) {
+    return false;
+  }
+
+  // Check if the day is in the valid range based on the month
+  if (day < 1 || day > getDaysInMonth(month)) {
+    return false;
+  }
+
+  return true;
+}
+
+function getDaysInMonth(month) {
+  const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  return daysInMonth[month - 1];
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/snowfall-js-plugin/checkHardware.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/checkHardware.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   checkHardware: () => (/* binding */ checkHardware)
+/* harmony export */ });
+/* harmony import */ var _logger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logger.js */ "./node_modules/snowfall-js-plugin/logger.js");
+
+
+function checkHardware() {
+  const cpuCores = navigator.hardwareConcurrency;
+  const deviceMemory = navigator.deviceMemory;
+
+  (0,_logger_js__WEBPACK_IMPORTED_MODULE_0__.logInfo)(`Hardware Memory: ${deviceMemory} GB`);
+  (0,_logger_js__WEBPACK_IMPORTED_MODULE_0__.logInfo)(`Number of CPU cores: ${cpuCores}`);
+
+  if (deviceMemory >= 4 || cpuCores >= 4) {
+    return true;
+  } else return false;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/snowfall-js-plugin/config/defaultParams.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/config/defaultParams.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getDefaultParams: () => (/* binding */ getDefaultParams)
+/* harmony export */ });
+function getDefaultParams() {
+  return defaultParams;
+}
+
+const defaultParams = {
+  logLevel: "default", // default or info
+  checkHardware: true,
+  checkDateRange: true,
+  dateRange: {
+    startMonth: 12, // 1-12
+    endMonth: 2, // 1-12
+    startDay: 15, // 1-31
+    endDay: 15, // 1-31
+  },
+  autostartOnMobile: true,
+  autostartOnDesktop: true,
+  checkReducedMotionPreference: true,
+  setReducedMotion: "disable", // "disable" or "reduce"
+  reduceMultiplier: 0.5,
+  // experimental: reduces snowfall count by 50%, use value between 0.1-0.9
+  snowfall: {
+    count: 100, // number of snowflakes
+    minRadius: 10, // min size of snowflakes
+    maxRadius: 30, // max size of snowflakes
+    minSpeed: 3, // min fall speed of snowflakes
+    maxSpeed: 10, // max fall speed of snowflakes
+    text: "\u2744", // symbol or text of the snowflakes
+    color: "#99ccff", // color of the snowflakes
+    zIndex: "1000", // adjust according to project stacking context
+    canvasHeightLimit: 0, // 0 = no limit; "1" = 100vh, "2" = 200vh
+  },
+  switches: {
+    show: true,
+    storeUserSettings: true,
+    txt: "Snow on/off",
+    txtElemAttributes: [],
+    injectCSS: true,
+    styles: {
+      /* background color of the switch when turned off */
+      bgClrOff: "rgba(189, 195, 199, 1)", // #bdc3c7
+      /* background color of the switch when turned on */
+      bgClrOn: "rgba(149, 165, 166, 1)", // #95a5a6
+      /* color of the moving toggle inside switch */
+      toggleClr: "#ffffff",
+      /* color and position of the text next to the switch */
+      txtClr: "rgba(33, 37, 41, 1)", // #212529
+      txtPosition: "2", // 1 = left of switch or 2 = right of switch
+    },
+  },
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/snowfall-js-plugin/config/validateParams.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/config/validateParams.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   deepMergeWithValidation: () => (/* binding */ deepMergeWithValidation),
+/* harmony export */   setParams: () => (/* binding */ setParams)
+/* harmony export */ });
+/* harmony import */ var _defaultParams_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./defaultParams.js */ "./node_modules/snowfall-js-plugin/config/defaultParams.js");
+/* harmony import */ var _logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../logger.js */ "./node_modules/snowfall-js-plugin/logger.js");
+/* harmony import */ var _prefersReducedMotion_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../prefersReducedMotion.js */ "./node_modules/snowfall-js-plugin/prefersReducedMotion.js");
+
+
+
+
+function setParams(configParams) {
+  const defaultParams = (0,_defaultParams_js__WEBPACK_IMPORTED_MODULE_0__.getDefaultParams)();
+  const params = deepMergeWithValidation(defaultParams, configParams);
+  (0,_logger_js__WEBPACK_IMPORTED_MODULE_1__.logInfo)("Done setting snowfall-js-plugin parameters.");
+  return params;
+}
+
+function deepMergeWithValidation(defaultConfig, configParams) {
+  const mergedConfig = { ...defaultConfig };
+
+  for (const key in configParams) {
+    if (configParams.hasOwnProperty(key)) {
+      // Validate if the key exists in the defaultConfig
+      if (!(key in defaultConfig)) {
+        (0,_logger_js__WEBPACK_IMPORTED_MODULE_1__.logWarn)(
+          `Warning: '${key}' does not exist in the default configuration and will be ignored.`
+        );
+        continue;
+      }
+
+      const configValue = configParams[key];
+      const defaultValue = defaultConfig[key];
+
+      // Validate if the types match
+      if (typeof configValue !== typeof defaultValue) {
+        (0,_logger_js__WEBPACK_IMPORTED_MODULE_1__.logWarn)(`Warning: Type mismatch for '${key}'. Using default value.`);
+        continue;
+      }
+
+      // Recursive merge for nested objects
+      if (
+        configValue instanceof Object &&
+        !Array.isArray(configValue) &&
+        defaultValue instanceof Object &&
+        !Array.isArray(defaultValue)
+      ) {
+        mergedConfig[key] = deepMergeWithValidation(defaultValue, configValue);
+      } else {
+        // Overwrite values from configParams into mergedConfig
+        mergedConfig[key] = configValue;
+      }
+    }
+  }
+  if (
+    configParams !== null &&
+    configParams.checkReducedMotionPreference === true &&
+    configParams.hasOwnProperty("setReducedMotion") &&
+    configParams.setReducedMotion === "reduce"
+  ) {
+    const reduceMultiplier = (0,_prefersReducedMotion_js__WEBPACK_IMPORTED_MODULE_2__.validateReduceMultiplier)(
+      mergedConfig,
+      configParams
+    );
+    mergedConfig.snowfall.count = Math.round(
+      mergedConfig.snowfall.count * reduceMultiplier
+    );
+  }
+  return mergedConfig;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/snowfall-js-plugin/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/index.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initSnowfall: () => (/* binding */ initSnowfall),
+/* harmony export */   params: () => (/* binding */ params),
+/* harmony export */   snowAnimationStart: () => (/* binding */ snowAnimationStart),
+/* harmony export */   snowfallState: () => (/* binding */ snowfallState)
+/* harmony export */ });
+/* harmony import */ var _snowfall_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./snowfall.js */ "./node_modules/snowfall-js-plugin/snowfall.js");
+/* harmony import */ var _canRunAnimation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./canRunAnimation.js */ "./node_modules/snowfall-js-plugin/canRunAnimation.js");
+/* harmony import */ var _switch_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./switch.js */ "./node_modules/snowfall-js-plugin/switch.js");
+/* harmony import */ var _config_validateParams_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./config/validateParams.js */ "./node_modules/snowfall-js-plugin/config/validateParams.js");
+/* harmony import */ var _autoStart_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./autoStart.js */ "./node_modules/snowfall-js-plugin/autoStart.js");
+/* harmony import */ var _logger_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./logger.js */ "./node_modules/snowfall-js-plugin/logger.js");
+
+
+
+
+
+
+const snowfallState = {
+  snowfallInstance: undefined,
+  isAnimationRunning: false,
+};
+
+
+let params = {};
+
+function snowAnimationStart(configParams = {}) {
+  if (configParams.logLevel === "info") params.logLevel = "info";
+  (0,_logger_js__WEBPACK_IMPORTED_MODULE_5__.logInfo)("Validating snowfall-js-plugin parameters...");
+
+  params = (0,_config_validateParams_js__WEBPACK_IMPORTED_MODULE_3__.setParams)(configParams);
+  const canRun = (0,_canRunAnimation_js__WEBPACK_IMPORTED_MODULE_1__.canRunAnimation)(params);
+
+  if (canRun) {
+    const autoStart = (0,_autoStart_js__WEBPACK_IMPORTED_MODULE_4__.getAutoStart)(params);
+    (0,_switch_js__WEBPACK_IMPORTED_MODULE_2__.switchesAppendToDOM)(params);
+    (0,_switch_js__WEBPACK_IMPORTED_MODULE_2__.switchesSetupEventHandlers)(params);
+
+    if (autoStart) {
+      snowfallState.snowfallInstance = initSnowfall(params.snowfall);
+      snowfallState.isAnimationRunning = true;
+      (0,_switch_js__WEBPACK_IMPORTED_MODULE_2__.switchesToggleOn)();
+      (0,_logger_js__WEBPACK_IMPORTED_MODULE_5__.logInfo)("Done loading and starting animation.");
+    }
+  } else return;
+}
+
+function initSnowfall(params) {
+  const snowfall = new _snowfall_js__WEBPACK_IMPORTED_MODULE_0__.Snowfall(params);
+  return snowfall;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/snowfall-js-plugin/logger.js":
+/*!***************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/logger.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   logError: () => (/* binding */ logError),
+/* harmony export */   logInfo: () => (/* binding */ logInfo),
+/* harmony export */   logWarn: () => (/* binding */ logWarn)
+/* harmony export */ });
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.js */ "./node_modules/snowfall-js-plugin/index.js");
+
+
+function logError(message) {
+  console.error(`[ERROR] ${message}`);
+}
+
+function logWarn(message) {
+  if (_index_js__WEBPACK_IMPORTED_MODULE_0__.params.logLevel === "info") {
+    console.warn(`[WARN] ${message}`);
+  }
+}
+
+function logInfo(message) {
+  if (_index_js__WEBPACK_IMPORTED_MODULE_0__.params.logLevel === "info") {
+    console.log(`[INFO] ${message}`);
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/snowfall-js-plugin/prefersReducedMotion.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/prefersReducedMotion.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   checkReducedMotionConfig: () => (/* binding */ checkReducedMotionConfig),
+/* harmony export */   validateReduceMultiplier: () => (/* binding */ validateReduceMultiplier)
+/* harmony export */ });
+/* harmony import */ var _logger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logger.js */ "./node_modules/snowfall-js-plugin/logger.js");
+
+
+//see canRunAnimation.js
+function checkReducedMotionConfig(configParams) {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion)"
+  ).matches;
+
+  if (prefersReducedMotion && configParams.setReducedMotion === "disable") {
+    return false;
+  } else {
+    return true; // case: setReducedMotion = "reduce" or no-preference set in browser configuration
+  }
+}
+
+//see validateParams.js
+function validateReduceMultiplier(configParams) {
+  const inRange =
+    configParams.reduceMultiplier > 0.1 && configParams.reduceMultiplier < 0.9;
+  if (inRange) {
+    return configParams.reduceMultiplier;
+  } else {
+    (0,_logger_js__WEBPACK_IMPORTED_MODULE_0__.logWarn)(
+      `Input ${configParams.reduceMultiplier} is an invalid motion reduce multiplier value. Use a number value between 0.1 and 0.9! Fallback value 0.5 will be used.`
+    );
+    return 0.5;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/snowfall-js-plugin/snowfall.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/snowfall.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Snowfall: () => (/* binding */ Snowfall),
+/* harmony export */   Snowflake: () => (/* binding */ Snowflake)
+/* harmony export */ });
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.js */ "./node_modules/snowfall-js-plugin/index.js");
 /*!
- * This animation should run between 15 decemeber and 15 february. Condition
- * checked by helper function.
- *
  * Snowfall.js - A JavaScript library for creating and animating snowflakes on a web page
  * https://github.com/Andrey-1988-dev/snowfall.js
  *
@@ -822,278 +1324,519 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
  * Date: 2021-11-27T00:00Z
  */
 
-"use strict";
 
 // Class for creating snowflakes
-var Snowflake = /*#__PURE__*/_createClass(
-// Constructor takes x and y coordinates, radius, speed and color of the snowflake
-function Snowflake(_canvas, h, s, c, t) {
-  var _this = this;
-  _classCallCheck(this, Snowflake);
+class Snowflake {
+  // Constructor takes x and y coordinates, radius, speed and color of the snowflake
+  constructor(canvas, h, s, c, t) {
+    // Generate a random x coordinate within the canvas width
+    this.x = Math.random() * canvas.width; // x coordinate
+    // Generate a random y coordinate within the canvas height
+    this.y = Math.random() * canvas.height; // y coordinate
+    this.h = h; // font size
+    this.s = s; // speed
+    this.c = c; // color
+    this.t = t; // text
+  }
+
   // Function to calculate the new position of the snowflake relative to the edge of the canvas
-  _defineProperty(this, "calculateNewPosition", function (oldPosition, oldCanvasSize, newCanvasSize) {
+  calculateNewPosition = (oldPosition, oldCanvasSize, newCanvasSize) => {
     // Calculate the old position of the snowflake from the edge in percentage
-    var percentage = oldPosition / (oldCanvasSize / 100);
+    let percentage = oldPosition / (oldCanvasSize / 100);
     // Calculate the new position of the snowflake from the edge in pixels
     // Return the new position
-    return newCanvasSize / 100 * percentage;
-  });
-  _defineProperty(this, "updateAfterCanvasResize", function (oldCanvasWidth, oldCanvasHeight, newCanvasWidth, newCanvasHeight) {
+    return (newCanvasSize / 100) * percentage;
+  };
+
+  updateAfterCanvasResize = (
+    oldCanvasWidth,
+    oldCanvasHeight,
+    newCanvasWidth,
+    newCanvasHeight
+  ) => {
     if (oldCanvasWidth !== newCanvasWidth) {
       // Call the function to calculate the new position of the snowflake from the left edge
-      _this.x = _this.calculateNewPosition(_this.x, oldCanvasWidth, newCanvasWidth);
+      this.x = this.calculateNewPosition(
+        this.x,
+        oldCanvasWidth,
+        newCanvasWidth
+      );
     }
     if (oldCanvasHeight !== newCanvasHeight) {
       // Call the function to calculate the new position of the snowflake from the top edge
-      _this.y = _this.calculateNewPosition(_this.y, oldCanvasHeight, newCanvasHeight);
+      this.y = this.calculateNewPosition(
+        this.y,
+        oldCanvasHeight,
+        newCanvasHeight
+      );
     }
-  });
+  };
+
   // Method to draw the snowflake on the canvas
-  _defineProperty(this, "draw", function (ctx) {
+  draw = (ctx) => {
     // Check if the snowflake is within the visible area
-    if (_this.x + _this.h >= window.scrollX && _this.x - _this.h <= window.scrollX + window.innerWidth && _this.y + _this.h >= window.scrollY && _this.y - _this.h <= window.scrollY + window.innerHeight) {
-      ctx.font = _this.h + "px Arial, sans-serif"; // set the font and text size
-      ctx.fillText(_this.t, _this.x, _this.y); // draw the text with the snowflake symbol
-      ctx.fillStyle = _this.c; // set the color
+    if (
+      this.x + this.h >= window.scrollX &&
+      this.x - this.h <= window.scrollX + window.innerWidth &&
+      this.y + this.h >= window.scrollY &&
+      this.y - this.h <= window.scrollY + window.innerHeight
+    ) {
+      ctx.fillStyle = this.c; // set the color
+      ctx.font = this.h + "px Arial, sans-serif"; // set the font and text size
+      ctx.fillText(this.t, this.x, this.y); // draw the text with the snowflake symbol
     }
-  });
+  };
+
+  // Batch draw the snowflakes for better performance
+  static batchDraw(
+    ctx,
+    snowflakes,
+    scrollX,
+    scrollY,
+    windowWidth,
+    windowHeight
+  ) {
+    // FillStyle is the same for all snowflakes
+    ctx.fillStyle = snowflakes[0].c;
+
+    ctx.beginPath();
+
+    for (let snowflake of snowflakes) {
+      if (snowflake.isVisible(scrollX, scrollY, windowWidth, windowHeight)) {
+        ctx.font = snowflake.h + "px Arial, sans-serif";
+        ctx.fillText(snowflake.t, snowflake.x, snowflake.y);
+      }
+    }
+
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  // Check if the snowflake is inside the visible window
+  isVisible = (scrollX, scrollY, windowWidth, windowHeight) => {
+    return (
+      this.x + this.h >= scrollX &&
+      this.x - this.h <= scrollX + windowWidth &&
+      this.y + this.h >= scrollY &&
+      this.y - this.h <= scrollY + windowHeight
+    );
+  };
+
   // Method to update the position of the snowflake
-  _defineProperty(this, "update", function (canvas) {
-    _this.y += _this.s; // increase the y coordinate by the speed
+  update = (canvas) => {
+    this.y += this.s; // increase the y coordinate by the speed
     // if the snowflake goes beyond the bottom edge of the canvas, move it to the top
-    if (_this.s > 0) {
-      if (_this.y > canvas.height) {
-        _this.y = -_this.h;
-        _this.x = Math.random() * canvas.width;
+    if (this.s > 0) {
+      if (this.y > canvas.height) {
+        this.y = -this.h;
+        this.x = Math.random() * canvas.width;
       }
     } else {
-      if (_this.y < 0) {
-        _this.y = canvas.height + _this.h;
-        _this.x = Math.random() * canvas.width;
+      if (this.y < 0) {
+        this.y = canvas.height + this.h;
+        this.x = Math.random() * canvas.width;
       }
     }
-  });
-  // Generate a random x coordinate within the canvas width
-  this.x = Math.random() * _canvas.width; // x coordinate
-  // Generate a random y coordinate within the canvas height
-  this.y = Math.random() * _canvas.height; // y coordinate
-  this.h = h; // font size
-  this.s = s; // speed
-  this.c = c; // color
-  this.t = t; // text
-});
-var Snowfall = /*#__PURE__*/_createClass(
-// Constructor takes parameters for creating snowflakes
-function Snowfall() {
-  var _this2 = this;
-  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  _classCallCheck(this, Snowfall);
-  _defineProperty(this, "requestAnimationFrame", void 0);
-  // Function to resize the canvas
-  _defineProperty(this, "resizeCanvas", function () {
-    var oldCanvasWidth, oldCanvasHeight;
-    if (_this2.snowflakes) {
-      oldCanvasWidth = _this2.canvas.width;
-      oldCanvasHeight = _this2.canvas.height;
+  };
+}
+
+class Snowfall {
+  requestAnimationFrame;
+
+  // Constructor takes parameters for creating snowflakes
+  constructor(options = {}) {
+    let {
+      count = 100,
+      minRadius = 10,
+      maxRadius = 30,
+      minSpeed = 3,
+      maxSpeed = 10,
+      text = "❄",
+      color = "#99ccff",
+      zIndex = "1000",
+    } = options;
+
+    count = Number(count);
+    minRadius = Number(minRadius);
+    if (minRadius <= 0) {
+      minRadius = 10;
     }
-    _this2.canvas.style.display = "none";
+    maxRadius = Number(maxRadius);
+    if (maxRadius <= 0) {
+      maxRadius = 30;
+    }
+    minSpeed = Number(minSpeed);
+    maxSpeed = Number(maxSpeed);
+
+    const snowfieldCanvas = document.createElement("canvas");
+    snowfieldCanvas.id = "snowfall";
+    snowfieldCanvas.style.zIndex = zIndex;
+    snowfieldCanvas.style.position = "absolute";
+    snowfieldCanvas.style.top = "0";
+    snowfieldCanvas.style.left = "0";
+    snowfieldCanvas.style.pointerEvents = "none";
+
+    document.body.append(snowfieldCanvas);
+
+    // Get the canvas element by id
+    this.canvas = snowfieldCanvas;
+    // Get the drawing context on the canvas
+    this.ctx = this.canvas.getContext("2d");
+    // Set the width and height of the canvas equal to the width and height of the browser window
+    this.resizeCanvas();
+    // Add an event handler to resize the canvas when the window size changes
+    window.addEventListener("resize", this.resizeHandler);
+    this.resizeHandler = () => {
+      requestAnimationFrame(this.resizeCanvas.bind(this));
+    };
+    // Create an array to store the snowflakes
+    this.snowflakes = [];
+    // Set the number of snowflakes
+    this.count = count;
+    // Set the minimum and maximum radius of the snowflakes
+    this.minRadius = minRadius;
+    this.maxRadius = maxRadius;
+    // Set the speed of the snowflakes
+    this.minSpeed = minSpeed;
+    this.maxSpeed = maxSpeed;
+    // Set the color of the snowflakes
+    this.color = color;
+    // Set the text
+    this.text = text;
+    // Call the function to create the snowflakes
+    this.createSnowflakes();
+    // Call the function to animate the snowflakes
+    this.animateSnowflakes();
+  }
+
+  // Function to resize the canvas
+  resizeCanvas = () => {
+    let oldCanvasWidth, oldCanvasHeight;
+    if (this.snowflakes) {
+      oldCanvasWidth = this.canvas.width;
+      oldCanvasHeight = this.canvas.height;
+    }
+    this.canvas.style.display = "none";
 
     // Set the width and height of the canvas equal to the width and height of the browser window
     if (window.devicePixelRatio > 1) {
-      var scrollWidth = document.documentElement.scrollWidth;
-      var scrollHeight = document.documentElement.scrollHeight;
-      _this2.canvas.width = scrollWidth * window.devicePixelRatio;
-      _this2.canvas.height = scrollHeight * window.devicePixelRatio;
-      _this2.canvas.style.width = scrollWidth + "px";
-      _this2.canvas.style.height = scrollHeight + "px";
-      _this2.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      let scrollWidth = document.documentElement.scrollWidth;
+      let scrollHeight;
+      if (_index_js__WEBPACK_IMPORTED_MODULE_0__.params.snowfall.canvasHeightLimit !== 0) {
+        scrollHeight = Math.min(
+          document.documentElement.scrollHeight,
+          window.innerHeight * _index_js__WEBPACK_IMPORTED_MODULE_0__.params.snowfall.canvasHeightLimit
+        );
+      } else scrollHeight = document.documentElement.scrollHeight;
+      this.canvas.width = scrollWidth * window.devicePixelRatio;
+      this.canvas.height = scrollHeight * window.devicePixelRatio;
+      this.canvas.style.width = scrollWidth + "px";
+      this.canvas.style.height = scrollHeight + "px";
+      this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     } else {
-      _this2.canvas.width = document.documentElement.scrollWidth;
-      _this2.canvas.height = document.documentElement.scrollHeight;
+      this.canvas.width = document.documentElement.scrollWidth;
+      this.canvas.height = document.documentElement.scrollHeight;
     }
-    _this2.canvas.style.display = "";
-    if (_this2.snowflakes) {
-      var newCanvasWidth = _this2.canvas.width;
-      var newCanvasHeight = _this2.canvas.height;
+    this.canvas.style.display = "";
+    if (this.snowflakes) {
+      let newCanvasWidth = this.canvas.width;
+      let newCanvasHeight = this.canvas.height;
       // Loop through the array of snowflakes
-      var _iterator = _createForOfIteratorHelper(_this2.snowflakes),
-        _step;
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var snowflake = _step.value;
-          // Update the position of the snowflake after resizing the canvas
-          snowflake.updateAfterCanvasResize(oldCanvasWidth, oldCanvasHeight, newCanvasWidth, newCanvasHeight);
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
+      for (let snowflake of this.snowflakes) {
+        // Update the position of the snowflake after resizing the canvas
+        snowflake.updateAfterCanvasResize(
+          oldCanvasWidth,
+          oldCanvasHeight,
+          newCanvasWidth,
+          newCanvasHeight
+        );
       }
     }
-  });
+  };
+
   // Function to create snowflakes and add them to the array
-  _defineProperty(this, "createSnowflakes", function () {
+  createSnowflakes = () => {
     // Loop through the number of snowflakes
-    for (var i = 0; i < _this2.count; i++) {
+    for (let i = 0; i < this.count; i++) {
       // Generate a random radius within the minimum and maximum radius
-      var r = _this2.minRadius + Math.random() * (_this2.maxRadius - _this2.minRadius);
+      let r =
+        this.minRadius + Math.random() * (this.maxRadius - this.minRadius);
       // Generate the speed based on the size of the snowflake
-      var rp = void 0;
-      if (_this2.minRadius !== _this2.maxRadius) {
-        rp = (r - _this2.minRadius) / ((_this2.maxRadius - _this2.minRadius) / 100);
+      let rp;
+      if (this.minRadius !== this.maxRadius) {
+        rp = (r - this.minRadius) / ((this.maxRadius - this.minRadius) / 100);
       } else {
         rp = 100;
       }
-      var s = _this2.minSpeed + (_this2.maxSpeed - _this2.minSpeed) / 100 * rp;
+      let s = this.minSpeed + ((this.maxSpeed - this.minSpeed) / 100) * rp;
       // Create a new snowflake object with the given parameters
-      var snowflake = new Snowflake(_this2.canvas, r, s, _this2.color, _this2.text);
+      let snowflake = new Snowflake(this.canvas, r, s, this.color, this.text);
       // Add the snowflake to the array
-      _this2.snowflakes.push(snowflake);
+      this.snowflakes.push(snowflake);
     }
-  });
-  // Function to animate the snowflakes
-  _defineProperty(this, "animateSnowflakes", function () {
-    // Clear the canvas
-    _this2.ctx.clearRect(0, 0, _this2.canvas.width, _this2.canvas.height);
+  };
 
-    // Loop through the array of snowflakes
-    var _iterator2 = _createForOfIteratorHelper(_this2.snowflakes),
-      _step2;
-    try {
-      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-        var snowflake = _step2.value;
-        // Draw the snowflake on the canvas
-        snowflake.draw(_this2.ctx);
-        // Update the position of the snowflake
-        snowflake.update(_this2.canvas);
-      }
-      // Request a new animation frame
-    } catch (err) {
-      _iterator2.e(err);
-    } finally {
-      _iterator2.f();
+  // Function to animate the snowflakes
+  animateSnowflakes = () => {
+    // Clear the canvas
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    Snowflake.batchDraw(
+      this.ctx,
+      this.snowflakes,
+      window.scrollX,
+      window.scrollY,
+      window.innerWidth,
+      window.innerHeight
+    );
+
+    // Update the positions of the snowflakes
+    for (let snowflake of this.snowflakes) {
+      snowflake.update(this.canvas);
     }
-    _this2.requestAnimationFrame = requestAnimationFrame(_this2.animateSnowflakes);
-  });
+
+    // Request a new animation frame
+    this.requestAnimationFrame = requestAnimationFrame(this.animateSnowflakes);
+  };
+
   // Method to destroy the snowfall and remove the canvas element
-  _defineProperty(this, "destroy", function () {
-    cancelAnimationFrame(_this2.requestAnimationFrame);
+  destroy = () => {
+    // Remove the event listener for resize
+    window.removeEventListener("resize", this.resizeHandler);
+    // Remove the canvas and animation frame
+    cancelAnimationFrame(this.requestAnimationFrame);
     document.getElementById("snowfall").remove();
-    for (var name in _this2) {
-      delete _this2[name];
+    for (let name in this) {
+      delete this[name];
     }
     // Empty the array of snowflakes
-    _this2.snowflakes = [];
-    // Remove the event listener for resize
-    window.removeEventListener("resize", _this2.resizeCanvas);
-  });
-  var _options$count = options.count,
-    count = _options$count === void 0 ? 100 : _options$count,
-    _options$minRadius = options.minRadius,
-    minRadius = _options$minRadius === void 0 ? 10 : _options$minRadius,
-    _options$maxRadius = options.maxRadius,
-    maxRadius = _options$maxRadius === void 0 ? 30 : _options$maxRadius,
-    _options$minSpeed = options.minSpeed,
-    minSpeed = _options$minSpeed === void 0 ? 3 : _options$minSpeed,
-    _options$maxSpeed = options.maxSpeed,
-    maxSpeed = _options$maxSpeed === void 0 ? 10 : _options$maxSpeed,
-    _options$text = options.text,
-    text = _options$text === void 0 ? "❄" : _options$text,
-    _options$color = options.color,
-    color = _options$color === void 0 ? "#99ccff" : _options$color,
-    _options$zIndex = options.zIndex,
-    zIndex = _options$zIndex === void 0 ? "1000" : _options$zIndex;
-  count = Number(count);
-  minRadius = Number(minRadius);
-  if (minRadius <= 0) {
-    minRadius = 10;
-  }
-  maxRadius = Number(maxRadius);
-  if (maxRadius <= 0) {
-    maxRadius = 30;
-  }
-  minSpeed = Number(minSpeed);
-  maxSpeed = Number(maxSpeed);
-  var snowfieldCanvas = document.createElement("canvas");
-  snowfieldCanvas.id = "snowfall";
-  snowfieldCanvas.style.zIndex = zIndex;
-  snowfieldCanvas.style.position = "absolute";
-  snowfieldCanvas.style.top = "0";
-  snowfieldCanvas.style.left = "0";
-  snowfieldCanvas.style.pointerEvents = "none";
-  document.body.append(snowfieldCanvas);
+    this.snowflakes = [];
+  };
+}
 
-  // Get the canvas element by id
-  this.canvas = snowfieldCanvas;
-  // Get the drawing context on the canvas
-  this.ctx = this.canvas.getContext("2d");
-  // Set the width and height of the canvas equal to the width and height of the browser window
-  this.resizeCanvas();
-  // Add an event handler to resize the canvas when the window size changes
-  window.addEventListener("resize", function () {
-    // Use requestAnimationFrame to optimize the resizing
-    requestAnimationFrame(_this2.resizeCanvas.bind(_this2));
-  });
 
-  // Create an array to store the snowflakes
-  this.snowflakes = [];
-  // Set the number of snowflakes
-  this.count = count;
-  // Set the minimum and maximum radius of the snowflakes
-  this.minRadius = minRadius;
-  this.maxRadius = maxRadius;
-  // Set the speed of the snowflakes
-  this.minSpeed = minSpeed;
-  this.maxSpeed = maxSpeed;
-  // Set the color of the snowflakes
-  this.color = color;
-  // Set the text
-  this.text = text;
-  // Call the function to create the snowflakes
-  this.createSnowflakes();
-  // Call the function to animate the snowflakes
-  this.animateSnowflakes();
-});
-function runSnowfall() {
-  var shouldRun = (0,_helpers_checkDateRange_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
-  if (shouldRun) {
-    var snowfall = initSnowFall();
-    var isRunning = true;
-    var snowToggleContainer = document.querySelector(".snow-toggle");
-    var snowToggleCheckbox = document.querySelector(".snow-toggle__checkbox");
-    var snowToggleLabel = document.querySelector(".snow-toggle__label");
-    snowToggleContainer.classList.add("snow-toggle--show");
-    snowToggleCheckbox.checked = true;
-    snowToggleLabel.addEventListener("click", function () {
-      if (isRunning) {
-        snowfall.destroy();
-        isRunning = false;
-      } else {
-        snowfall = initSnowFall();
-        isRunning = true;
+/***/ }),
+
+/***/ "./node_modules/snowfall-js-plugin/switch.js":
+/*!***************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/switch.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   switchesAppendToDOM: () => (/* binding */ switchesAppendToDOM),
+/* harmony export */   switchesSetupEventHandlers: () => (/* binding */ switchesSetupEventHandlers),
+/* harmony export */   switchesToggleOn: () => (/* binding */ switchesToggleOn)
+/* harmony export */ });
+/* harmony import */ var _userSettings_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./userSettings.js */ "./node_modules/snowfall-js-plugin/userSettings.js");
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.js */ "./node_modules/snowfall-js-plugin/index.js");
+/* harmony import */ var _logger_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./logger.js */ "./node_modules/snowfall-js-plugin/logger.js");
+
+
+
+
+/* Find container elements in the DOM */
+function switchesAppendToDOM(params) {
+  const switchContainers = document.querySelectorAll(".snow-animation-switch");
+
+  if (switchContainers.length > 0) {
+    switchContainers.forEach((container, i) => {
+      const switchElements = buildSwitch(i, params);
+      switchElements.forEach((elem) => container.appendChild(elem));
+      container.classList.add("snow-animation-switch--show");
+    });
+
+    if (params.switches.injectCSS) {
+      injectCSS(params);
+    }
+
+    (0,_logger_js__WEBPACK_IMPORTED_MODULE_2__.logInfo)(
+      `${switchContainers.length} switch container elements found and ${switchContainers.length} switch toggles appended to the DOM.`
+    );
+  } else {
+    (0,_logger_js__WEBPACK_IMPORTED_MODULE_2__.logWarn)(
+      "No switch container elements found in the DOM. Make sure you have at least one <div class='snow-animation-switch'></div>."
+    );
+    return null;
+  }
+}
+
+function buildSwitch(i, params) {
+  const inputElem = document.createElement("input");
+  const label = document.createElement("label");
+  const textElem = document.createElement("span");
+
+  inputElem.classList.add("snow-animation-switch__input");
+  inputElem.type = "checkbox";
+  inputElem.id = `snow-animation-switch__input${i}`;
+
+  label.classList.add("snow-animation-switch__label");
+  label.htmlFor = `snow-animation-switch__input${i}`;
+  label.tabIndex = 0;
+
+  textElem.classList.add("snow-animation-switch__text");
+  textElem.textContent = params.switches.txt;
+  if (params.switches.txtElemAttributes.length > 0) {
+    setElemAttributes(textElem, params.switches.txtElemAttributes);
+  }
+
+  return [inputElem, label, textElem];
+}
+
+function setElemAttributes(elem, attributes) {
+  attributes.forEach((attr) => {
+    if (attr.type === "data-attribute") {
+      elem.dataset[attr.name] = attr.value;
+    } else {
+      elem[attr.name] = attr.value;
+    }
+  });
+}
+
+function injectCSS(params) {
+  const linkElement = document.createElement("link");
+  const root = document.documentElement;
+  const rootStyles = params.switches.styles;
+
+  for (const key in rootStyles) {
+    root.style.setProperty(`--snow-animation-switch-${key}`, rootStyles[key]);
+    if (key === "txtPosition" && rootStyles[key] === "1")
+      root.style.setProperty(
+        `--snow-animation-switch-txtMargin`,
+        "0 0.75em 0 0"
+      );
+  }
+
+  linkElement.rel = "stylesheet";
+  linkElement.type = "text/css";
+  linkElement.href = new URL(/* asset import */ __webpack_require__(/*! snowAnimationSwitchStyles.css */ "./node_modules/snowfall-js-plugin/snowAnimationSwitchStyles.css"), __webpack_require__.b);
+
+  document.head.appendChild(linkElement);
+}
+
+function switchesToggleOn() {
+  const inputElems = document.querySelectorAll(".snow-animation-switch__input");
+  inputElems.forEach((elem) => {
+    elem.checked = true;
+    elem.ariaChecked = true;
+    (0,_logger_js__WEBPACK_IMPORTED_MODULE_2__.logInfo)("Switch toggled ON");
+  });
+}
+
+/* the label element is the visible part of the switch */
+function switchesSetupEventHandlers(params) {
+  const labelElems = document.querySelectorAll(".snow-animation-switch__label");
+  labelElems.forEach((label) => {
+    label.addEventListener("click", (event) =>
+      handleEvents(event, undefined, params)
+    );
+    label.addEventListener("keydown", (event) => {
+      event.preventDefault();
+      if (event.key === "Enter" || event.keyCode === 13) {
+        handleEvents(event, label, params);
       }
     });
+  });
+}
+
+function handleEvents(event, label, params) {
+  if (_index_js__WEBPACK_IMPORTED_MODULE_1__.snowfallState.isAnimationRunning) {
+    stopAnimation(event, params);
+    /* the enter key event does not check the checkbox automatically */
+    if (label) {
+      label.previousElementSibling.checked = false;
+      label.previousElementSibling.ariaChecked = false;
+    }
+  } else {
+    startAnimation(event, params);
+    if (label) {
+      label.previousElementSibling.checked = true;
+      label.previousElementSibling.ariaChecked = true;
+    }
   }
 }
-function initSnowFall() {
-  var snowfall = new Snowfall({
-    // number of snowflakes
-    count: 100,
-    // min/max size
-    minRadius: 10,
-    maxRadius: 30,
-    // min/max speed
-    minSpeed: 1,
-    maxSpeed: 3,
-    // custom symbol or text for snowflakes
-    text: "\u2744",
-    // color of snowflakes
-    color: "#ffffff",
-    // z-index for the canvas
-    zIndex: "1000"
-  });
-  return snowfall;
+
+function stopAnimation(event, params) {
+  _index_js__WEBPACK_IMPORTED_MODULE_1__.snowfallState.snowfallInstance.destroy();
+  _index_js__WEBPACK_IMPORTED_MODULE_1__.snowfallState.isAnimationRunning = false;
+  (0,_logger_js__WEBPACK_IMPORTED_MODULE_2__.logInfo)("Animation stopped.");
+  if (params.switches.storeUserSettings)
+    (0,_userSettings_js__WEBPACK_IMPORTED_MODULE_0__.setUserSettings)({ runSnowfallAnimation: false });
+  syncStateOtherSwitches(event);
 }
+
+function startAnimation(event, params) {
+  _index_js__WEBPACK_IMPORTED_MODULE_1__.snowfallState.snowfallInstance = (0,_index_js__WEBPACK_IMPORTED_MODULE_1__.initSnowfall)(params.snowfall);
+  _index_js__WEBPACK_IMPORTED_MODULE_1__.snowfallState.isAnimationRunning = true;
+  (0,_logger_js__WEBPACK_IMPORTED_MODULE_2__.logInfo)("Animation started.");
+  if (params.switches.storeUserSettings)
+    (0,_userSettings_js__WEBPACK_IMPORTED_MODULE_0__.setUserSettings)({ runSnowfallAnimation: true });
+  syncStateOtherSwitches(event);
+}
+
+function syncStateOtherSwitches(event) {
+  document.querySelectorAll(".snow-animation-switch__input").forEach((elem) => {
+    if (elem.id !== event.target.previousElementSibling.id) {
+      elem.checked = _index_js__WEBPACK_IMPORTED_MODULE_1__.snowfallState.isAnimationRunning;
+      elem.ariaChecked = _index_js__WEBPACK_IMPORTED_MODULE_1__.snowfallState.isAnimationRunning;
+      (0,_logger_js__WEBPACK_IMPORTED_MODULE_2__.logInfo)("Switch state synced.");
+    }
+  });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/snowfall-js-plugin/userSettings.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/snowfall-js-plugin/userSettings.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   checkUserSettings: () => (/* binding */ checkUserSettings),
+/* harmony export */   getUserSettings: () => (/* binding */ getUserSettings),
+/* harmony export */   setUserSettings: () => (/* binding */ setUserSettings)
+/* harmony export */ });
+/* harmony import */ var _logger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logger.js */ "./node_modules/snowfall-js-plugin/logger.js");
+
+
+function checkUserSettings() {
+  if (getUserSettings().runSnowfallAnimation) {
+    return true;
+  } else if (getUserSettings().runSnowfallAnimation === false) return false;
+  else return undefined;
+}
+
+function getUserSettings() {
+  try {
+    const settingsJSON = localStorage.getItem("userSettings");
+    const settings = JSON.parse(settingsJSON) || {};
+    return settings;
+  } catch (error) {
+    (0,_logger_js__WEBPACK_IMPORTED_MODULE_0__.logError)(`Error retrieving user settings: ${error}`);
+    return null;
+  }
+}
+
+function setUserSettings(newSettings) {
+  try {
+    const existingSettingsJSON = localStorage.getItem("userSettings");
+    const existingSettings = JSON.parse(existingSettingsJSON) || {};
+
+    const mergedSettings = { ...existingSettings, ...newSettings };
+
+    const mergedSettingsJSON = JSON.stringify(mergedSettings);
+
+    localStorage.setItem("userSettings", mergedSettingsJSON);
+    (0,_logger_js__WEBPACK_IMPORTED_MODULE_0__.logInfo)("User settings saved successfully.");
+  } catch (error) {
+    (0,_logger_js__WEBPACK_IMPORTED_MODULE_0__.logError)(`Error saving user settings: ${error}`);
+  }
+}
+
 
 /***/ })
 
@@ -1123,6 +1866,9 @@ function initSnowFall() {
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -1134,6 +1880,18 @@ function initSnowFall() {
 /******/ 				}
 /******/ 			}
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -1152,6 +1910,55 @@ function initSnowFall() {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"vendor": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// no jsonp function
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -1161,11 +1968,15 @@ var __webpack_exports__ = {};
   \*********************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _maps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./maps.js */ "./app/public/scripts/vendor/maps.js");
-/* harmony import */ var _snowfall_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./snowfall.js */ "./app/public/scripts/vendor/snowfall.js");
+/* harmony import */ var snowfall_js_plugin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! snowfall-js-plugin */ "./node_modules/snowfall-js-plugin/index.js");
+/* harmony import */ var _snowfall_js_plugin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./snowfall-js-plugin.js */ "./app/public/scripts/vendor/snowfall-js-plugin.js");
+
 
 
 (0,_maps_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
-(0,_snowfall_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+document.addEventListener("DOMContentLoaded", function () {
+  (0,snowfall_js_plugin__WEBPACK_IMPORTED_MODULE_1__.snowAnimationStart)(_snowfall_js_plugin_js__WEBPACK_IMPORTED_MODULE_2__.snowfallAnimationParams);
+});
 })();
 
 /******/ })()
