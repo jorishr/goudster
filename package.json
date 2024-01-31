@@ -1,6 +1,6 @@
 {
   "name": "goudster",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "engines": {
     "node": "20.10.0"
   },

@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.2] - 01-2024
+
+Minor release that includes content layout changes (TG-30) and integrates the snowfall-js-plugin package as a new dependency.
+
 ## [2.0.1] - 01-2024
 
 Minor release that includes a bug fix and some improvements for the build process.
