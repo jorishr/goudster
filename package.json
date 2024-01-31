@@ -36,7 +36,8 @@
     "http-errors": "^2.0.0",
     "mailgun-js": "^0.22.0",
     "morgan": "^1.10.0",
-    "nodemailer": "^6.9.7"
+    "nodemailer": "^6.9.7",
+    "snowfall-js-plugin": "^0.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.23.6",
