@@ -186,6 +186,12 @@ function copySEOFiles() {
     .pipe(gulp.dest(distDir));
 }
 
+function copySnowfallPluginCss() {
+  return gulp
+    .src(baseDir + "/public/scripts/*.css")
+    .pipe(gulp.dest(distDir + "/public/scripts"));
+}
+
 const build = series(
   delDist,
   parallel(
@@ -194,6 +200,7 @@ const build = series(
     buildServerFiles,
     cssBuild,
     jsBuild,
+    copySnowfallPluginCss,
     copySEOFiles
   )
 );
